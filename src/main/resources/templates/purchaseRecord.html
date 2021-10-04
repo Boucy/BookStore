@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>购买记录</title>
+    <style type="text/css">
+        #PurchaseRecordTable {
+            width: 80%;
+            border: 2px solid skyblue;
+            margin: 0px auto;
+        }
+
+        #PurchaseRecordTable th, td {
+            border: 1px solid gray;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<table id="PurchaseRecordTable" cellpadding="0px" cellspacing="0px">
+    <tr>
+        <th>序号</th>
+        <th>订单号</th>
+        <th>图书名</th>
+        <th>购买时间</th>
+        <th>购买价格</th>
+        <th>详情</th>
+    </tr>
+    <tr th:each="record,i:${purchaseRecordList}">
+        <td th:text="${i.count}"></td>
+        <td th:text="${record.id}"></td>
+        <td th:text="${record.bookid}"></td>
+        <td th:text="${#dates.format(record.purchaseDate,'yyyy-MM')}"></td>
+        <td th:text="${record.price}"></td>
+        <td>
+            <a href="javascript:void(0)" th:onclick="bookDetails([[${record.bookid}]])">图书详情</a>
+        </td>
+    </tr>
+</table>
+<script>
+    function bookDetails(id) {
+        window.location.href="../book/bookSearchByID?bookID="+id;
+    }
+</script>
+</body>
+</html>

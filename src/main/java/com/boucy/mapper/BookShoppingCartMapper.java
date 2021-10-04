@@ -1,0 +1,9 @@
+package com.boucy.mapper;
+
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.boucy.pojo.BookShoppingCart;
+import org.apache.ibatis.annotations.Mapper;
+
+@Mapper
+public interface BookShoppingCartMapper extends BaseMapper<BookShoppingCart> {
+}

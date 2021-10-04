@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+    <title>个人资料</title>
+    <script>
+        var xhr;
+        function showReturnInfo() {
+            if (xhr.readyState == 4 && xhr.status == 200) {
+                var readyInfo = xhr.responseText;
+                var idInfoDom = document.getElementById("idInfo");
+                idInfoDom.innerText = readyInfo;
+            }
+        }
+    </script>
+    <style>
+        .progress {
+            width: 200px;
+            height: 10px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            margin: 10px 0px;
+            overflow: hidden;
+        }
+
+        /*    初始状态设置进度条宽度为0px*/
+        .progress > div {
+            width: 0px;
+            height: 100%;
+            background-color: yellowgreen;
+            transition: all .3s ease;
+        }
+    </style>
+    <script type="text/javascript" src="../js/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $("#uploadHeadPhotoFile").click(function () {
+                //    获取要上传的文件
+                var photoFile = $("#headPhoto")[0].files[0]
+                //ajax向后台发送文件
+                if (photoFile == undefined) {
+                    alert("您还未选中文件")
+                    return;
+                }
+                //    将文件装入FormData对象
+                var formData = new FormData();
+                formData.append("headPhoto", photoFile)
+                //ajax向后台发送文件
+                $.ajax({
+                    type: "post",
+                    data: formData,
+                    url: "../file/headPhotoUpload",
+                    processData: false,
+                    contentType: false,
+                    success: function (result) {
+                        //    接收后台响应的信息
+                        alert(result.message)
+                        //    图片回显
+                        $("#headImg").attr("src", "http://127.0.0.1:8090/uploadHeadPhoto/" + result.newFileName);
+                        //将文件类型和文件名放入form表单
+                        $("#headPhotoInput").val(result.newFileName)
+                        $("#filetypeInput").val(result.fileType)
+                    },
+                    xhr: function () {
+                        var xhr = new XMLHttpRequest();
+                        //    使用XMLHttpRequest.upload监听过程,注册progress事件，打印回调函数中的event事件
+                        xhr.upload.addEventListener('progress', function (e) {
+                            console.log(e);
+                            //    loaded代表上传了多少
+                            //    total代表总数为多少
+                            var progressRate = (e.loaded / e.total) * 100 + '%';
+                            //    通过设置进度条的宽度达到效果
+                            $('.progress > div').css('width', progressRate);
+                        })
+                        return xhr;
+                    }
+                })
+            })
+        })
+    </script>
+</head>
+<body>
+请修改信息
+<hr/>
+<form action="updateUserInfo" method="post">
+    权限:<span th:text="${user.userType}"></span>
+    <br/>
+    <br/>
+    用户账号:<span th:text="${user.id}"></span>
+    <br/>
+    <p> 密码：<input type="password" name="password" th:value="${user.password}">
+    </p>
+    <p> 用户名：<input type="text" name="nickname" th:value="${user.nickname}">
+    </p>
+    <p> 性别：<input type="text" name="gender" th:value="${user.gender}">
+    </p>
+    <p> 手机号码：<input type="text" name="phone" th:value="${user.phone}">
+    </p>
+    <p> 邮箱：<input type="text" name="email" th:value="${user.email}">
+    </p>
+    <p> 生日：<input type="text" name="birthday" th:value="${#dates.format(user.birthday,'yyyy-MM-dd')}">
+    </p>
+    创建时间:<span th:text="${#dates.format(user.createDate,'yyyy-MM-dd')}"></span>
+    <br/>
+    <p>头像：
+        <br/>
+        <input id="headPhoto" type="file" >
+        <!--        图片回显-->
+        <br/>
+        <img id="headImg" style="width: 200px;height: 200px" th:src="@{'http://127.0.0.1:8090/uploadHeadPhoto/'+ ${user.avatarFileName}}" height="100px" width="100px">
+        <br/>
+        <!--        进度条-->
+    <div class="progress">
+        <div></div>
+    </div>
+    <a id="uploadHeadPhotoFile" href="javascript:void(0)">立即上传</a>
+    <!--    使用隐藏的输入框存储文件名称和文件类型-->
+    <input id="headPhotoInput" type="hidden" name="avatarFileName" th:value="${user.avatarFileName}">
+    <input id="filetypeInput" type="hidden" name="avatarFileType" th:value="${user.avatarFileType}">
+    <input type="hidden" name="id" th:value="${user.id}">
+    <input type="hidden" name="userType" th:value="${user.userType}">
+    <input type="hidden" name="balance" th:value="${user.balance}">
+    <input type="hidden" name="createDate" th:value="${user.createDate}">
+    </p>
+    <p><input type="submit" value="修改"></p>
+</form>
+</body>
+</html>

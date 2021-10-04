@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.boucy.mapper.BookCommentsMapper">
+    <!--    type 返回值类型-->
+    <resultMap id="bookJoinBookComments" type="com.boucy.pojo.Book">
+        <!--    如果是主键 注意用id-->
+        <!--    column填数据库属性名 property填创建类属性名-->
+        <id column="id" property="id"></id>
+        <!--    如果不是主键 用result-->
+        <result column="id" property="id"></result>
+        <result column="name" property="name"></result>
+        <result column="author" property="author"></result>
+        <result column="isbn" property="isbn"></result>
+        <result column="publication_date" property="publicationDate"></result>
+        <result column="type" property="type"></result>
+        <result column="price" property="price"></result>
+        <result column="sales" property="sales"></result>
+        <result column="good" property="good"></result>
+        <result column="bad" property="bad"></result>
+        <result column="introduction" property="introduction"></result>
+        <result column="photo_name" property="photoName"></result>
+        <result column="photo_type" property="photoType"></result>
+        <result column="file_name" property="fileName"></result>
+        <result column="file_type" property="fileType"></result>
+        <!--    处理一对多标签-->
+        <!--    property：Book类中放BookComments集合的属性名-->
+        <!--    ofType:集合里的元素的类,写全路径,或者包扫描然后写别名-->
+        <collection property="bookCommentsList" ofType="com.boucy.pojo.BookComments">
+            <!--            设置BookComments本身的属性的映射关系-->
+            <result column="book_id" property="bookid"></result>
+            <result column="user_id" property="userid"></result>
+            <result column="comments" property="comments"></result>
+            <result column="bad" property="bad"></result>
+            <result column="good" property="good"></result>
+        </collection>
+    </resultMap>
+
+    <resultMap id="CommentsJoinBook" type="com.boucy.pojo.BookComments">
+        <result column="book_id" property="bookid"></result>
+        <result column="user_id" property="userid"></result>
+        <result column="comments" property="comments"></result>
+        <result column="good" property="good"></result>
+        <result column="bad" property="bad"></result>
+        <collection property="book" ofType="book">
+            <id column="id" property="id"></id>
+            <!--    如果不是主键 用result-->
+            <result column="id" property="id"></result>
+            <result column="name" property="name"></result>
+            <result column="author" property="author"></result>
+            <result column="isbn" property="isbn"></result>
+            <result column="publication_date" property="publicationDate"></result>
+            <result column="type" property="type"></result>
+            <result column="price" property="price"></result>
+            <result column="sales" property="sales"></result>
+            <result column="good" property="good"></result>
+            <result column="bad" property="bad"></result>
+            <result column="introduction" property="introduction"></result>
+            <result column="photo_name" property="photoName"></result>
+            <result column="photo_type" property="photoType"></result>
+            <result column="file_name" property="fileName"></result>
+            <result column="file_type" property="fileType"></result>
+        </collection>
+    </resultMap>
+
+    <!--    public User findBookJoinBookCommentsByBookid(int userid);-->
+    <select id="findBookJoinBookCommentsByBookid" resultMap="bookJoinBookComments">
+        select *
+        from book b
+                 left join book_comments bc on b.id = bc.book_id
+        where b.id = #{id}
+    </select>
+
+    <!--    public User findUserJoinBookCommentsJoinBookByUserid(int userid);-->
+    <select id="findBookCommentsJoinBookByUserid" resultMap="CommentsJoinBook">
+        SELECT *
+        FROM book_comments bc
+                 LEFT JOIN book b ON bc.book_id = b.id
+        where bc.user_id = #{id}
+    </select>
+
+</mapper>

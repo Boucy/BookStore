@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>图书详情</title>
+</head>
+<body>
+图书封面:
+<img id="headImg" style="width: 200px;height: 200px" th:src="@{'http://127.0.0.1:8090/uploadBookPhoto/'+ ${book.photoName}}" height="100px" width="100px">
+</td>
+<hr/>
+<div>
+    图书名:<span th:text="${book.name}"></span>
+    <br/>
+    作者:<span th:text="${book.author}"></span>
+    <br/>
+    ISBN:<span th:text="${book.isbn}"></span>
+    <br/>
+    出版日期:<span th:text="${#dates.format(book.publicationDate,'yyyy-MM')}"></span>
+    <br/>
+    图书分类:<span th:text="${bookType}"></span>
+    <br/>
+    价格:<span th:text="${book.price}"></span>
+    <br/>
+    销量:<span th:text="${book.sales}"></span>
+    <br/>
+    点赞:<span th:text="${book.good}"></span>
+    <br/>
+    点踩:<span th:text="${book.bad}"></span>
+    <hr/>
+    图书简介:
+    <br/>
+    <span th:text="${book.introduction}"></span>
+    <hr/>
+</div>
+<button th:onclick="showBookComments([[${book.id}]])">查看书评</button>
+<button th:onclick="addComments([[${book.id}]])">我要评价</button>
+<br/>
+<button th:onclick="addShoppingCart([[${book.id}]])">加入购物车</button>
+
+<br/>
+<button th:onclick="collect([[${book.id}]])">收藏</button>
+<button th:onclick="downloadBook([[${book.id}]],[[${book.name}]])">下载</button>
+<hr/>
+<button th:onclick="purchaseBook([[${book.id}]],[[${book.name}]])">购买</button>
+<script>
+    function showBookComments(id) {
+        window.location.href = "../book/showBookComments?bookID=" + id;
+    }
+    function addComments(id) {
+        window.location.href = "../book/showAddComments?bookID=" + id;
+    }
+    function addShoppingCart(id) {
+            window.location.href = "../book/addShoppingCart?bookID=" + id;
+    }
+    function collect(id) {
+        window.location.href = "../book/collect?bookID=" + id;
+    }
+    function downloadBook(id,name) {
+        var result = confirm("确认要下载" + name + "吗?");
+        if (result) {
+            window.location.href = "../file/downloadBook?bookID=" + id;
+        }
+    }
+    function purchaseBook(id,name) {
+        var result = confirm("确认要购买" + name + "吗?");
+        if (result) {
+            window.location.href = "../book/purchaseBook?bookID=" + id;
+        }
+    }
+</script>
+</body>
+</html>

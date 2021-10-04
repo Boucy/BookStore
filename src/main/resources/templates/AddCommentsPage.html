@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+    <title>图书评价</title>
+    <style>
+        .progress {
+            width: 200px;
+            height: 10px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            margin: 10px 0px;
+            overflow: hidden;
+        }
+
+        /*    初始状态设置进度条宽度为0px*/
+        .progress > div {
+            width: 0px;
+            height: 100%;
+            background-color: yellowgreen;
+            transition: all .3s ease;
+        }
+    </style>
+</head>
+<body>
+请根据真实情况进行评价
+<hr/>
+<form action="addComments" method="post">
+    <br/>
+    <img id="headImg" style="width: 200px;height: 200px" th:src="@{'http://127.0.0.1:8090/uploadBookPhoto/'+ ${book.photoName}}" height="100px" width="100px">
+    <br/>
+    <br/>
+    图书:<span th:text="${book.name}"></span>
+    <br/>
+    <p> 点赞：<input type="text" name="good" value="0">
+    </p>
+    <p> 点踩：<input type="text" name="bad" value="0">
+    </p>
+    <p> 评价：<input type="text" name="comments">
+    </p>
+    <input type="hidden" name="bookid" th:value="${book.id}">
+    <p><input type="submit" value="提交"></p>
+</form>
+</body>
+</html>

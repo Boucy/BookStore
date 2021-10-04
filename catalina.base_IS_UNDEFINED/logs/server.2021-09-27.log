@@ -1,0 +1,20 @@
+2021-09-27 17:38:10.350 [restartedMain] INFO  com.boucy.BookStoreApplication -Starting BookStoreApplication using Java 1.8.0_291 on LAPTOP-NJULGHLT with PID 25664 (D:\ideaProject\testtest\BookStore\target\classes started by Boucy in D:\ideaProject\testtest\BookStore)
+2021-09-27 17:38:10.354 [restartedMain] INFO  com.boucy.BookStoreApplication -No active profile set, falling back to default profiles: default
+2021-09-27 17:38:10.438 [restartedMain] INFO  o.s.b.d.env.DevToolsPropertyDefaultsPostProcessor -Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-09-27 17:38:10.438 [restartedMain] INFO  o.s.b.d.env.DevToolsPropertyDefaultsPostProcessor -For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2021-09-27 17:38:11.649 [restartedMain] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner -No MyBatis mapper was found in '[com.boucy]' package. Please check your configuration.
+2021-09-27 17:38:12.264 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer -Tomcat initialized with port(s): 8080 (http)
+2021-09-27 17:38:12.275 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol -Initializing ProtocolHandler ["http-nio-8080"]
+2021-09-27 17:38:12.276 [restartedMain] INFO  org.apache.catalina.core.StandardService -Starting service [Tomcat]
+2021-09-27 17:38:12.276 [restartedMain] INFO  org.apache.catalina.core.StandardEngine -Starting Servlet engine: [Apache Tomcat/9.0.53]
+2021-09-27 17:38:12.382 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/bookstore] -Initializing Spring embedded WebApplicationContext
+2021-09-27 17:38:12.383 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext -Root WebApplicationContext: initialization completed in 1943 ms
+2021-09-27 17:38:12.751 [restartedMain] WARN  o.s.b.a.t.ThymeleafAutoConfiguration$DefaultTemplateResolverConfiguration -Cannot find template location: classpath:/templates/ (please add some templates or check your Thymeleaf configuration)
+2021-09-27 17:38:12.879 [restartedMain] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure -Init DruidDataSource
+2021-09-27 17:38:12.972 [restartedMain] ERROR com.alibaba.druid.filter.FilterManager -load filter error, filter not found : stal
+2021-09-27 17:38:13.206 [restartedMain] INFO  com.alibaba.druid.pool.DruidDataSource -{dataSource-1} inited
+2021-09-27 17:38:15.236 [restartedMain] INFO  o.s.b.d.autoconfigure.OptionalLiveReloadServer -LiveReload server is running on port 35729
+2021-09-27 17:38:15.277 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol -Starting ProtocolHandler ["http-nio-8080"]
+2021-09-27 17:38:15.294 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer -Tomcat started on port(s): 8080 (http) with context path '/bookstore'
+2021-09-27 17:38:15.308 [restartedMain] INFO  com.boucy.BookStoreApplication -Started BookStoreApplication in 5.961 seconds (JVM running for 11.52)
+2021-09-27 17:38:45.433 [SpringApplicationShutdownHook] INFO  com.alibaba.druid.pool.DruidDataSource -{dataSource-1} closed

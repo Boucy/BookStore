@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>图书商城</title>
+    <style type="text/css">
+        #bookTypeTable {
+            width: 80%;
+            border: 2px solid skyblue;
+            margin: 0px auto;
+        }
+
+        #bookTypeTable th, td {
+            border: 1px solid gray;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<p th:text="${indexMessage}"></p>
+<hr/>
+<form action="../book/bookSearchByKey" method="get">
+    图书搜索:
+    <input type="text" name="keywords"><br/>
+    <input type="submit" value="提交">
+</form>
+<hr/>
+<button onclick="rankingList()">图书畅销排行榜</button>
+<br/>
+<hr/>
+<table id="bookTypeTable" cellpadding="0px" cellspacing="0px">
+    <tr>
+        <th>编号</th>
+        <th>分类</th>
+        <th>查看</th>
+    </tr>
+    <tr th:each="bookType,i:${bookTypeList}">
+        <td th:text="${bookType.id}"></td>
+        <td th:text="${bookType.type}"></td>
+        <td>
+            <a href="javascript:void(0)" th:onclick="bookSearchByTypeID([[${bookType.id}]])">查看</a>
+        </td>
+    </tr>
+</table>
+<hr/>
+<button onclick="jumplogin()">登录</button>
+<button th:onclick="logout()">注销</button>
+<br/>
+<br/>
+<hr/>
+<button onclick="personalBook()">我的图书</button>
+<button onclick="showUserInfo()">我的资料</button>
+<button onclick="showPurchaseRecord()">购买记录</button>
+<button onclick="showShoppingCart()">我的购物车</button>
+<button onclick="showCollect()">我的收藏</button>
+<button onclick="showPersonalBookComments()">我的书评</button>
+<hr/>
+<button onclick="jumpAdmin()">管理界面</button>
+<script>
+    function bookSearchByTypeID(id) {
+        window.location.href = "../book/bookSearchByTypeID?bookTypeID=" + id;
+    }
+
+    function rankingList() {
+        window.location.href = "../book/rankingList";
+    }
+
+    function jumpPersonalAccount() {
+        window.location.href = "../user/jumpPersonalAccount";
+    }
+
+    function jumplogin() {
+        window.location.href = "../user/jumpLogin";
+    }
+
+    function logout() {
+        var result = confirm("确认要退出登录吗？");
+        if (result) {
+            window.location.href = "../user/logout";
+        }
+    }
+
+    function personalBook() {
+        window.location.href = "../book/personalBook";
+    }
+
+    function showUserInfo() {
+        window.location.href = "../user/showUserInfo";
+    }
+
+    function showShoppingCart() {
+        window.location.href = "../book/showShoppingCart";
+    }
+
+    function showCollect() {
+        window.location.href = "../book/showCollect";
+    }
+    function showPurchaseRecord() {
+        window.location.href = "../user/showPurchaseRecord";
+    }
+    function showPersonalBookComments() {
+        window.location.href = "../user/showPersonalBookComments";
+    }
+</script>
+</body>
+</html>

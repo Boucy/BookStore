@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>我的收藏</title>
+    <style type="text/css">
+        #booksTable {
+            width: 80%;
+            border: 2px solid skyblue;
+            margin: 0px auto;
+        }
+
+        #booksTable th, td {
+            border: 1px solid gray;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<table id="booksTable" cellpadding="0px" cellspacing="0px">
+    <tr>
+        <th>序号</th>
+        <th>封面</th>
+        <th>图书名</th>
+        <th>作者</th>
+        <th>ISBN</th>
+        <th>出版时间</th>
+        <th>详情</th>
+        <th>收藏</th>
+    </tr>
+    <tr th:each="book,i:${bookList}">
+        <td th:text="${i.count}"></td>
+        <td><img th:src="@{'http://localhost:8080/bookstore/uploadBookPhoto/'+ ${book.photoName}}" height="100px" width="100px"></td>
+        <td th:text="${book.name}"></td>
+        <td th:text="${book.author}"></td>
+        <td th:text="${book.isbn}"></td>
+        <td th:text="${book.publicationDate}"></td>
+        <td>
+            <a href="javascript:void(0)" th:onclick="bookDetails([[${book.id}]])">查看详情</a>
+        </td>
+        <td>
+            <a href="javascript:void(0)" th:onclick="cancelCollect([[${book.id}]])">取消收藏</a>
+        </td>
+    </tr>
+</table>
+<script>
+    function bookDetails(id) {
+        window.location.href="../book/bookSearchByID?bookID="+id;
+    }
+    function cancelCollect(id) {
+            window.location.href = "../book/cancelCollect?bookID=" + id;
+    }
+</script>
+</body>
+</html>

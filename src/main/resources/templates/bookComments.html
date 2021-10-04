@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>书评</title>
+    <style type="text/css">
+        #booksTable {
+            width: 80%;
+            border: 2px solid skyblue;
+            margin: 0px auto;
+        }
+
+        #booksTable th, td {
+            border: 1px solid gray;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<table id="booksTable" cellpadding="0px" cellspacing="0px">
+    <tr>
+        <th>图书名</th>
+        <th>作者</th>
+        <th>点赞</th>
+        <th>点踩</th>
+        <th>评价</th>
+        <th>图书详情</th>
+    </tr>
+    <tr th:each="one,i:${bookJoinBookComments.bookCommentsList}">
+        <td th:text="${bookJoinBookComments.name}"></td>
+        <td th:text="${bookJoinBookComments.author}"></td>
+        <td th:text="${bookJoinBookComments.good}"></td>
+        <td th:text="${bookJoinBookComments.bad}"></td>
+        <td th:text="${one.comments}"></td>
+        <td>
+            <a href="javascript:void(0)" th:onclick="bookDetails([[${bookJoinBookComments.id}]])">查看详情</a>
+        </td>
+    </tr>
+</table>
+<script>
+    function bookDetails(id) {
+        window.location.href="../book/bookSearchByID?bookID="+id;
+    }
+</script>
+</body>
+</html>

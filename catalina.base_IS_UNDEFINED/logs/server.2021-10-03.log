@@ -1,0 +1,26 @@
+2021-10-03 10:23:20.491 [restartedMain] INFO  com.boucy.BookStoreApplication -Starting BookStoreApplication using Java 1.8.0_291 on Boucy with PID 9368 (D:\ideaProject\BookStore\target\classes started by 64901 in D:\ideaProject\BookStore)
+2021-10-03 10:23:20.495 [restartedMain] INFO  com.boucy.BookStoreApplication -No active profile set, falling back to default profiles: default
+2021-10-03 10:23:20.566 [restartedMain] INFO  o.s.b.d.env.DevToolsPropertyDefaultsPostProcessor -Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-10-03 10:23:20.567 [restartedMain] INFO  o.s.b.d.env.DevToolsPropertyDefaultsPostProcessor -For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2021-10-03 10:23:21.975 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer -Tomcat initialized with port(s): 8080 (http)
+2021-10-03 10:23:21.984 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol -Initializing ProtocolHandler ["http-nio-8080"]
+2021-10-03 10:23:21.985 [restartedMain] INFO  org.apache.catalina.core.StandardService -Starting service [Tomcat]
+2021-10-03 10:23:21.985 [restartedMain] INFO  org.apache.catalina.core.StandardEngine -Starting Servlet engine: [Apache Tomcat/9.0.53]
+2021-10-03 10:23:22.064 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/bookstore] -Initializing Spring embedded WebApplicationContext
+2021-10-03 10:23:22.064 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext -Root WebApplicationContext: initialization completed in 1496 ms
+2021-10-03 10:23:22.181 [restartedMain] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure -Init DruidDataSource
+2021-10-03 10:23:22.334 [restartedMain] ERROR com.alibaba.druid.filter.FilterManager -load filter error, filter not found : stal
+2021-10-03 10:23:22.654 [restartedMain] INFO  com.alibaba.druid.pool.DruidDataSource -{dataSource-1} inited
+2021-10-03 10:23:22.812 [restartedMain] WARN  c.b.mybatisplus.core.metadata.TableInfoHelper -This "id" is the table primary key by default name for `id` in Class: "com.boucy.pojo.Book",So @TableField will not work!
+2021-10-03 10:23:22.924 [restartedMain] WARN  c.b.mybatisplus.core.metadata.TableInfoHelper -Can not find table primary key in Class: "com.boucy.pojo.BookShoppingCart".
+2021-10-03 10:23:22.961 [restartedMain] WARN  c.b.mybatisplus.core.metadata.TableInfoHelper -This "id" is the table primary key by default name for `id` in Class: "com.boucy.pojo.BookType",So @TableField will not work!
+2021-10-03 10:23:23.822 [restartedMain] WARN  c.b.mybatisplus.core.metadata.TableInfoHelper -Can not find table primary key in Class: "com.boucy.pojo.BookCollection".
+2021-10-03 10:23:23.845 [restartedMain] WARN  c.b.mybatisplus.core.metadata.TableInfoHelper -This "id" is the table primary key by default name for `id` in Class: "com.boucy.pojo.User",So @TableField will not work!
+2021-10-03 10:23:23.867 [restartedMain] WARN  c.b.mybatisplus.core.metadata.TableInfoHelper -Can not find table primary key in Class: "com.boucy.pojo.BookPosses".
+2021-10-03 10:23:23.942 [restartedMain] WARN  c.b.mybatisplus.core.metadata.TableInfoHelper -Can not find table primary key in Class: "com.boucy.pojo.BookComments".
+2021-10-03 10:23:24.172 [restartedMain] INFO  o.s.b.a.web.servlet.WelcomePageHandlerMapping -Adding welcome page template: index
+2021-10-03 10:23:24.313 [restartedMain] INFO  o.s.b.d.autoconfigure.OptionalLiveReloadServer -LiveReload server is running on port 35729
+2021-10-03 10:23:24.347 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol -Starting ProtocolHandler ["http-nio-8080"]
+2021-10-03 10:23:24.362 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer -Tomcat started on port(s): 8080 (http) with context path '/bookstore'
+2021-10-03 10:23:24.374 [restartedMain] INFO  com.boucy.BookStoreApplication -Started BookStoreApplication in 4.448 seconds (JVM running for 5.964)
+2021-10-03 10:49:06.447 [Thread-12] INFO  com.alibaba.druid.pool.DruidDataSource -{dataSource-1} closed
