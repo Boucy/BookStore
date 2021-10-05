@@ -33,4 +33,10 @@ public interface BookService extends IService<Book> {
     String personalBook(Map<String, Object> map,HttpServletRequest request, HttpServletResponse response);
 
     String showAddComments(Map<String, Object> map, HttpServletRequest request, HttpServletResponse response);
+
+    String showBookManagement(Map<String, Object> map, HttpServletRequest request, HttpServletResponse response);
+
+    String showUpdateBookPage(Map<String,Object> map,HttpServletRequest request, HttpServletResponse response);
+
+    String updateBook(String originBookID,Book book, HttpServletRequest request, HttpServletResponse response);
 }

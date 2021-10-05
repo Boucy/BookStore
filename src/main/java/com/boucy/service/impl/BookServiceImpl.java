@@ -151,12 +151,12 @@ public class BookServiceImpl extends ServiceImpl<BookMapper, Book> implements Bo
         Double price = book.getPrice();
         if (balance >= price) {
             QueryWrapper<User> userQueryWrapper = new QueryWrapper<>();
-            userQueryWrapper.eq("id",user.getId());
+            userQueryWrapper.eq("id", user.getId());
             user.setBalance(balance - price);
             userMapper.update(user, userQueryWrapper);
             bookPossesMapper.insert(new BookPosses(user.getId(), Integer.parseInt(bookID)));
-            request.getSession().setAttribute("user",user);
-            purchaseRecordMapper.insert(new PurchaseRecord(null,user.getId(),book.getId(),new Date(),book.getPrice()));
+            request.getSession().setAttribute("user", user);
+            purchaseRecordMapper.insert(new PurchaseRecord(null, user.getId(), book.getId(), new Date(), book.getPrice()));
             return "redirect:../book/personalBook";
         } else {
             return "purchaseFail";
@@ -185,10 +185,32 @@ public class BookServiceImpl extends ServiceImpl<BookMapper, Book> implements Bo
     public String showAddComments(Map<String, Object> map, HttpServletRequest request, HttpServletResponse response) {
         String bookID = request.getParameter("bookID");
         QueryWrapper<Book> bookQueryWrapper = new QueryWrapper<>();
-        bookQueryWrapper.eq("id",bookID);
+        bookQueryWrapper.eq("id", bookID);
         Book book = bookMapper.selectOne(bookQueryWrapper);
-        map.put("book",book);
+        map.put("book", book);
         return "AddCommentsPage";
+    }
+
+    @Override
+    public String showBookManagement(Map<String, Object> map, HttpServletRequest request, HttpServletResponse response) {
+        List<Book> bookList = bookMapper.selectList(null);
+        map.put("bookList", bookList);
+
+        return "bookManagement";
+    }
+
+    @Override
+    public String showUpdateBookPage(Map<String, Object> map, HttpServletRequest request, HttpServletResponse response) {
+        String bookID = request.getParameter("bookID");
+        Book book = bookMapper.selectOne(new QueryWrapper<Book>().eq("id", bookID));
+        map.put("book", book);
+        return "updateBookPage";
+    }
+
+    @Override
+    public String updateBook(String originBookID, Book book, HttpServletRequest request, HttpServletResponse response) {
+        bookMapper.update(book, new QueryWrapper<Book>().eq("id", originBookID));
+        return "redirect:../book/bookSearchByID?bookID="+originBookID;
     }
 
     @Override

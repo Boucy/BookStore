@@ -44,6 +44,18 @@ public class FileController {
         return fileService.uploadHeadPhoto(headPhoto,request);
     }
 
+    @RequestMapping("/bookPhotoUpload")
+    @ResponseBody
+    public Map<String, String> bookPhotoUpload(MultipartFile bookPhoto, HttpServletRequest request) throws IOException {
+        return fileService.bookPhotoUpload(bookPhoto,request);
+    }
+
+    @RequestMapping("/bookUpload")
+    @ResponseBody
+    public Map<String, String> bookUpload(MultipartFile bookFile, HttpServletRequest request) throws IOException {
+        return fileService.bookUpload(bookFile,request);
+    }
+
     @RequestMapping("/downloadBook")
     public void downloadBook(HttpServletRequest request,HttpServletResponse response) throws IOException {
         fileService.downloadBook(request,response);

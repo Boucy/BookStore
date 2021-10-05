@@ -111,4 +111,14 @@ public class BookController {
     public String addComments(@RequestParam("bookid") String bookid,@RequestParam("good") String good,@RequestParam("bad") String bad,@RequestParam("comments") String comments, HttpServletRequest request, HttpServletResponse response){
         return bookCommentsService.addComments(bookid,good,bad,comments,request,response);
     }
+
+    @RequestMapping("/showUpdateBookPage")
+    public String showUpdateBookPage(Map<String,Object> map,HttpServletRequest request, HttpServletResponse response){
+        return bookService.showUpdateBookPage(map,request,response);
+    }
+
+    @RequestMapping("/updateBook")
+    public String updateBook(String originBookID,Book book, HttpServletRequest request, HttpServletResponse response){
+        return bookService.updateBook(originBookID,book,request,response);
+    }
 }

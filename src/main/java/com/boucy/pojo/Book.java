@@ -5,6 +5,7 @@ import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.Date;
 import java.util.List;
@@ -23,6 +24,7 @@ public class Book {
     @TableField("isbn")
     private String isbn;
     @TableField("publication_date")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date publicationDate;
     @TableField("type")
     private String type;

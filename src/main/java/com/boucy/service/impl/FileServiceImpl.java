@@ -55,7 +55,6 @@ public class FileServiceImpl implements FileService {
 
     @Override
     public Map<String, String> uploadHeadPhoto(MultipartFile headPhoto, HttpServletRequest request) throws IOException {
-
         Map<String, String> map = new HashMap<>();
 //        控制文件大小
 //        if (headPhoto.getSize() > 1024 * 1024 * 5) {
@@ -91,6 +90,86 @@ public class FileServiceImpl implements FileService {
         map.put("newFileName", newFileName);
 //        附加文件类型
         map.put("fileType", headPhoto.getContentType());
+        return map;
+    }
+
+    @Override
+    public Map<String, String> bookPhotoUpload(MultipartFile bookPhoto, HttpServletRequest request) throws IOException {
+        Map<String, String> map = new HashMap<>();
+//        控制文件大小
+//        if (headPhoto.getSize() > 1024 * 1024 * 5) {
+//            map.put("message", "文件大小不能超过5MB");
+//            return map;
+//        }
+
+//        获取文件名
+        String originalFilename = bookPhoto.getOriginalFilename();
+//        避免文件冲突,使用UUID替换文件名
+        String uuid = UUID.randomUUID().toString();
+//        获取拓展名
+        String extendName = originalFilename.substring(originalFilename.lastIndexOf("."));
+
+//        控制文件上传类型
+//        if(!extendName.equals(".pdf")){
+//            map.put("message","文件类型必须是.pdf");
+//            return map;
+//        }
+
+//        新的文件名
+        String newFileName = uuid.concat(extendName);
+
+//        创建sun公司提供的jersey包下的client对象
+        Client client = Client.create();
+        WebResource resource = client.resource(BOOKPHOTOFILESERVER + newFileName);
+//        文件保存到另一个服务器上去了
+        resource.put(String.class, bookPhoto.getBytes());
+
+//        上传成功之后，把文件的名字和文件的类型返回给浏览器
+        map.put("message", "上传成功");
+//        附加文件名字
+        map.put("newFileName", newFileName);
+//        附加文件类型
+        map.put("fileType", bookPhoto.getContentType());
+        return map;
+    }
+
+    @Override
+    public Map<String, String> bookUpload(MultipartFile bookFile, HttpServletRequest request) throws IOException {
+        Map<String, String> map = new HashMap<>();
+//        控制文件大小
+//        if (headPhoto.getSize() > 1024 * 1024 * 5) {
+//            map.put("message", "文件大小不能超过5MB");
+//            return map;
+//        }
+
+//        获取文件名
+        String originalFilename = bookFile.getOriginalFilename();
+//        避免文件冲突,使用UUID替换文件名
+        String uuid = UUID.randomUUID().toString();
+//        获取拓展名
+        String extendName = originalFilename.substring(originalFilename.lastIndexOf("."));
+
+//        控制文件上传类型
+        if(!extendName.equals(".pdf")){
+            map.put("message","文件类型必须是.pdf");
+            return map;
+        }
+
+//        新的文件名
+        String newFileName = uuid.concat(extendName);
+
+//        创建sun公司提供的jersey包下的client对象
+        Client client = Client.create();
+        WebResource resource = client.resource(BOOKFILESERVER + newFileName);
+//        文件保存到另一个服务器上去了
+        resource.put(String.class, bookFile.getBytes());
+
+//        上传成功之后，把文件的名字和文件的类型返回给浏览器
+        map.put("message", "上传成功");
+//        附加文件名字
+        map.put("newFileName", newFileName);
+//        附加文件类型
+        map.put("fileType", bookFile.getContentType());
         return map;
     }
 }

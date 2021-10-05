@@ -106,4 +106,9 @@ public class UserController {
     public String showPersonalBookComments(Map<String, Object> map, HttpServletRequest request, HttpServletResponse response){
         return bookCommentsService.showPersonalBookComments(map,request,response);
     }
+
+    @RequestMapping("/jumpAdmin")
+    public String jumpAdmin(Map<String, Object> map, HttpServletRequest request, HttpServletResponse response){
+        return "administrator";
+    }
 }

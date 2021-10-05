@@ -3,16 +3,6 @@
 <head>
 <meta charset="UTF-8">
     <title>个人资料</title>
-    <script>
-        var xhr;
-        function showReturnInfo() {
-            if (xhr.readyState == 4 && xhr.status == 200) {
-                var readyInfo = xhr.responseText;
-                var idInfoDom = document.getElementById("idInfo");
-                idInfoDom.innerText = readyInfo;
-            }
-        }
-    </script>
     <style>
         .progress {
             width: 200px;
