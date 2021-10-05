@@ -55,7 +55,9 @@
 <button onclick="showCollect()">我的收藏</button>
 <button onclick="showPersonalBookComments()">我的书评</button>
 <hr/>
-<button onclick="jumpAdmin()">管理界面</button>
+<input type="button" onclick="javascript:window.location.href='../manager/showBookManagement'" value="图书管理">
+<input type="button" onclick="javascript:window.location.href='../manager/showUserManagement'" value="用户管理">
+<input type="button" onclick="javascript:window.location.href='../manager/showPurchaseManagement'" value="用户购买记录">
 <script>
     function bookSearchByTypeID(id) {
         window.location.href = "../book/bookSearchByTypeID?bookTypeID=" + id;
@@ -71,10 +73,6 @@
 
     function jumplogin() {
         window.location.href = "../user/jumpLogin";
-    }
-
-    function jumpAdmin() {
-        window.location.href = "../user/jumpAdmin";
     }
 
     function logout() {

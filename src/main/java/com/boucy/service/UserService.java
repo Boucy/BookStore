@@ -18,7 +18,6 @@ public interface UserService extends IService<User> {
 
     String jumpUpdateUserInfo(Map<String,Object> map,HttpServletRequest request);
 
-
     String showUserManagement(Map<String, Object> map, HttpServletRequest request, HttpServletResponse response);
 
     String deleteUser(HttpServletRequest request, HttpServletResponse response);

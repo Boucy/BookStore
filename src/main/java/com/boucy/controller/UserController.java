@@ -116,4 +116,9 @@ public class UserController {
     public String deleteUser(HttpServletRequest request, HttpServletResponse response){
         return userService.deleteUser(request,response);
     }
+
+    @RequestMapping("/showRefuseAdmin")
+    public String showRefuseAdmin(){
+        return "refuseAdmin";
+    }
 }

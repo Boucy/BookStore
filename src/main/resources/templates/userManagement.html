@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>用户管理</title>
+    <style type="text/css">
+        #usersTable {
+            width: 80%;
+            border: 2px solid skyblue;
+            margin: 0px auto;
+        }
+
+        #usersTable th, td {
+            border: 1px solid gray;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<table id="usersTable" cellpadding="0px" cellspacing="0px">
+    <tr>
+        <th>序号</th>
+        <th>用户id</th>
+        <th>密码</th>
+        <th>用户名</th>
+        <th>手机号码</th>
+        <th>邮箱</th>
+        <th>创建时间</th>
+        <th>余额</th>
+
+        <th>详情</th>
+        <th>修改信息</th>
+        <th>删除</th>
+    </tr>
+    <tr th:each="user,i:${userList}">
+        <td th:text="${i.count}"></td>
+        <td th:text="${user.id}"></td>
+        <td th:text="${user.password}"></td>
+        <td th:text="${user.nickname}"></td>
+        <td th:text="${user.phone}"></td>
+        <td th:text="${user.email}"></td>
+        <td th:text="${#dates.format(user.createDate,'yyyy-MM-dd')}"></td>
+        <td th:text="${user.balance}"></td>
+        <td>
+            <a href="javascript:void(0)" th:onclick="showUserInfo([[${user.id}]])">查看详情</a>
+        </td>
+        <td>
+            <a href="javascript:void(0)" th:onclick="jumpUpdateUserInfo([[${user.id}]])">修改信息</a>
+        </td>
+        <td>
+            <a href="javascript:void(0)" th:onclick="deleteUser([[${user.id}]])">删除</a>
+        </td>
+    </tr>
+</table>
+<script>
+    function showUserInfo(id) {
+        window.location.href = "../user/showUserInfo?userID="+id;
+    }
+    function jumpUpdateUserInfo(id) {
+        window.location.href = "../user/jumpUpdateUserInfo?userID=" + id;
+    }
+    function deleteUser (id) {
+        var result = confirm("确认要删除id为 " + id + " 的用户吗?");
+        if (result) {
+            window.location.href = "../user/deleteUser?userID=" + id;
+        }
+    }
+</script>
+</body>
+</html>
