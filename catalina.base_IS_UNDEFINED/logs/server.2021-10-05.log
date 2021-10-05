@@ -8295,3 +8295,43 @@ org.springframework.expression.spel.SpelEvaluationException: EL1007E: Property o
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.lang.Thread.run(Thread.java:748)
 2021-10-05 17:48:00.816 [SpringApplicationShutdownHook] INFO  com.alibaba.druid.pool.DruidDataSource -{dataSource-1} closed
+2021-10-05 17:48:07.471 [restartedMain] INFO  com.boucy.BookStoreApplication -Starting BookStoreApplication using Java 1.8.0_291 on Boucy with PID 6428 (D:\ideaProject\BookStore\target\classes started by 64901 in D:\ideaProject\BookStore)
+2021-10-05 17:48:07.476 [restartedMain] INFO  com.boucy.BookStoreApplication -No active profile set, falling back to default profiles: default
+2021-10-05 17:48:07.546 [restartedMain] INFO  o.s.b.d.env.DevToolsPropertyDefaultsPostProcessor -Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-10-05 17:48:07.547 [restartedMain] INFO  o.s.b.d.env.DevToolsPropertyDefaultsPostProcessor -For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2021-10-05 17:48:09.059 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer -Tomcat initialized with port(s): 8080 (http)
+2021-10-05 17:48:09.069 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol -Initializing ProtocolHandler ["http-nio-8080"]
+2021-10-05 17:48:09.070 [restartedMain] INFO  org.apache.catalina.core.StandardService -Starting service [Tomcat]
+2021-10-05 17:48:09.070 [restartedMain] INFO  org.apache.catalina.core.StandardEngine -Starting Servlet engine: [Apache Tomcat/9.0.53]
+2021-10-05 17:48:09.156 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/bookstore] -Initializing Spring embedded WebApplicationContext
+2021-10-05 17:48:09.156 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext -Root WebApplicationContext: initialization completed in 1609 ms
+2021-10-05 17:48:09.287 [restartedMain] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure -Init DruidDataSource
+2021-10-05 17:48:09.431 [restartedMain] ERROR com.alibaba.druid.filter.FilterManager -load filter error, filter not found : stal
+2021-10-05 17:48:09.681 [restartedMain] INFO  com.alibaba.druid.pool.DruidDataSource -{dataSource-1} inited
+2021-10-05 17:48:09.896 [restartedMain] WARN  c.b.mybatisplus.core.metadata.TableInfoHelper -Can not find table primary key in Class: "com.boucy.pojo.BookComments".
+2021-10-05 17:48:09.959 [restartedMain] WARN  c.b.mybatisplus.core.metadata.TableInfoHelper -This "id" is the table primary key by default name for `id` in Class: "com.boucy.pojo.Book",So @TableField will not work!
+2021-10-05 17:48:09.998 [restartedMain] WARN  c.b.mybatisplus.core.metadata.TableInfoHelper -Can not find table primary key in Class: "com.boucy.pojo.BookShoppingCart".
+2021-10-05 17:48:10.026 [restartedMain] WARN  c.b.mybatisplus.core.metadata.TableInfoHelper -This "id" is the table primary key by default name for `id` in Class: "com.boucy.pojo.BookType",So @TableField will not work!
+2021-10-05 17:48:10.792 [restartedMain] WARN  c.b.mybatisplus.core.metadata.TableInfoHelper -Can not find table primary key in Class: "com.boucy.pojo.BookCollection".
+2021-10-05 17:48:10.818 [restartedMain] WARN  c.b.mybatisplus.core.metadata.TableInfoHelper -This "id" is the table primary key by default name for `id` in Class: "com.boucy.pojo.User",So @TableField will not work!
+2021-10-05 17:48:10.840 [restartedMain] WARN  c.b.mybatisplus.core.metadata.TableInfoHelper -Can not find table primary key in Class: "com.boucy.pojo.BookPosses".
+2021-10-05 17:48:11.137 [restartedMain] INFO  o.s.b.a.web.servlet.WelcomePageHandlerMapping -Adding welcome page template: index
+2021-10-05 17:48:11.285 [restartedMain] INFO  o.s.b.d.autoconfigure.OptionalLiveReloadServer -LiveReload server is running on port 35729
+2021-10-05 17:48:11.322 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol -Starting ProtocolHandler ["http-nio-8080"]
+2021-10-05 17:48:11.338 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer -Tomcat started on port(s): 8080 (http) with context path '/bookstore'
+2021-10-05 17:48:11.351 [restartedMain] INFO  com.boucy.BookStoreApplication -Started BookStoreApplication in 4.542 seconds (JVM running for 6.105)
+2021-10-05 17:48:16.876 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/bookstore] -Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-10-05 17:48:16.877 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet -Initializing Servlet 'dispatcherServlet'
+2021-10-05 17:48:16.879 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet -Completed initialization in 2 ms
+2021-10-05 17:48:16.942 [http-nio-8080-exec-1] DEBUG c.b.m.PurchaseRecordMapper.findAllPurchaseJoinBook -==>  Preparing: SELECT * FROM purchase_record pc LEFT JOIN book b ON pc.book_id = b.id
+2021-10-05 17:48:17.066 [http-nio-8080-exec-1] DEBUG c.b.m.PurchaseRecordMapper.findAllPurchaseJoinBook -==> Parameters: 
+2021-10-05 17:48:17.115 [http-nio-8080-exec-1] DEBUG c.b.m.PurchaseRecordMapper.findAllPurchaseJoinBook -<==      Total: 4
+2021-10-05 17:49:08.842 [http-nio-8080-exec-2] DEBUG com.boucy.mapper.UserMapper.selectList -==>  Preparing: SELECT id,nickname,password,avatar_file_name,avatar_file_type,user_type,balance,gender,phone,email,birthday,create_date FROM user
+2021-10-05 17:49:08.845 [http-nio-8080-exec-2] DEBUG com.boucy.mapper.UserMapper.selectList -==> Parameters: 
+2021-10-05 17:49:08.850 [http-nio-8080-exec-2] DEBUG com.boucy.mapper.UserMapper.selectList -<==      Total: 4
+2021-10-05 17:49:26.343 [http-nio-8080-exec-3] DEBUG c.b.m.PurchaseRecordMapper.findAllPurchaseJoinBook -==>  Preparing: SELECT * FROM purchase_record pc LEFT JOIN book b ON pc.book_id = b.id
+2021-10-05 17:49:26.343 [http-nio-8080-exec-3] DEBUG c.b.m.PurchaseRecordMapper.findAllPurchaseJoinBook -==> Parameters: 
+2021-10-05 17:49:26.350 [http-nio-8080-exec-3] DEBUG c.b.m.PurchaseRecordMapper.findAllPurchaseJoinBook -<==      Total: 4
+2021-10-05 17:49:43.550 [http-nio-8080-exec-4] DEBUG com.boucy.mapper.UserMapper.selectList -==>  Preparing: SELECT id,nickname,password,avatar_file_name,avatar_file_type,user_type,balance,gender,phone,email,birthday,create_date FROM user
+2021-10-05 17:49:43.550 [http-nio-8080-exec-4] DEBUG com.boucy.mapper.UserMapper.selectList -==> Parameters: 
+2021-10-05 17:49:43.554 [http-nio-8080-exec-4] DEBUG com.boucy.mapper.UserMapper.selectList -<==      Total: 4

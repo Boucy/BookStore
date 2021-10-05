@@ -85,7 +85,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
     public String showUserManagement(Map<String, Object> map, HttpServletRequest request, HttpServletResponse response) {
         List<User> userList = userMapper.selectList(null);
         map.put("userList", userList);
-        return "purchaseRecordManagement";
+        return "userManagement";
     }
 
     @Override
