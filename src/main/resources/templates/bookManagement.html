@@ -28,6 +28,7 @@
         <th>销量</th>
         <th>详情</th>
         <th>信息</th>
+        <th>下载</th>
         <th>删除</th>
     </tr>
     <tr th:each="book,i:${bookList}">
@@ -45,7 +46,10 @@
             <a href="javascript:void(0)" th:onclick="showUpdateBookPage([[${book.id}]])">修改信息</a>
         </td>
         <td>
-            <a href="javascript:void(0)" th:onclick="addShoppingCart([[${book.id}]])">删除</a>
+            <a href="javascript:void(0)" th:onclick="downloadBook([[${book.id}]],[[${book.name}]])">下载</a>
+        </td>
+        <td>
+            <a href="javascript:void(0)" th:onclick="deleteBook([[${book.id}]],[[${book.name}]])">删除</a>
         </td>
     </tr>
 </table>
@@ -56,8 +60,17 @@
     function showUpdateBookPage(id) {
         window.location.href = "../book/showUpdateBookPage?bookID=" + id;
     }
-    function addShoppingCart(id) {
-        window.location.href = "../book/addShoppingCart?bookID=" + id;
+    function downloadBook(id,name) {
+        var result = confirm("确认要下载" + name + "吗?");
+        if (result) {
+            window.location.href = "../file/downloadBook?bookID=" + id;
+        }
+    }
+    function deleteBook (id,name) {
+        var result = confirm("确认要删除" + name + "吗?");
+        if (result) {
+            window.location.href = "../book/deleteBook?bookID=" + id;
+        }
     }
 </script>
 </body>

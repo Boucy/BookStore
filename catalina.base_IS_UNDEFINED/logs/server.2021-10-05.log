@@ -4581,3 +4581,184 @@ java.lang.NullPointerException: null
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.lang.Thread.run(Thread.java:748)
 2021-10-05 15:20:18.864 [SpringApplicationShutdownHook] INFO  com.alibaba.druid.pool.DruidDataSource -{dataSource-1} closed
+2021-10-05 15:20:50.468 [restartedMain] INFO  com.boucy.BookStoreApplication -Starting BookStoreApplication using Java 1.8.0_291 on Boucy with PID 12504 (D:\ideaProject\BookStore\target\classes started by 64901 in D:\ideaProject\BookStore)
+2021-10-05 15:20:50.471 [restartedMain] INFO  com.boucy.BookStoreApplication -No active profile set, falling back to default profiles: default
+2021-10-05 15:20:50.528 [restartedMain] INFO  o.s.b.d.env.DevToolsPropertyDefaultsPostProcessor -Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-10-05 15:20:50.528 [restartedMain] INFO  o.s.b.d.env.DevToolsPropertyDefaultsPostProcessor -For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2021-10-05 15:20:51.743 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer -Tomcat initialized with port(s): 8080 (http)
+2021-10-05 15:20:51.751 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol -Initializing ProtocolHandler ["http-nio-8080"]
+2021-10-05 15:20:51.752 [restartedMain] INFO  org.apache.catalina.core.StandardService -Starting service [Tomcat]
+2021-10-05 15:20:51.752 [restartedMain] INFO  org.apache.catalina.core.StandardEngine -Starting Servlet engine: [Apache Tomcat/9.0.53]
+2021-10-05 15:20:51.813 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/bookstore] -Initializing Spring embedded WebApplicationContext
+2021-10-05 15:20:51.814 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext -Root WebApplicationContext: initialization completed in 1285 ms
+2021-10-05 15:20:51.912 [restartedMain] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure -Init DruidDataSource
+2021-10-05 15:20:52.024 [restartedMain] ERROR com.alibaba.druid.filter.FilterManager -load filter error, filter not found : stal
+2021-10-05 15:20:52.206 [restartedMain] INFO  com.alibaba.druid.pool.DruidDataSource -{dataSource-1} inited
+2021-10-05 15:20:52.360 [restartedMain] WARN  c.b.mybatisplus.core.metadata.TableInfoHelper -Can not find table primary key in Class: "com.boucy.pojo.BookComments".
+2021-10-05 15:20:52.405 [restartedMain] WARN  c.b.mybatisplus.core.metadata.TableInfoHelper -This "id" is the table primary key by default name for `id` in Class: "com.boucy.pojo.Book",So @TableField will not work!
+2021-10-05 15:20:52.435 [restartedMain] WARN  c.b.mybatisplus.core.metadata.TableInfoHelper -Can not find table primary key in Class: "com.boucy.pojo.BookShoppingCart".
+2021-10-05 15:20:52.456 [restartedMain] WARN  c.b.mybatisplus.core.metadata.TableInfoHelper -This "id" is the table primary key by default name for `id` in Class: "com.boucy.pojo.BookType",So @TableField will not work!
+2021-10-05 15:20:53.070 [restartedMain] WARN  c.b.mybatisplus.core.metadata.TableInfoHelper -Can not find table primary key in Class: "com.boucy.pojo.BookCollection".
+2021-10-05 15:20:53.087 [restartedMain] WARN  c.b.mybatisplus.core.metadata.TableInfoHelper -This "id" is the table primary key by default name for `id` in Class: "com.boucy.pojo.User",So @TableField will not work!
+2021-10-05 15:20:53.109 [restartedMain] WARN  c.b.mybatisplus.core.metadata.TableInfoHelper -Can not find table primary key in Class: "com.boucy.pojo.BookPosses".
+2021-10-05 15:20:53.351 [restartedMain] INFO  o.s.b.a.web.servlet.WelcomePageHandlerMapping -Adding welcome page template: index
+2021-10-05 15:20:53.472 [restartedMain] INFO  o.s.b.d.autoconfigure.OptionalLiveReloadServer -LiveReload server is running on port 35729
+2021-10-05 15:20:53.500 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol -Starting ProtocolHandler ["http-nio-8080"]
+2021-10-05 15:20:53.512 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer -Tomcat started on port(s): 8080 (http) with context path '/bookstore'
+2021-10-05 15:20:53.522 [restartedMain] INFO  com.boucy.BookStoreApplication -Started BookStoreApplication in 3.613 seconds (JVM running for 4.973)
+2021-10-05 15:21:07.356 [http-nio-8080-exec-2] INFO  o.a.c.c.C.[Tomcat].[localhost].[/bookstore] -Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-10-05 15:21:07.356 [http-nio-8080-exec-2] INFO  org.springframework.web.servlet.DispatcherServlet -Initializing Servlet 'dispatcherServlet'
+2021-10-05 15:21:07.357 [http-nio-8080-exec-2] INFO  org.springframework.web.servlet.DispatcherServlet -Completed initialization in 1 ms
+2021-10-05 15:21:07.425 [http-nio-8080-exec-2] DEBUG com.boucy.mapper.BookTypeMapper.selectList -==>  Preparing: SELECT id,type FROM book_type
+2021-10-05 15:21:07.519 [http-nio-8080-exec-2] DEBUG com.boucy.mapper.BookTypeMapper.selectList -==> Parameters: 
+2021-10-05 15:21:07.551 [http-nio-8080-exec-2] DEBUG com.boucy.mapper.BookTypeMapper.selectList -<==      Total: 11
+2021-10-05 15:21:13.069 [http-nio-8080-exec-5] DEBUG com.boucy.mapper.BookMapper.selectList -==>  Preparing: SELECT id,name,author,isbn,publication_date,type,price,sales,good,bad,introduction,photo_name,photo_type,file_name,file_type FROM book WHERE (type = ?)
+2021-10-05 15:21:13.092 [http-nio-8080-exec-5] DEBUG com.boucy.mapper.BookMapper.selectList -==> Parameters: 1(String)
+2021-10-05 15:21:13.097 [http-nio-8080-exec-5] DEBUG com.boucy.mapper.BookMapper.selectList -<==      Total: 2
+2021-10-05 15:21:14.254 [http-nio-8080-exec-6] DEBUG com.boucy.mapper.BookMapper.selectOne -==>  Preparing: SELECT id,name,author,isbn,publication_date,type,price,sales,good,bad,introduction,photo_name,photo_type,file_name,file_type FROM book WHERE (id = ?)
+2021-10-05 15:21:14.255 [http-nio-8080-exec-6] DEBUG com.boucy.mapper.BookMapper.selectOne -==> Parameters: 1(String)
+2021-10-05 15:21:14.258 [http-nio-8080-exec-6] DEBUG com.boucy.mapper.BookMapper.selectOne -<==      Total: 1
+2021-10-05 15:21:14.260 [http-nio-8080-exec-6] DEBUG com.boucy.mapper.BookTypeMapper.selectOne -==>  Preparing: SELECT id,type FROM book_type WHERE (id = ?)
+2021-10-05 15:21:14.260 [http-nio-8080-exec-6] DEBUG com.boucy.mapper.BookTypeMapper.selectOne -==> Parameters: 1(String)
+2021-10-05 15:21:14.261 [http-nio-8080-exec-6] DEBUG com.boucy.mapper.BookTypeMapper.selectOne -<==      Total: 1
+2021-10-05 15:21:15.993 [http-nio-8080-exec-7] DEBUG com.boucy.mapper.BookMapper.selectOne -==>  Preparing: SELECT id,name,author,isbn,publication_date,type,price,sales,good,bad,introduction,photo_name,photo_type,file_name,file_type FROM book WHERE (id = ?)
+2021-10-05 15:21:15.994 [http-nio-8080-exec-7] DEBUG com.boucy.mapper.BookMapper.selectOne -==> Parameters: 1(String)
+2021-10-05 15:21:15.996 [http-nio-8080-exec-7] DEBUG com.boucy.mapper.BookMapper.selectOne -<==      Total: 1
+2021-10-05 15:21:17.735 [http-nio-8080-exec-8] DEBUG com.boucy.mapper.BookTypeMapper.selectList -==>  Preparing: SELECT id,type FROM book_type
+2021-10-05 15:21:17.735 [http-nio-8080-exec-8] DEBUG com.boucy.mapper.BookTypeMapper.selectList -==> Parameters: 
+2021-10-05 15:21:17.738 [http-nio-8080-exec-8] DEBUG com.boucy.mapper.BookTypeMapper.selectList -<==      Total: 11
+2021-10-05 15:23:42.763 [http-nio-8080-exec-1] DEBUG com.boucy.mapper.BookMapper.selectList -==>  Preparing: SELECT id,name,author,isbn,publication_date,type,price,sales,good,bad,introduction,photo_name,photo_type,file_name,file_type FROM book
+2021-10-05 15:23:42.764 [http-nio-8080-exec-1] DEBUG com.boucy.mapper.BookMapper.selectList -==> Parameters: 
+2021-10-05 15:23:42.767 [http-nio-8080-exec-1] DEBUG com.boucy.mapper.BookMapper.selectList -<==      Total: 3
+2021-10-05 15:23:56.921 [http-nio-8080-exec-2] DEBUG com.boucy.mapper.BookMapper.selectList -==>  Preparing: SELECT id,name,author,isbn,publication_date,type,price,sales,good,bad,introduction,photo_name,photo_type,file_name,file_type FROM book
+2021-10-05 15:23:56.921 [http-nio-8080-exec-2] DEBUG com.boucy.mapper.BookMapper.selectList -==> Parameters: 
+2021-10-05 15:23:56.923 [http-nio-8080-exec-2] DEBUG com.boucy.mapper.BookMapper.selectList -<==      Total: 3
+2021-10-05 15:24:45.614 [http-nio-8080-exec-3] ERROR o.a.c.c.C.[.[.[/bookstore].[dispatcherServlet] -Servlet.service() for servlet [dispatcherServlet] in context with path [/bookstore] threw exception [Request processing failed; nested exception is java.lang.NullPointerException] with root cause
+java.lang.NullPointerException: null
+	at com.boucy.service.impl.BookServiceImpl.addShoppingCart(BookServiceImpl.java:220)
+	at com.boucy.service.impl.BookServiceImpl$$FastClassBySpringCGLIB$$ea2ed0b4.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:688)
+	at com.boucy.service.impl.BookServiceImpl$$EnhancerBySpringCGLIB$$ae412fb.addShoppingCart(<generated>)
+	at com.boucy.controller.BookController.addShoppingCart(BookController.java:80)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1067)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:655)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at com.alibaba.druid.support.http.WebStatFilter.doFilter(WebStatFilter.java:123)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:540)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:357)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:382)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:893)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1726)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+2021-10-05 15:32:57.901 [SpringApplicationShutdownHook] INFO  com.alibaba.druid.pool.DruidDataSource -{dataSource-1} closed
+2021-10-05 15:33:04.752 [restartedMain] INFO  com.boucy.BookStoreApplication -Starting BookStoreApplication using Java 1.8.0_291 on Boucy with PID 4660 (D:\ideaProject\BookStore\target\classes started by 64901 in D:\ideaProject\BookStore)
+2021-10-05 15:33:04.756 [restartedMain] INFO  com.boucy.BookStoreApplication -No active profile set, falling back to default profiles: default
+2021-10-05 15:33:04.817 [restartedMain] INFO  o.s.b.d.env.DevToolsPropertyDefaultsPostProcessor -Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-10-05 15:33:04.819 [restartedMain] INFO  o.s.b.d.env.DevToolsPropertyDefaultsPostProcessor -For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2021-10-05 15:33:06.163 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer -Tomcat initialized with port(s): 8080 (http)
+2021-10-05 15:33:06.172 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol -Initializing ProtocolHandler ["http-nio-8080"]
+2021-10-05 15:33:06.172 [restartedMain] INFO  org.apache.catalina.core.StandardService -Starting service [Tomcat]
+2021-10-05 15:33:06.173 [restartedMain] INFO  org.apache.catalina.core.StandardEngine -Starting Servlet engine: [Apache Tomcat/9.0.53]
+2021-10-05 15:33:06.237 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/bookstore] -Initializing Spring embedded WebApplicationContext
+2021-10-05 15:33:06.237 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext -Root WebApplicationContext: initialization completed in 1418 ms
+2021-10-05 15:33:06.343 [restartedMain] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure -Init DruidDataSource
+2021-10-05 15:33:06.455 [restartedMain] ERROR com.alibaba.druid.filter.FilterManager -load filter error, filter not found : stal
+2021-10-05 15:33:06.648 [restartedMain] INFO  com.alibaba.druid.pool.DruidDataSource -{dataSource-1} inited
+2021-10-05 15:33:06.810 [restartedMain] WARN  c.b.mybatisplus.core.metadata.TableInfoHelper -Can not find table primary key in Class: "com.boucy.pojo.BookComments".
+2021-10-05 15:33:06.856 [restartedMain] WARN  c.b.mybatisplus.core.metadata.TableInfoHelper -This "id" is the table primary key by default name for `id` in Class: "com.boucy.pojo.Book",So @TableField will not work!
+2021-10-05 15:33:06.885 [restartedMain] WARN  c.b.mybatisplus.core.metadata.TableInfoHelper -Can not find table primary key in Class: "com.boucy.pojo.BookShoppingCart".
+2021-10-05 15:33:06.908 [restartedMain] WARN  c.b.mybatisplus.core.metadata.TableInfoHelper -This "id" is the table primary key by default name for `id` in Class: "com.boucy.pojo.BookType",So @TableField will not work!
+2021-10-05 15:33:07.534 [restartedMain] WARN  c.b.mybatisplus.core.metadata.TableInfoHelper -Can not find table primary key in Class: "com.boucy.pojo.BookCollection".
+2021-10-05 15:33:07.553 [restartedMain] WARN  c.b.mybatisplus.core.metadata.TableInfoHelper -This "id" is the table primary key by default name for `id` in Class: "com.boucy.pojo.User",So @TableField will not work!
+2021-10-05 15:33:07.577 [restartedMain] WARN  c.b.mybatisplus.core.metadata.TableInfoHelper -Can not find table primary key in Class: "com.boucy.pojo.BookPosses".
+2021-10-05 15:33:07.835 [restartedMain] INFO  o.s.b.a.web.servlet.WelcomePageHandlerMapping -Adding welcome page template: index
+2021-10-05 15:33:07.959 [restartedMain] INFO  o.s.b.d.autoconfigure.OptionalLiveReloadServer -LiveReload server is running on port 35729
+2021-10-05 15:33:07.989 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol -Starting ProtocolHandler ["http-nio-8080"]
+2021-10-05 15:33:08.003 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer -Tomcat started on port(s): 8080 (http) with context path '/bookstore'
+2021-10-05 15:33:08.014 [restartedMain] INFO  com.boucy.BookStoreApplication -Started BookStoreApplication in 3.8 seconds (JVM running for 5.168)
+2021-10-05 15:33:14.132 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/bookstore] -Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-10-05 15:33:14.132 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet -Initializing Servlet 'dispatcherServlet'
+2021-10-05 15:33:14.133 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet -Completed initialization in 1 ms
+2021-10-05 15:33:14.201 [http-nio-8080-exec-1] DEBUG com.boucy.mapper.BookTypeMapper.selectList -==>  Preparing: SELECT id,type FROM book_type
+2021-10-05 15:33:14.293 [http-nio-8080-exec-1] DEBUG com.boucy.mapper.BookTypeMapper.selectList -==> Parameters: 
+2021-10-05 15:33:14.319 [http-nio-8080-exec-1] DEBUG com.boucy.mapper.BookTypeMapper.selectList -<==      Total: 11
+2021-10-05 15:33:18.608 [http-nio-8080-exec-4] DEBUG com.boucy.mapper.BookMapper.selectList -==>  Preparing: SELECT id,name,author,isbn,publication_date,type,price,sales,good,bad,introduction,photo_name,photo_type,file_name,file_type FROM book
+2021-10-05 15:33:18.610 [http-nio-8080-exec-4] DEBUG com.boucy.mapper.BookMapper.selectList -==> Parameters: 
+2021-10-05 15:33:18.615 [http-nio-8080-exec-4] DEBUG com.boucy.mapper.BookMapper.selectList -<==      Total: 3
+2021-10-05 15:36:13.225 [SpringApplicationShutdownHook] INFO  com.alibaba.druid.pool.DruidDataSource -{dataSource-1} closed
+2021-10-05 15:36:17.282 [restartedMain] INFO  com.boucy.BookStoreApplication -Starting BookStoreApplication using Java 1.8.0_291 on Boucy with PID 19156 (D:\ideaProject\BookStore\target\classes started by 64901 in D:\ideaProject\BookStore)
+2021-10-05 15:36:17.285 [restartedMain] INFO  com.boucy.BookStoreApplication -No active profile set, falling back to default profiles: default
+2021-10-05 15:36:17.361 [restartedMain] INFO  o.s.b.d.env.DevToolsPropertyDefaultsPostProcessor -Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-10-05 15:36:17.362 [restartedMain] INFO  o.s.b.d.env.DevToolsPropertyDefaultsPostProcessor -For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2021-10-05 15:36:18.684 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer -Tomcat initialized with port(s): 8080 (http)
+2021-10-05 15:36:18.692 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol -Initializing ProtocolHandler ["http-nio-8080"]
+2021-10-05 15:36:18.692 [restartedMain] INFO  org.apache.catalina.core.StandardService -Starting service [Tomcat]
+2021-10-05 15:36:18.693 [restartedMain] INFO  org.apache.catalina.core.StandardEngine -Starting Servlet engine: [Apache Tomcat/9.0.53]
+2021-10-05 15:36:18.755 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/bookstore] -Initializing Spring embedded WebApplicationContext
+2021-10-05 15:36:18.756 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext -Root WebApplicationContext: initialization completed in 1392 ms
+2021-10-05 15:36:18.855 [restartedMain] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure -Init DruidDataSource
+2021-10-05 15:36:18.965 [restartedMain] ERROR com.alibaba.druid.filter.FilterManager -load filter error, filter not found : stal
+2021-10-05 15:36:19.152 [restartedMain] INFO  com.alibaba.druid.pool.DruidDataSource -{dataSource-1} inited
+2021-10-05 15:36:19.313 [restartedMain] WARN  c.b.mybatisplus.core.metadata.TableInfoHelper -Can not find table primary key in Class: "com.boucy.pojo.BookComments".
+2021-10-05 15:36:19.361 [restartedMain] WARN  c.b.mybatisplus.core.metadata.TableInfoHelper -This "id" is the table primary key by default name for `id` in Class: "com.boucy.pojo.Book",So @TableField will not work!
+2021-10-05 15:36:19.392 [restartedMain] WARN  c.b.mybatisplus.core.metadata.TableInfoHelper -Can not find table primary key in Class: "com.boucy.pojo.BookShoppingCart".
+2021-10-05 15:36:19.414 [restartedMain] WARN  c.b.mybatisplus.core.metadata.TableInfoHelper -This "id" is the table primary key by default name for `id` in Class: "com.boucy.pojo.BookType",So @TableField will not work!
+2021-10-05 15:36:20.050 [restartedMain] WARN  c.b.mybatisplus.core.metadata.TableInfoHelper -Can not find table primary key in Class: "com.boucy.pojo.BookCollection".
+2021-10-05 15:36:20.067 [restartedMain] WARN  c.b.mybatisplus.core.metadata.TableInfoHelper -This "id" is the table primary key by default name for `id` in Class: "com.boucy.pojo.User",So @TableField will not work!
+2021-10-05 15:36:20.085 [restartedMain] WARN  c.b.mybatisplus.core.metadata.TableInfoHelper -Can not find table primary key in Class: "com.boucy.pojo.BookPosses".
+2021-10-05 15:36:20.349 [restartedMain] INFO  o.s.b.a.web.servlet.WelcomePageHandlerMapping -Adding welcome page template: index
+2021-10-05 15:36:20.481 [restartedMain] INFO  o.s.b.d.autoconfigure.OptionalLiveReloadServer -LiveReload server is running on port 35729
+2021-10-05 15:36:20.512 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol -Starting ProtocolHandler ["http-nio-8080"]
+2021-10-05 15:36:20.526 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer -Tomcat started on port(s): 8080 (http) with context path '/bookstore'
+2021-10-05 15:36:20.538 [restartedMain] INFO  com.boucy.BookStoreApplication -Started BookStoreApplication in 4.284 seconds (JVM running for 6.527)
+2021-10-05 15:36:26.991 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/bookstore] -Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-10-05 15:36:26.991 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet -Initializing Servlet 'dispatcherServlet'
+2021-10-05 15:36:26.992 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet -Completed initialization in 1 ms
+2021-10-05 15:36:27.071 [http-nio-8080-exec-1] DEBUG com.boucy.mapper.BookMapper.selectList -==>  Preparing: SELECT id,name,author,isbn,publication_date,type,price,sales,good,bad,introduction,photo_name,photo_type,file_name,file_type FROM book
+2021-10-05 15:36:27.157 [http-nio-8080-exec-1] DEBUG com.boucy.mapper.BookMapper.selectList -==> Parameters: 
+2021-10-05 15:36:27.183 [http-nio-8080-exec-1] DEBUG com.boucy.mapper.BookMapper.selectList -<==      Total: 3
+2021-10-05 15:36:45.182 [SpringApplicationShutdownHook] INFO  com.alibaba.druid.pool.DruidDataSource -{dataSource-1} closed

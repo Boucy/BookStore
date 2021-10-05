@@ -121,4 +121,9 @@ public class BookController {
     public String updateBook(String originBookID,Book book, HttpServletRequest request, HttpServletResponse response){
         return bookService.updateBook(originBookID,book,request,response);
     }
+
+    @RequestMapping("/deleteBook")
+    public String deleteBook(HttpServletRequest request, HttpServletResponse response){
+        return bookService.deleteBook(request,response);
+    }
 }

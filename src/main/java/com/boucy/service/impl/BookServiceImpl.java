@@ -214,6 +214,13 @@ public class BookServiceImpl extends ServiceImpl<BookMapper, Book> implements Bo
     }
 
     @Override
+    public String deleteBook(HttpServletRequest request, HttpServletResponse response) {
+        String bookID = request.getParameter("bookID");
+        bookMapper.delete(new QueryWrapper<Book>().eq("id",bookID));
+        return "redirect:../manager/showBookManagement";
+    }
+
+    @Override
     public String addShoppingCart(HttpServletRequest request, HttpServletResponse response) {
         String bookID = request.getParameter("bookID");
         User user = (User) request.getSession().getAttribute("user");
