@@ -32,10 +32,10 @@
     <hr/>
 </div>
 <br/>
-<button th:onclick="jumpUpdateUserInfo()">修改资料</button>
+<button th:onclick="jumpUpdateUserInfo([[${user.id}]])">修改资料</button>
 <script>
-    function jumpUpdateUserInfo() {
-            window.location.href = "../user/jumpUpdateUserInfo";
+    function jumpUpdateUserInfo(id) {
+            window.location.href = "../user/jumpUpdateUserInfo?userID="+id;
     }
 </script>
 </body>

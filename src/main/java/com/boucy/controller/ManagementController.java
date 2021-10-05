@@ -29,4 +29,14 @@ public class ManagementController {
         return bookService.showBookManagement(map,request,response);
     }
 
+    @RequestMapping("/showUserManagement")
+    public String showUserManagement(Map<String, Object> map, HttpServletRequest request, HttpServletResponse response){
+        return userService.showUserManagement(map,request,response);
+    }
+
+    @RequestMapping("/showPurchaseManagement")
+    public String showPurchaseManagement(Map<String, Object> map, HttpServletRequest request, HttpServletResponse response){
+        return userService.showPurchaseManagement(map,request,response);
+    }
+
 }

@@ -21,16 +21,16 @@
     <tr>
         <th>序号</th>
         <th>订单号</th>
-        <th>图书名</th>
+        <th>图书</th>
         <th>购买时间</th>
         <th>购买价格</th>
-        <th>详情</th>
+        <th>图书详情</th>
     </tr>
     <tr th:each="record,i:${purchaseRecordList}">
         <td th:text="${i.count}"></td>
         <td th:text="${record.id}"></td>
-        <td th:text="${record.bookid}"></td>
-        <td th:text="${#dates.format(record.purchaseDate,'yyyy-MM')}"></td>
+        <td th:text="${record.book.name}"></td>
+        <td th:text="${#dates.format(record.purchaseDate,'yyyy-MM-dd hh-mm-ss')}"></td>
         <td th:text="${record.price}"></td>
         <td>
             <a href="javascript:void(0)" th:onclick="bookDetails([[${record.bookid}]])">图书详情</a>

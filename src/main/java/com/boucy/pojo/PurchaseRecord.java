@@ -25,4 +25,7 @@ public class PurchaseRecord {
     private Date purchaseDate;
     @TableField("price")
     private Double price;
+
+    @TableField(exist = false)
+    private Book book;
 }

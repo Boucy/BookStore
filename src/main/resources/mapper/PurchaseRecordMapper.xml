@@ -4,4 +4,43 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.boucy.mapper.PurchaseRecordMapper">
 
+    <resultMap id="purchaseRecordJoinBook" type="purchaseRecord">
+        <id column="id" property="id"></id>
+        <result column="user_id" property="userid"></result>
+        <result column="book_id" property="bookid"></result>
+        <result column="purchase_date" property="purchaseDate"></result>
+        <result column="price" property="price"></result>
+
+        <association property="book">
+            <id column="id" property="id"></id>
+            <!--    如果不是主键 用result-->
+            <result column="id" property="id"></result>
+            <result column="name" property="name"></result>
+            <result column="author" property="author"></result>
+            <result column="isbn" property="isbn"></result>
+            <result column="publication_date" property="publicationDate"></result>
+            <result column="type" property="type"></result>
+            <result column="price" property="price"></result>
+            <result column="sales" property="sales"></result>
+            <result column="good" property="good"></result>
+            <result column="bad" property="bad"></result>
+            <result column="introduction" property="introduction"></result>
+            <result column="photo_name" property="photoName"></result>
+            <result column="photo_type" property="photoType"></result>
+            <result column="file_name" property="fileName"></result>
+            <result column="file_type" property="fileType"></result>
+        </association>
+    </resultMap>
+
+    <select id="findPurchaseJoinBookByUserID" resultMap="purchaseRecordJoinBook">
+        SELECT *
+        FROM purchase_record pc
+                 LEFT JOIN book b ON pc.book_id = b.id
+        WHERE user_id = #{userid}
+    </select>
+    <select id="findAllPurchaseJoinBook" resultMap="purchaseRecordJoinBook">
+        SELECT *
+        FROM purchase_record pc
+                 LEFT JOIN book b ON pc.book_id = b.id
+    </select>
 </mapper>

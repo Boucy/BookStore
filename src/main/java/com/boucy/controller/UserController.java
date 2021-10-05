@@ -111,4 +111,9 @@ public class UserController {
     public String jumpAdmin(Map<String, Object> map, HttpServletRequest request, HttpServletResponse response){
         return "administrator";
     }
+
+    @RequestMapping("/deleteUser")
+    public String deleteUser(HttpServletRequest request, HttpServletResponse response){
+        return userService.deleteUser(request,response);
+    }
 }

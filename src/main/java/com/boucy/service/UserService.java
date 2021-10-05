@@ -18,6 +18,12 @@ public interface UserService extends IService<User> {
 
     String jumpUpdateUserInfo(Map<String,Object> map,HttpServletRequest request);
 
-    String showPurchaseRecord(Map<String, Object> map, HttpServletRequest request, HttpServletResponse response);
 
+    String showUserManagement(Map<String, Object> map, HttpServletRequest request, HttpServletResponse response);
+
+    String deleteUser(HttpServletRequest request, HttpServletResponse response);
+
+    String showPurchaseManagement(Map<String, Object> map, HttpServletRequest request, HttpServletResponse response);
+
+    String showPurchaseRecord(Map<String, Object> map, HttpServletRequest request, HttpServletResponse response);
 }

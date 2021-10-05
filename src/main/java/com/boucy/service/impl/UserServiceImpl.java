@@ -28,9 +28,9 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
     @Override
     public String userRegister(User user) {
         QueryWrapper<User> queryWrapper = new QueryWrapper<>();
-        queryWrapper.eq("id",user.getId());
+        queryWrapper.eq("id", user.getId());
         User one = userMapper.selectOne(queryWrapper);
-        if(one!=null){
+        if (one != null) {
             return "registerFail";
         }
         userMapper.insert(user);
@@ -39,24 +39,36 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
 
     @Override
     public String showUserInfo(Map<String, Object> map, HttpServletRequest request, HttpServletResponse response) {
-        User user = (User) request.getSession().getAttribute("user");
-        map.put("user",user);
+        User user;
+        String userID = request.getParameter("userID");
+        if (userID == null || userID == "") {
+            user = (User) request.getSession().getAttribute("user");
+        } else {
+            user = userMapper.selectOne(new QueryWrapper<User>().eq("id", userID));
+        }
+        map.put("user", user);
         return "userInfo";
     }
 
     @Override
     public String updateUserInfo(User user, HttpServletRequest request, HttpServletResponse response) {
-        request.getSession().setAttribute("user",user);
+        request.getSession().setAttribute("user", user);
         QueryWrapper<User> userQueryWrapper = new QueryWrapper<>();
-        userQueryWrapper.eq("id",user.getId());
-        userMapper.update(user,userQueryWrapper);
+        userQueryWrapper.eq("id", user.getId());
+        userMapper.update(user, userQueryWrapper);
         return "redirect:/user/showUserInfo";
     }
 
     @Override
-    public String jumpUpdateUserInfo(Map<String,Object> map,HttpServletRequest request) {
-        User user = (User)request.getSession().getAttribute("user");
-        map.put("user",user);
+    public String jumpUpdateUserInfo(Map<String, Object> map, HttpServletRequest request) {
+        User user;
+        String userID = request.getParameter("userID");
+        if (userID == null || userID == "") {
+            user = (User) request.getSession().getAttribute("user");
+        } else {
+            user = userMapper.selectOne(new QueryWrapper<User>().eq("id", userID));
+        }
+        map.put("user", user);
         return "updateUserInfoPage";
     }
 
@@ -64,10 +76,29 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
     public String showPurchaseRecord(Map<String, Object> map, HttpServletRequest request, HttpServletResponse response) {
         User user = (User) request.getSession().getAttribute("user");
         Integer userid = user.getId();
-        QueryWrapper<PurchaseRecord> purchaseRecordQueryWrapper = new QueryWrapper<>();
-        purchaseRecordQueryWrapper.eq("user_id",userid);
-        List<PurchaseRecord> purchaseRecordList = purchaseRecordMapper.selectList(purchaseRecordQueryWrapper);
-        map.put("purchaseRecordList",purchaseRecordList);
+        List<PurchaseRecord> purchaseRecordList = purchaseRecordMapper.findPurchaseJoinBookByUserID(userid);
+        map.put("purchaseRecordList", purchaseRecordList);
         return "purchaseRecord";
+    }
+
+    @Override
+    public String showUserManagement(Map<String, Object> map, HttpServletRequest request, HttpServletResponse response) {
+        List<User> userList = userMapper.selectList(null);
+        map.put("userList", userList);
+        return "purchaseRecordManagement";
+    }
+
+    @Override
+    public String deleteUser(HttpServletRequest request, HttpServletResponse response) {
+        String userID = request.getParameter("userID");
+        userMapper.delete(new QueryWrapper<User>().eq("id",userID));
+        return "redirect:../manager/showUserManagement";
+    }
+
+    @Override
+    public String showPurchaseManagement(Map<String, Object> map, HttpServletRequest request, HttpServletResponse response) {
+        List<PurchaseRecord> purchaseRecordList = purchaseRecordMapper.findAllPurchaseJoinBook();
+        map.put("purchaseRecordList",purchaseRecordList);
+        return "purchaseRecordManagement";
     }
 }

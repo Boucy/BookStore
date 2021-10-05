@@ -29,6 +29,8 @@ public class BookServiceImpl extends ServiceImpl<BookMapper, Book> implements Bo
     private BookPossesMapper bookPossesMapper;
     @Autowired
     private PurchaseRecordMapper purchaseRecordMapper;
+    @Autowired
+    private BookCommentsMapper bookCommentsMapper;
 
     @Override
     public String bookSearchByTypeID(Map<String, Object> map, HttpServletRequest request, HttpServletResponse response) {
@@ -156,7 +158,7 @@ public class BookServiceImpl extends ServiceImpl<BookMapper, Book> implements Bo
             userMapper.update(user, userQueryWrapper);
             bookPossesMapper.insert(new BookPosses(user.getId(), Integer.parseInt(bookID)));
             request.getSession().setAttribute("user", user);
-            purchaseRecordMapper.insert(new PurchaseRecord(null, user.getId(), book.getId(), new Date(), book.getPrice()));
+            purchaseRecordMapper.insert(new PurchaseRecord(null, user.getId(), book.getId(), new Date(), book.getPrice(),null));
             return "redirect:../book/personalBook";
         } else {
             return "purchaseFail";
@@ -195,7 +197,6 @@ public class BookServiceImpl extends ServiceImpl<BookMapper, Book> implements Bo
     public String showBookManagement(Map<String, Object> map, HttpServletRequest request, HttpServletResponse response) {
         List<Book> bookList = bookMapper.selectList(null);
         map.put("bookList", bookList);
-
         return "bookManagement";
     }
 
@@ -217,6 +218,10 @@ public class BookServiceImpl extends ServiceImpl<BookMapper, Book> implements Bo
     public String deleteBook(HttpServletRequest request, HttpServletResponse response) {
         String bookID = request.getParameter("bookID");
         bookMapper.delete(new QueryWrapper<Book>().eq("id",bookID));
+        bookCollectionMapper.delete(new QueryWrapper<BookCollection>().eq("book_id",bookID));
+        bookCommentsMapper.delete(new QueryWrapper<BookComments>().eq("book_id",bookID));
+        bookPossesMapper.delete(new QueryWrapper<BookPosses>().eq("book_id",bookID));
+        bookShoppingCartMapper.delete(new QueryWrapper<BookShoppingCart>().eq("book_id",bookID));
         return "redirect:../manager/showBookManagement";
     }
 
