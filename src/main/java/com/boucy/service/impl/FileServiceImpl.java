@@ -2,7 +2,10 @@ package com.boucy.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.boucy.mapper.BookMapper;
+import com.boucy.mapper.BookPossesMapper;
 import com.boucy.pojo.Book;
+import com.boucy.pojo.BookPosses;
+import com.boucy.pojo.User;
 import com.boucy.service.FileService;
 import com.sun.jersey.api.client.Client;
 import com.sun.jersey.api.client.WebResource;
@@ -19,6 +22,7 @@ import java.io.InputStream;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
@@ -33,9 +37,11 @@ public class FileServiceImpl implements FileService {
 
     @Autowired
     private BookMapper bookMapper;
+    @Autowired
+    private BookPossesMapper bookPossesMapper;
 
     @Override
-    public void downloadBook(HttpServletRequest request,HttpServletResponse response) throws IOException {
+    public void downloadBook(HttpServletRequest request, HttpServletResponse response) throws IOException {
         String bookid = request.getParameter("bookID");
         Book book = bookMapper.selectOne(new QueryWrapper<Book>().eq("id", bookid));
         String fileName = book.getFileName();
@@ -44,7 +50,7 @@ public class FileServiceImpl implements FileService {
 //        告诉浏览器要将数据保存到磁盘上，不在浏览器上直接解析
         response.setHeader("Content-Disposition", "attachment;filename=" + fileName);
 //        告诉浏览器下载类型
-        response.setContentType(book.getFileType());
+        response.setContentType(fileType);
 //        获取文件一个输入流
         InputStream inputStream = new URL(BOOKFILESERVER + fileName).openStream();
 //        获取一个指向浏览器的输出流
@@ -150,8 +156,8 @@ public class FileServiceImpl implements FileService {
         String extendName = originalFilename.substring(originalFilename.lastIndexOf("."));
 
 //        控制文件上传类型
-        if(!extendName.equals(".pdf")){
-            map.put("message","文件类型必须是.pdf");
+        if (!extendName.equals(".pdf")) {
+            map.put("message", "文件类型必须是.pdf");
             return map;
         }
 
@@ -171,5 +177,22 @@ public class FileServiceImpl implements FileService {
 //        附加文件类型
         map.put("fileType", bookFile.getContentType());
         return map;
+    }
+
+    @Override
+    public boolean checkDownloadBook(HttpServletRequest request, HttpServletResponse response) {
+        String bookid = request.getParameter("bookID");
+        Book book = bookMapper.selectOne(new QueryWrapper<Book>().eq("id", bookid));
+        User user = (User) request.getSession().getAttribute("user");
+        if(user==null){
+            return false;
+        }
+        Integer userId = user.getId();
+        List<BookPosses> bookPosses = bookPossesMapper.selectList(new QueryWrapper<BookPosses>().eq("user_id", userId).eq("book_id", bookid));
+        if(bookPosses.size()==0) {
+            return false;
+        }else{
+            return true;
+        }
     }
 }

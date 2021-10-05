@@ -16,4 +16,6 @@ public interface FileService {
     Map<String, String> bookPhotoUpload(MultipartFile bookPhoto, HttpServletRequest request) throws IOException;
 
     Map<String, String> bookUpload(MultipartFile bookFile, HttpServletRequest request) throws IOException;
+
+    boolean checkDownloadBook(HttpServletRequest request, HttpServletResponse response);
 }

@@ -41,24 +41,27 @@ public class FileController {
     @RequestMapping("/headPhotoUpload")
     @ResponseBody
     public Map<String, String> uploadHeadPhoto(MultipartFile headPhoto, HttpServletRequest request) throws IOException {
-        return fileService.uploadHeadPhoto(headPhoto,request);
+        return fileService.uploadHeadPhoto(headPhoto, request);
     }
 
     @RequestMapping("/bookPhotoUpload")
     @ResponseBody
     public Map<String, String> bookPhotoUpload(MultipartFile bookPhoto, HttpServletRequest request) throws IOException {
-        return fileService.bookPhotoUpload(bookPhoto,request);
+        return fileService.bookPhotoUpload(bookPhoto, request);
     }
 
     @RequestMapping("/bookUpload")
     @ResponseBody
     public Map<String, String> bookUpload(MultipartFile bookFile, HttpServletRequest request) throws IOException {
-        return fileService.bookUpload(bookFile,request);
+        return fileService.bookUpload(bookFile, request);
     }
 
     @RequestMapping("/downloadBook")
-    public void downloadBook(HttpServletRequest request,HttpServletResponse response) throws IOException {
-        fileService.downloadBook(request,response);
+    public void downloadBook(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        boolean checkDownloadBook = fileService.checkDownloadBook(request, response);
+        if (checkDownloadBook == true) {
+            fileService.downloadBook(request, response);
+        }
     }
 
 }
