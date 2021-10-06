@@ -8,6 +8,7 @@ import com.boucy.service.BookService;
 import com.boucy.service.BookTypeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -143,6 +144,7 @@ public class BookServiceImpl extends ServiceImpl<BookMapper, Book> implements Bo
     }
 
     @Override
+    @Transactional
     public String purchaseBook(HttpServletRequest request, HttpServletResponse response) {
         String bookID = request.getParameter("bookID");
         QueryWrapper<Book> bookQueryWrapper = new QueryWrapper<>();
@@ -232,6 +234,7 @@ public class BookServiceImpl extends ServiceImpl<BookMapper, Book> implements Bo
     }
 
     @Override
+    @Transactional
     public String purchaseMultpleBook(String[] booksID, HttpServletRequest request, HttpServletResponse response) {
         List<String> bookIDList = Arrays.asList(booksID);
         Iterator<String> iterator = bookIDList.iterator();
