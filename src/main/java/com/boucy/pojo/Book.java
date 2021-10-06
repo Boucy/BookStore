@@ -1,6 +1,8 @@
 package com.boucy.pojo;
 
+import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -15,7 +17,7 @@ import java.util.List;
 @Data
 @TableName("book")
 public class Book {
-    @TableField("id")
+    @TableId(value = "id",type = IdType.AUTO)
     private Integer id;
     @TableField("name")
     private String name;
@@ -46,6 +48,7 @@ public class Book {
     private String fileName;
     @TableField("file_type")
     private String fileType;
+
     @TableField(exist = false)
     private List<BookComments> bookCommentsList;
 }

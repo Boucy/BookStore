@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>上架图书</title>
+    <style>
+        .progress {
+            width: 200px;
+            height: 10px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            margin: 10px 0px;
+            overflow: hidden;
+        }
+
+        /*    初始状态设置进度条宽度为0px*/
+        .progress > div {
+            width: 0px;
+            height: 100%;
+            background-color: yellowgreen;
+            transition: all .3s ease;
+        }
+    </style>
+    <script type="text/javascript" src="../js/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $("#uploadBookPhotoFile").click(function () {
+                //    获取要上传的文件
+                var photoFile = $("#bookPhoto")[0].files[0]
+                //ajax向后台发送文件
+                if (photoFile == undefined) {
+                    alert("您还未选中文件")
+                    return;
+                }
+                //    将文件装入FormData对象
+                var formData = new FormData();
+                formData.append("bookPhoto", photoFile)
+                //ajax向后台发送文件
+                $.ajax({
+                    type: "post",
+                    data: formData,
+                    url: "../file/bookPhotoUpload",
+                    processData: false,
+                    contentType: false,
+                    success: function (result) {
+                        //    接收后台响应的信息
+                        alert(result.message)
+                        //    图片回显
+                        $("#bookImg").attr("src", "http://127.0.0.1:8090/uploadBookPhoto/" + result.newFileName);
+                        //将文件类型和文件名放入form表单
+                        $("#bookPhotoInput").val(result.newFileName)
+                        $("#bookPhotoFileTypeInput").val(result.fileType)
+                    }
+                })
+            })
+        })
+    </script>
+
+    <script type="text/javascript">
+        $(function () {
+            $("#uploadBookFile").click(function () {
+                //    获取要上传的文件
+                var file = $("#bookFile")[0].files[0]
+                //ajax向后台发送文件
+                if (file == undefined) {
+                    alert("您还未选中文件")
+                    return;
+                }
+                //    将文件装入FormData对象
+                var formData = new FormData();
+                formData.append("bookFile", file)
+                //ajax向后台发送文件
+                $.ajax({
+                    type: "post",
+                    data: formData,
+                    url: "../file/bookUpload",
+                    processData: false,
+                    contentType: false,
+                    success: function (result) {
+                        //    接收后台响应的信息
+                        alert(result.message)
+                        //将文件类型和文件名放入form表单 i
+                        $("#bookInput").val(result.newFileName)
+                        $("#bookFileTypeInput").val(result.fileType)
+                    },
+                    xhr: function () {
+                        var xhr = new XMLHttpRequest();
+                        //    使用XMLHttpRequest.upload监听过程,注册progress事件，打印回调函数中的event事件
+                        xhr.upload.addEventListener('progress', function (e) {
+                            console.log(e);
+                            //    loaded代表上传了多少
+                            //    total代表总数为多少
+                            var progressRate = (e.loaded / e.total) * 100 + '%';
+                            //    通过设置进度条的宽度达到效果
+                            $('.progress > div').css('width', progressRate);
+                        })
+                        return xhr;
+                    }
+                })
+            })
+        })
+    </script>
+</head>
+<body>
+请填写信息
+<hr/>
+<form action="../book/addBook" method="post">
+    <p>封面：
+        <br/>
+        <input id="bookPhoto" type="file">
+        <!--        图片回显-->
+        <br/>
+        <img id="bookImg" style="width: 200px;height: 200px">
+        <br/>
+        <a id="uploadBookPhotoFile" href="javascript:void(0)">立即上传</a>
+    </p>
+    <hr/>
+    <p>图书文件（必须为pdf文件）：
+        <br/>
+        <input id="bookFile" type="file">
+        <br/>
+        <!--        进度条-->
+    <div class="progress">
+        <div></div>
+    </div>
+    <a id="uploadBookFile" href="javascript:void(0)">立即上传</a>
+    </p>
+    <hr/>
+    <p> 图书：<input type="text" name="name">
+    </p>
+    <p> 作者：<input type="text" name="author">
+    </p>
+    <p> ISBN：<input type="text" name="isbn">
+    </p>
+    <p> 出版日期：<input type="text" name="publicationDate">
+    </p>
+    <p> 类型：<input type="text" name="type">
+    </p>
+    <p> 价格：<input type="text" name="price">
+    </p>
+    <p> 销量：<input type="text" name="sales" value=0>
+    </p>
+    <p> 点赞：<input type="text" name="good" value=0>
+    </p>
+    <p> 点踩：<input type="text" name="bad" value=0>
+    </p>
+    <p> 简介：<input type="text" name="introduction">
+    </p>
+
+    <!--    使用隐藏的输入框存储文件名称和文件类型-->
+    <input id="bookPhotoInput" type="hidden" name="photoName">
+    <input id="bookPhotoFileTypeInput" type="hidden" name="photoType">
+    <input id="bookInput" type="hidden" name="fileName">
+    <input id="bookFileTypeInput" type="hidden" name="fileType">
+
+    <p><input type="submit" value="上架图书"></p>
+</form>
+</body>
+</html>

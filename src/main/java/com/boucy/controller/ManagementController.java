@@ -39,4 +39,8 @@ public class ManagementController {
         return userService.showPurchaseManagement(map,request,response);
     }
 
+    @RequestMapping("/showAddBookPage")
+    public String showAddBookPage(Map<String, Object> map, HttpServletRequest request, HttpServletResponse response){
+        return "addBookPage";
+    }
 }

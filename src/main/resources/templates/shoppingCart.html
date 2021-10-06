@@ -17,9 +17,11 @@
     </style>
 </head>
 <body>
+
 <table id="booksTable" cellpadding="0px" cellspacing="0px">
     <tr>
         <th>序号</th>
+        <th>BookID</th>
         <th>封面</th>
         <th>图书名</th>
         <th>作者</th>
@@ -28,10 +30,13 @@
         <th>购物车</th>
         <th>价格</th>
         <th>结算</th>
+        <th>多选</th>
     </tr>
     <tr th:each="book,i:${bookList}">
         <td th:text="${i.count}"></td>
-        <td><img th:src="@{'http://localhost:8080/bookstore/uploadBookPhoto/'+ ${book.photoName}}" height="100px" width="100px"></td>
+        <td th:text="${book.id}"></td>
+        <td><img th:src="@{'http://127.0.0.1:8090/uploadBookPhoto/'+ ${book.photoName}}" height="100px" width="100px">
+        </td>
         <td th:text="${book.name}"></td>
         <td th:text="${book.author}"></td>
         <td th:text="${book.isbn}"></td>
@@ -45,19 +50,32 @@
         <td>
             <a href="javascript:void(0)" th:onclick="purchaseBook([[${book.id}]])">购买</a>
         </td>
+        <td>
+            <form action="../book/purchaseMultpleBook" method="post">
+                <input type="checkbox" name="booksID"
+                       th:value="${book.id}"
+                       <br/>
+                <p><input type="submit" value="一并购买"></p>
+        </td>
     </tr>
 </table>
+
+</form>
+
+
 <script>
     function cancelShoppingCart(id) {
-        window.location.href="../book/cancelShoppingCart?bookID="+id;
+        window.location.href = "../book/cancelShoppingCart?bookID=" + id;
     }
+
     function bookDetails(id) {
-        window.location.href="../book/bookSearchByID?bookID="+id;
+        window.location.href = "../book/bookSearchByID?bookID=" + id;
     }
+
     function purchaseBook(id) {
-        var result = confirm("确认要购买"+id+"吗？");
+        var result = confirm("确认要购买" + id + "吗？");
         if (result) {
-            window.location.href = "../book/purchaseBook?bookID="+id;
+            window.location.href = "../book/purchaseBook?bookID=" + id;
         }
     }
 </script>

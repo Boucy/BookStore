@@ -226,6 +226,39 @@ public class BookServiceImpl extends ServiceImpl<BookMapper, Book> implements Bo
     }
 
     @Override
+    public String addBook(Book book, HttpServletRequest request, HttpServletResponse response) {
+        bookMapper.insert(book);
+        return "redirect:../manager/showBookManagement";
+    }
+
+    @Override
+    public String purchaseMultpleBook(String[] booksID, HttpServletRequest request, HttpServletResponse response) {
+        List<String> bookIDList = Arrays.asList(booksID);
+        Iterator<String> iterator = bookIDList.iterator();
+        while(iterator.hasNext()){
+            String bookID = iterator.next();
+            QueryWrapper<Book> bookQueryWrapper = new QueryWrapper<>();
+            bookQueryWrapper.eq("id", bookID);
+            Book book = bookMapper.selectOne(bookQueryWrapper);
+            User user = (User) request.getSession().getAttribute("user");
+            Double balance = user.getBalance();
+            Double price = book.getPrice();
+            if (balance >= price) {
+                QueryWrapper<User> userQueryWrapper = new QueryWrapper<>();
+                userQueryWrapper.eq("id", user.getId());
+                user.setBalance(balance - price);
+                userMapper.update(user, userQueryWrapper);
+                bookPossesMapper.insert(new BookPosses(user.getId(), Integer.parseInt(bookID)));
+                request.getSession().setAttribute("user", user);
+                purchaseRecordMapper.insert(new PurchaseRecord(null, user.getId(), book.getId(), new Date(), book.getPrice(),null));
+            } else {
+                return "purchaseFail";
+            }
+        }
+        return "redirect:../book/personalBook";
+    }
+
+    @Override
     public String addShoppingCart(HttpServletRequest request, HttpServletResponse response) {
         String bookID = request.getParameter("bookID");
         User user = (User) request.getSession().getAttribute("user");

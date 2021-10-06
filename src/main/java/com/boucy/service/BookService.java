@@ -41,4 +41,8 @@ public interface BookService extends IService<Book> {
     String updateBook(String originBookID,Book book, HttpServletRequest request, HttpServletResponse response);
 
     String deleteBook(HttpServletRequest request, HttpServletResponse response);
+
+    String addBook(Book book, HttpServletRequest request, HttpServletResponse response);
+
+    String purchaseMultpleBook(String[] booksID, HttpServletRequest request, HttpServletResponse response);
 }

@@ -112,6 +112,11 @@ public class BookController {
         return bookCommentsService.addComments(bookid,good,bad,comments,request,response);
     }
 
+    @RequestMapping("/addBook")
+    public String addBook(Book book,HttpServletRequest request, HttpServletResponse response){
+        return bookService.addBook(book,request,response);
+    }
+
     @RequestMapping("/showUpdateBookPage")
     public String showUpdateBookPage(Map<String,Object> map,HttpServletRequest request, HttpServletResponse response){
         return bookService.showUpdateBookPage(map,request,response);
@@ -125,5 +130,10 @@ public class BookController {
     @RequestMapping("/deleteBook")
     public String deleteBook(HttpServletRequest request, HttpServletResponse response){
         return bookService.deleteBook(request,response);
+    }
+
+    @RequestMapping("/purchaseMultpleBook")
+    public String purchaseMultpleBook(@RequestParam("booksID") String[] booksID,HttpServletRequest request, HttpServletResponse response){
+        return bookService.purchaseMultpleBook(booksID,request,response);
     }
 }
