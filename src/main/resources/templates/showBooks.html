@@ -32,6 +32,8 @@
         <th>详情</th>
         <th>收藏</th>
         <th>购物车</th>
+        <th>购买</th>
+        <th>多选</th>
     </tr>
     <tr th:each="book,i:${bookList}">
         <td th:text="${i.count}"></td>
@@ -54,8 +56,19 @@
         <td>
             <a href="javascript:void(0)" th:onclick="addShoppingCart([[${book.id}]])">加入购物车</a>
         </td>
+        <td>
+            <a href="javascript:void(0)" th:onclick="purchaseBook([[${book.id}]])">购买</a>
+        </td>
+        <td>
+            <form action="../book/purchaseMultpleBook" method="post">
+                <input type="checkbox" name="booksID"
+                       th:value="${book.id}"
+                <br/>
+                <p><input type="submit" value="一并购买"></p>
+        </td>
     </tr>
 </table>
+</form>
 
 <span style="margin-left: 10px">
             总共记录:

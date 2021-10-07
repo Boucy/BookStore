@@ -30,7 +30,7 @@
         <td th:text="${i.count}"></td>
         <td th:text="${record.id}"></td>
         <td th:text="${record.book.name}"></td>
-        <td th:text="${#dates.format(record.purchaseDate,'yyyy-MM-dd hh-mm-ss')}"></td>
+        <td th:text="${#dates.format(record.purchaseDate,'yyyy-MM-dd hh:mm:ss')}"></td>
         <td th:text="${record.price}"></td>
         <td>
             <a href="javascript:void(0)" th:onclick="bookDetails([[${record.bookid}]])">图书详情</a>
