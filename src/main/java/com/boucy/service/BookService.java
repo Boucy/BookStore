@@ -23,7 +23,6 @@ public interface BookService extends IService<Book> {
     String cancelCollect(HttpServletRequest request, HttpServletResponse response);
 
     String showCollect(Map<String,Object> map,HttpServletRequest request, HttpServletResponse response);
-
     String rankingList(Map<String, Object> map, HttpServletRequest request, HttpServletResponse response);
 
     String bookSearchByKey(Map<String, Object> map, HttpServletRequest request, HttpServletResponse response);

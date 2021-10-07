@@ -1,6 +1,7 @@
 package com.boucy.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.boucy.mapper.*;
 import com.boucy.pojo.*;
@@ -36,10 +37,21 @@ public class BookServiceImpl extends ServiceImpl<BookMapper, Book> implements Bo
     @Override
     public String bookSearchByTypeID(Map<String, Object> map, HttpServletRequest request, HttpServletResponse response) {
         QueryWrapper<Book> queryWrapper = new QueryWrapper<>();
-        String TypeID = request.getParameter("bookTypeID");
-        queryWrapper.eq("type", TypeID);
-        List<Book> bookList = bookMapper.selectList(queryWrapper);
+        String bookTypeID = request.getParameter("bookTypeID");
+        String index = request.getParameter("index");
+        queryWrapper.eq("type", bookTypeID);
+        Page<Book> page = bookMapper.selectPage(new Page<>(Integer.parseInt(index), 5), queryWrapper);
+        List<Book> bookList = page.getRecords();
+        map.put("bookTypeID",bookTypeID);
         map.put("bookList", bookList);
+//        总记录数
+        map.put("total", page.getTotal());
+//        总页数
+        map.put("pageCount", page.getPages());
+//        当前页
+        map.put("pageIndex", page.getCurrent());
+//        页大小
+        map.put("pageSize", page.getSize());
         return "showBooks";
     }
 
@@ -100,11 +112,22 @@ public class BookServiceImpl extends ServiceImpl<BookMapper, Book> implements Bo
 
     @Override
     public String rankingList(Map<String, Object> map, HttpServletRequest request, HttpServletResponse response) {
+        String index = request.getParameter("index");
         QueryWrapper<Book> queryWrapper = new QueryWrapper<>();
         queryWrapper.orderByDesc("sales");
-        List<Book> bookList = bookMapper.selectList(queryWrapper);
+        Page<Book> page = bookMapper.selectPage(new Page<>(Integer.parseInt(index), 5), queryWrapper);
+        List<Book> bookList = page.getRecords();
+//        页数据
         map.put("bookList", bookList);
-        return "showBooks";
+//        总记录数
+        map.put("total", page.getTotal());
+//        总页数
+        map.put("pageCount", page.getPages());
+//        当前页
+        map.put("pageIndex", page.getCurrent());
+//        页大小
+        map.put("pageSize", page.getSize());
+        return "showRankingList";
     }
 
     @Override
@@ -160,7 +183,7 @@ public class BookServiceImpl extends ServiceImpl<BookMapper, Book> implements Bo
             userMapper.update(user, userQueryWrapper);
             bookPossesMapper.insert(new BookPosses(user.getId(), Integer.parseInt(bookID)));
             request.getSession().setAttribute("user", user);
-            purchaseRecordMapper.insert(new PurchaseRecord(null, user.getId(), book.getId(), new Date(), book.getPrice(),null));
+            purchaseRecordMapper.insert(new PurchaseRecord(null, user.getId(), book.getId(), new Date(), book.getPrice(), null));
             return "redirect:../book/personalBook";
         } else {
             return "purchaseFail";
@@ -213,17 +236,17 @@ public class BookServiceImpl extends ServiceImpl<BookMapper, Book> implements Bo
     @Override
     public String updateBook(String originBookID, Book book, HttpServletRequest request, HttpServletResponse response) {
         bookMapper.update(book, new QueryWrapper<Book>().eq("id", originBookID));
-        return "redirect:../book/bookSearchByID?bookID="+originBookID;
+        return "redirect:../book/bookSearchByID?bookID=" + originBookID;
     }
 
     @Override
     public String deleteBook(HttpServletRequest request, HttpServletResponse response) {
         String bookID = request.getParameter("bookID");
-        bookMapper.delete(new QueryWrapper<Book>().eq("id",bookID));
-        bookCollectionMapper.delete(new QueryWrapper<BookCollection>().eq("book_id",bookID));
-        bookCommentsMapper.delete(new QueryWrapper<BookComments>().eq("book_id",bookID));
-        bookPossesMapper.delete(new QueryWrapper<BookPosses>().eq("book_id",bookID));
-        bookShoppingCartMapper.delete(new QueryWrapper<BookShoppingCart>().eq("book_id",bookID));
+        bookMapper.delete(new QueryWrapper<Book>().eq("id", bookID));
+        bookCollectionMapper.delete(new QueryWrapper<BookCollection>().eq("book_id", bookID));
+        bookCommentsMapper.delete(new QueryWrapper<BookComments>().eq("book_id", bookID));
+        bookPossesMapper.delete(new QueryWrapper<BookPosses>().eq("book_id", bookID));
+        bookShoppingCartMapper.delete(new QueryWrapper<BookShoppingCart>().eq("book_id", bookID));
         return "redirect:../manager/showBookManagement";
     }
 
@@ -238,7 +261,7 @@ public class BookServiceImpl extends ServiceImpl<BookMapper, Book> implements Bo
     public String purchaseMultpleBook(String[] booksID, HttpServletRequest request, HttpServletResponse response) {
         List<String> bookIDList = Arrays.asList(booksID);
         Iterator<String> iterator = bookIDList.iterator();
-        while(iterator.hasNext()){
+        while (iterator.hasNext()) {
             String bookID = iterator.next();
             QueryWrapper<Book> bookQueryWrapper = new QueryWrapper<>();
             bookQueryWrapper.eq("id", bookID);
@@ -253,7 +276,7 @@ public class BookServiceImpl extends ServiceImpl<BookMapper, Book> implements Bo
                 userMapper.update(user, userQueryWrapper);
                 bookPossesMapper.insert(new BookPosses(user.getId(), Integer.parseInt(bookID)));
                 request.getSession().setAttribute("user", user);
-                purchaseRecordMapper.insert(new PurchaseRecord(null, user.getId(), book.getId(), new Date(), book.getPrice(),null));
+                purchaseRecordMapper.insert(new PurchaseRecord(null, user.getId(), book.getId(), new Date(), book.getPrice(), null));
             } else {
                 return "purchaseFail";
             }

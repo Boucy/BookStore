@@ -35,7 +35,8 @@
     </tr>
     <tr th:each="book,i:${bookList}">
         <td th:text="${i.count}"></td>
-        <td><img th:src="@{'http://127.0.0.1:8090/uploadBookPhoto/'+ ${book.photoName}}" height="100px" width="100px"></td>
+        <td><img th:src="@{'http://127.0.0.1:8090/uploadBookPhoto/'+ ${book.photoName}}" height="100px" width="100px">
+        </td>
         <td th:text="${book.name}"></td>
         <td th:text="${book.author}"></td>
         <td th:text="${book.isbn}"></td>
@@ -55,15 +56,36 @@
         </td>
     </tr>
 </table>
+
+<span style="margin-left: 10px">
+            总共记录:
+    <a th:text="${total} "></a>
+条;共
+    <a th:text="${pageCount} "></a>
+页;第
+    <a th:text="${pageIndex} "></a>
+页；
+    <br/>
+    <a href="javascript:void(0)" th:onclick="doPageSubmit([[${bookTypeID}]],[[${pageIndex}-1]])" style="text-decoration: none">[上一页]</a>
+    <a href="javascript:void(0)" th:onclick="doPageSubmit([[${bookTypeID}]],[[${pageIndex}+1]])" style="text-decoration: none">[下一页]</a>
+
+</span>
+
 <script>
+    function doPageSubmit(bookTypeID,index) {
+        window.location.href = "../book/bookSearchByTypeID?index="+index+"&bookTypeID="+bookTypeID;
+    }
+
     function bookDetails(id) {
-        window.location.href="../book/bookSearchByID?bookID="+id;
+        window.location.href = "../book/bookSearchByID?bookID=" + id;
     }
+
     function collect(id) {
-            window.location.href = "../book/collect?bookID=" + id;
+        window.location.href = "../book/collect?bookID=" + id;
     }
+
     function addShoppingCart(id) {
-            window.location.href = "../book/addShoppingCart?bookID=" + id;
+        window.location.href = "../book/addShoppingCart?bookID=" + id;
     }
 </script>
 </body>
