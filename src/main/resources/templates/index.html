@@ -44,7 +44,7 @@
 </table>
 <hr/>
 <button onclick="jumplogin()">登录</button>
-<button th:onclick="logout()">注销</button>
+<button onclick="logout()">注销</button>
 <br/>
 <br/>
 <hr/>
@@ -56,9 +56,9 @@
 <button onclick="showPersonalBookComments()">我的书评</button>
 <hr/>
 <input type="button" onclick="javascript:window.location.href='../manager/showAddBookPage'" value="上架图书">
-<input type="button" onclick="javascript:window.location.href='../manager/showBookManagement'" value="图书管理">
-<input type="button" onclick="javascript:window.location.href='../manager/showUserManagement'" value="用户管理">
-<input type="button" onclick="javascript:window.location.href='../manager/showPurchaseManagement'" value="用户购买记录">
+<input type="button" onclick="javascript:window.location.href='../manager/showBookManagement?index=1'" value="图书管理">
+<input type="button" onclick="javascript:window.location.href='../manager/showUserManagement?index=1'" value="用户管理">
+<input type="button" onclick="javascript:window.location.href='../manager/showPurchaseManagement?index=1'" value="用户购买记录">
 <script>
 
     function bookSearchByTypeID(id) {
@@ -85,7 +85,7 @@
     }
 
     function personalBook() {
-        window.location.href = "../book/personalBook";
+        window.location.href = "../book/personalBook?index=1";
     }
 
     function showUserInfo() {
@@ -93,11 +93,11 @@
     }
 
     function showShoppingCart() {
-        window.location.href = "../book/showShoppingCart";
+        window.location.href = "../book/showShoppingCart?index=1";
     }
 
     function showCollect() {
-        window.location.href = "../book/showCollect";
+        window.location.href = "../book/showCollect?index=1";
     }
     function showPurchaseRecord() {
         window.location.href = "../user/showPurchaseRecord";

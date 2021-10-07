@@ -13,5 +13,5 @@ import java.util.Map;
 
 
 public interface BookPossesService extends IService<BookPosses> {
-    Page<BookJoinBookPosses> getBookJoinBookPosses(Page<BookJoinBookPosses> page);
+    Page<BookJoinBookPosses> getBookJoinBookPosses(Page<BookJoinBookPosses> page,HttpServletRequest request);
 }

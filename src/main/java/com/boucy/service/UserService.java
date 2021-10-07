@@ -1,7 +1,9 @@
 package com.boucy.service;
 
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.boucy.mapper.UserMapper;
+import com.boucy.pojo.PurchaseRecord;
 import com.boucy.pojo.User;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -22,7 +24,7 @@ public interface UserService extends IService<User> {
 
     String deleteUser(HttpServletRequest request, HttpServletResponse response);
 
-    String showPurchaseManagement(Map<String, Object> map, HttpServletRequest request, HttpServletResponse response);
+    Page<PurchaseRecord> showPurchaseManagement(Page<PurchaseRecord> page, HttpServletRequest request, HttpServletResponse response);
 
     String showPurchaseRecord(Map<String, Object> map, HttpServletRequest request, HttpServletResponse response);
 }

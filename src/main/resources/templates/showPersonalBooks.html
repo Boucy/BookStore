@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>我的收藏</title>
+    <title>图书搜索结果</title>
     <style type="text/css">
         #booksTable {
             width: 80%;
@@ -25,8 +25,13 @@
         <th>作者</th>
         <th>ISBN</th>
         <th>出版时间</th>
+        <th>价格</th>
+        <th>销量</th>
+        <th>点赞量</th>
+        <th>点踩量</th>
         <th>详情</th>
         <th>收藏</th>
+        <th>购物车</th>
     </tr>
     <tr th:each="book,i:${bookList}">
         <td th:text="${i.count}"></td>
@@ -35,12 +40,19 @@
         <td th:text="${book.name}"></td>
         <td th:text="${book.author}"></td>
         <td th:text="${book.isbn}"></td>
-        <td th:text="${book.publicationDate}"></td>
+        <td th:text="${#dates.format(book.publicationDate,'yyyy-MM')}"></td>
+        <td th:text="${book.price}"></td>
+        <td th:text="${book.sales}"></td>
+        <td th:text="${book.good}"></td>
+        <td th:text="${book.bad}"></td>
         <td>
             <a href="javascript:void(0)" th:onclick="bookDetails([[${book.id}]])">查看详情</a>
         </td>
         <td>
-            <a href="javascript:void(0)" th:onclick="cancelCollect([[${book.id}]])">取消收藏</a>
+            <a href="javascript:void(0)" th:onclick="collect([[${book.id}]])">收藏</a>
+        </td>
+        <td>
+            <a href="javascript:void(0)" th:onclick="addShoppingCart([[${book.id}]])">加入购物车</a>
         </td>
     </tr>
 </table>
@@ -54,20 +66,26 @@
     <a th:text="${pageIndex} "></a>
 页；
     <br/>
-    <a href="javascript:void(0)" th:onclick="showPersonalCollection([[${pageIndex}-1]])" style="text-decoration: none">[上一页]</a>
-    <a href="javascript:void(0)" th:onclick="showPersonalCollection([[${pageIndex}+1]])" style="text-decoration: none">[下一页]</a>
+    <a href="javascript:void(0)" th:onclick="getPersonalBookByPage([[${pageIndex}-1]])" style="text-decoration: none">[上一页]</a>
+    <a href="javascript:void(0)" th:onclick="getPersonalBookByPage([[${pageIndex}+1]])" style="text-decoration: none">[下一页]</a>
 
 </span>
 
 <script>
-    function showPersonalCollection(index) {
-        window.location.href = "../book/showCollect?index="+index;
+    function getPersonalBookByPage(index) {
+        window.location.href = "../book/personalBook?index="+index;
     }
+
     function bookDetails(id) {
-        window.location.href="../book/bookSearchByID?bookID="+id;
+        window.location.href = "../book/bookSearchByID?bookID=" + id;
     }
-    function cancelCollect(id) {
-            window.location.href = "../book/cancelCollect?bookID=" + id;
+
+    function collect(id) {
+        window.location.href = "../book/collect?bookID=" + id;
+    }
+
+    function addShoppingCart(id) {
+        window.location.href = "../book/addShoppingCart?bookID=" + id;
     }
 </script>
 </body>

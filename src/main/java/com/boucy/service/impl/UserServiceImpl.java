@@ -1,10 +1,12 @@
 package com.boucy.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.boucy.mapper.BookMapper;
 import com.boucy.mapper.PurchaseRecordMapper;
 import com.boucy.mapper.UserMapper;
+import com.boucy.pojo.Book;
 import com.boucy.pojo.PurchaseRecord;
 import com.boucy.pojo.User;
 import com.boucy.service.UserService;
@@ -83,22 +85,30 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
 
     @Override
     public String showUserManagement(Map<String, Object> map, HttpServletRequest request, HttpServletResponse response) {
-        List<User> userList = userMapper.selectList(null);
+        String index = request.getParameter("index");
+        Page<User> page = userMapper.selectPage(new Page<>(Integer.parseInt(index), 10), null);
+        List<User> userList = page.getRecords();
         map.put("userList", userList);
+//        总记录数
+        map.put("total", page.getTotal());
+//        总页数
+        map.put("pageCount", page.getPages());
+//        当前页
+        map.put("pageIndex", page.getCurrent());
+//        页大小
+        map.put("pageSize", page.getSize());
         return "userManagement";
     }
 
     @Override
     public String deleteUser(HttpServletRequest request, HttpServletResponse response) {
         String userID = request.getParameter("userID");
-        userMapper.delete(new QueryWrapper<User>().eq("id",userID));
+        userMapper.delete(new QueryWrapper<User>().eq("id", userID));
         return "redirect:../manager/showUserManagement";
     }
 
     @Override
-    public String showPurchaseManagement(Map<String, Object> map, HttpServletRequest request, HttpServletResponse response) {
-        List<PurchaseRecord> purchaseRecordList = purchaseRecordMapper.findAllPurchaseJoinBook();
-        map.put("purchaseRecordList",purchaseRecordList);
-        return "purchaseRecordManagement";
+    public Page<PurchaseRecord> showPurchaseManagement(Page<PurchaseRecord> page, HttpServletRequest request, HttpServletResponse response) {
+        return page.setRecords(this.purchaseRecordMapper.findAllPurchaseJoinBook(page));
     }
 }

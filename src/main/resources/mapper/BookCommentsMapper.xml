@@ -9,7 +9,6 @@
         <!--    column填数据库属性名 property填创建类属性名-->
         <id column="id" property="id"></id>
         <!--    如果不是主键 用result-->
-        <result column="id" property="id"></result>
         <result column="name" property="name"></result>
         <result column="author" property="author"></result>
         <result column="isbn" property="isbn"></result>

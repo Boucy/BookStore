@@ -42,7 +42,7 @@ public class BookServiceImpl extends ServiceImpl<BookMapper, Book> implements Bo
         queryWrapper.eq("type", bookTypeID);
         Page<Book> page = bookMapper.selectPage(new Page<>(Integer.parseInt(index), 5), queryWrapper);
         List<Book> bookList = page.getRecords();
-        map.put("bookTypeID",bookTypeID);
+        map.put("bookTypeID", bookTypeID);
         map.put("bookList", bookList);
 //        总记录数
         map.put("total", page.getTotal());
@@ -79,7 +79,7 @@ public class BookServiceImpl extends ServiceImpl<BookMapper, Book> implements Bo
         if (bookCollection == null) {
             bookCollectionMapper.insert(new BookCollection(userid, Integer.parseInt(bookID)));
         }
-        return "redirect:../book/showCollect";
+        return "redirect:../book/showCollect?index=1";
     }
 
     @Override
@@ -90,24 +90,7 @@ public class BookServiceImpl extends ServiceImpl<BookMapper, Book> implements Bo
         QueryWrapper<BookCollection> queryWrapper = new QueryWrapper<>();
         queryWrapper.eq("user_id", userid).eq("book_id", bookID);
         bookCollectionMapper.delete(queryWrapper);
-        return "redirect:../book/showCollect";
-    }
-
-    @Override
-    public String showCollect(Map<String, Object> map, HttpServletRequest request, HttpServletResponse response) {
-        User user = (User) request.getSession().getAttribute("user");
-        Integer userid = user.getId();
-        QueryWrapper<BookCollection> queryWrapper = new QueryWrapper<>();
-        queryWrapper.eq("user_id", userid);
-        List<Book> bookList = new ArrayList<>();
-        for (BookCollection bookCollection : bookCollectionMapper.selectList(queryWrapper)) {
-            QueryWrapper<Book> bookQueryWrapper = new QueryWrapper<>();
-            bookQueryWrapper.eq("id", bookCollection.getBookid());
-            Book book = bookMapper.selectOne(bookQueryWrapper);
-            bookList.add(book);
-        }
-        map.put("bookList", bookList);
-        return "bookCollect";
+        return "redirect:../book/showCollect?index=1";
     }
 
     @Override
@@ -184,7 +167,7 @@ public class BookServiceImpl extends ServiceImpl<BookMapper, Book> implements Bo
             bookPossesMapper.insert(new BookPosses(user.getId(), Integer.parseInt(bookID)));
             request.getSession().setAttribute("user", user);
             purchaseRecordMapper.insert(new PurchaseRecord(null, user.getId(), book.getId(), new Date(), book.getPrice(), null));
-            return "redirect:../book/personalBook";
+            return "redirect:../book/personalBook?index=1";
         } else {
             return "purchaseFail";
         }
@@ -220,8 +203,18 @@ public class BookServiceImpl extends ServiceImpl<BookMapper, Book> implements Bo
 
     @Override
     public String showBookManagement(Map<String, Object> map, HttpServletRequest request, HttpServletResponse response) {
-        List<Book> bookList = bookMapper.selectList(null);
+        String index = request.getParameter("index");
+        Page<Book> page = bookMapper.selectPage(new Page<>(Integer.parseInt(index), 5), null);
+        List<Book> bookList = page.getRecords();
         map.put("bookList", bookList);
+//        总记录数
+        map.put("total", page.getTotal());
+//        总页数
+        map.put("pageCount", page.getPages());
+//        当前页
+        map.put("pageIndex", page.getCurrent());
+//        页大小
+        map.put("pageSize", page.getSize());
         return "bookManagement";
     }
 
@@ -281,7 +274,7 @@ public class BookServiceImpl extends ServiceImpl<BookMapper, Book> implements Bo
                 return "purchaseFail";
             }
         }
-        return "redirect:../book/personalBook";
+        return "redirect:../book/personalBook?index=1";
     }
 
     @Override
@@ -295,7 +288,7 @@ public class BookServiceImpl extends ServiceImpl<BookMapper, Book> implements Bo
         if (bookShoppingCart == null) {
             bookShoppingCartMapper.insert(new BookShoppingCart(userid, Integer.parseInt(bookID)));
         }
-        return "redirect:../book/showShoppingCart";
+        return "redirect:../book/showShoppingCart?index=1";
     }
 
     @Override
@@ -306,32 +299,7 @@ public class BookServiceImpl extends ServiceImpl<BookMapper, Book> implements Bo
         QueryWrapper<BookShoppingCart> queryWrapper = new QueryWrapper<>();
         queryWrapper.eq("user_id", userid).eq("book_id", bookID);
         bookShoppingCartMapper.delete(queryWrapper);
-        return "redirect:../book/showShoppingCart";
+        return "redirect:../book/showShoppingCart?index=1";
     }
 
-    @Override
-    public String showShoppingCart(Map<String, Object> map, HttpServletRequest request, HttpServletResponse response) {
-        User user = (User) request.getSession().getAttribute("user");
-        Integer userid = user.getId();
-        QueryWrapper<BookShoppingCart> queryWrapper = new QueryWrapper<>();
-        queryWrapper.eq("user_id", userid);
-        List<Book> bookList = new ArrayList<>();
-        for (BookShoppingCart bookShoppingCart : bookShoppingCartMapper.selectList(queryWrapper)) {
-            QueryWrapper<Book> bookQueryWrapper = new QueryWrapper<>();
-            bookQueryWrapper.eq("id", bookShoppingCart.getBookid());
-            Book book = bookMapper.selectOne(bookQueryWrapper);
-            bookList.add(book);
-        }
-
-        for (int i = 0; i < bookList.size() - 1; i++) {
-            for (int j = bookList.size() - 1; j > i; j--) {
-                if (bookList.get(j).getId().equals(bookList.get(i).getId())) {
-                    bookList.remove(j);
-                }
-            }
-        }
-
-        map.put("bookList", bookList);
-        return "shoppingCart";
-    }
 }

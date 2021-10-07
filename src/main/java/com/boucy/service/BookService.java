@@ -10,11 +10,12 @@ import java.util.Map;
 
 public interface BookService extends IService<Book> {
     String bookSearchByTypeID(Map<String, Object> map, HttpServletRequest request, HttpServletResponse response);
+
     String bookSearchByID(Map<String, Object> map, HttpServletRequest request, HttpServletResponse response);
 
     String cancelShoppingCart(HttpServletRequest request, HttpServletResponse response);
 
-    String showShoppingCart(Map<String, Object> map, HttpServletRequest request, HttpServletResponse response);
+//    String showShoppingCart(Map<String, Object> map, HttpServletRequest request, HttpServletResponse response);
 
     String addShoppingCart(HttpServletRequest request, HttpServletResponse response);
 
@@ -22,7 +23,6 @@ public interface BookService extends IService<Book> {
 
     String cancelCollect(HttpServletRequest request, HttpServletResponse response);
 
-    String showCollect(Map<String,Object> map,HttpServletRequest request, HttpServletResponse response);
     String rankingList(Map<String, Object> map, HttpServletRequest request, HttpServletResponse response);
 
     String bookSearchByKey(Map<String, Object> map, HttpServletRequest request, HttpServletResponse response);

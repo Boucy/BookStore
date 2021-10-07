@@ -26,9 +26,8 @@ public class BookCommentsServiceImpl extends ServiceImpl<BookCommentsMapper, Boo
     @Override
     public String showBookComments(Map<String, Object> map, HttpServletRequest request, HttpServletResponse response) {
         String bookid = request.getParameter("bookID");
-        Book bookJoinBookComments = bookCommentsMapper.findBookJoinBookCommentsByBookid(Integer.parseInt(bookid));
-        System.out.println(bookJoinBookComments);
-        map.put("bookJoinBookComments", bookJoinBookComments);
+        Book book = bookCommentsMapper.findBookJoinBookCommentsByBookid(Integer.parseInt(bookid));
+        map.put("book", book);
         return "bookComments";
     }
 

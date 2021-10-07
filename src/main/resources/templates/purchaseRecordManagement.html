@@ -43,7 +43,22 @@
         </td>
     </tr>
 </table>
+<span style="margin-left: 10px">
+            总共记录:
+    <a th:text="${total} "></a>
+条;共
+    <a th:text="${pageCount} "></a>
+页;第
+    <a th:text="${pageIndex} "></a>
+页；
+    <br/>
+    <a href="javascript:void(0)" th:onclick="setPage([[${pageIndex}-1]])" style="text-decoration: none">[上一页]</a>
+    <a href="javascript:void(0)" th:onclick="setPage([[${pageIndex}+1]])" style="text-decoration: none">[下一页]</a>
+</span>
 <script>
+    function setPage(index) {
+        window.location.href = "../manager/showPurchaseManagement?index="+index;
+    }
     function showUserInfo(id) {
         window.location.href = "../user/showUserInfo?userID="+id;
     }
