@@ -4,6 +4,13 @@
 
 首页地址：http://localhost:8080/bookstore/book/bookStoreHomePage
 
+关于文件上传下载问题,目前项目文件均保存到
+http://127.0.0.1:8090/uploadHeadPhoto/
+http://127.0.0.1:8090/uploadBookPhoto/
+http://127.0.0.1:8090/uploadBook/
+使用需要用本地tomcat开启一个8090端口号，并且创建三个目录
+
+
 
 
 为用户提供了可根据自身业务需求选择的多个功能模块
