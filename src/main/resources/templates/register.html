@@ -80,7 +80,7 @@
                         //    接收后台响应的信息
                         alert(result.message)
                         //    图片回显
-                        $("#headImg").attr("src", "../uploadHeadPhoto/" + result.newFileName);
+                        $("#headImg").attr("src", "http://127.0.0.1:8090/uploadHeadPhoto/" + result.newFileName);
                         //将文件类型和文件名放入form表单
                         $("#headPhotoInput").val(result.newFileName)
                         $("#filetypeInput").val(result.fileType)

@@ -27,6 +27,7 @@ public class MyInterceptorConfig implements WebMvcConfigurer {
                         "/user/jumpLogin",
                         "/user/loginCheck",
                         "/user/jumpRegister",
+                        "/user/useridCheck",
                         "/file/**",
                         "/css/**",
                         "/js/**",
@@ -35,7 +36,8 @@ public class MyInterceptorConfig implements WebMvcConfigurer {
                         "/login.html",
                         "/user/userRegister",
                         "/book/bookSearchByID",
-                        "/book/showBookComments");
+                        "/book/showBookComments",
+                        "http://127.0.0.1:8090/**");
 
         registry.addInterceptor(adminInterceptor)
                 .addPathPatterns(

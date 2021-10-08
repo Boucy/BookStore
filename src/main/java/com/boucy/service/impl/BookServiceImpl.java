@@ -246,7 +246,7 @@ public class BookServiceImpl extends ServiceImpl<BookMapper, Book> implements Bo
     @Override
     public String addBook(Book book, HttpServletRequest request, HttpServletResponse response) {
         bookMapper.insert(book);
-        return "redirect:../manager/showBookManagement";
+        return "redirect:../manager/showBookManagement?index=1";
     }
 
     @Override
