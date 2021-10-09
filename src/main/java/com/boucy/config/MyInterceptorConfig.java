@@ -48,8 +48,6 @@ public class MyInterceptorConfig implements WebMvcConfigurer {
                         "/book/updateBook" ,
                         "/book/deleteBook" ,
                         "/book/addBook" ,
-                        "/user/jumpUpdateUserInfo" ,
-                        "/user/updateUserInfo" ,
                         "/user/deleteUser");
     }
 

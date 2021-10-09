@@ -29,8 +29,8 @@
     <tr th:each="one,i:${book.bookCommentsList}">
         <td th:text="${book.name}"></td>
         <td th:text="${book.author}"></td>
-        <td th:text="${book.good}"></td>
-        <td th:text="${book.bad}"></td>
+        <td th:text="${one.good}"></td>
+        <td th:text="${one.bad}"></td>
         <td th:text="${one.comments}"></td>
         <td>
             <a href="javascript:void(0)" th:onclick="bookDetails([[${book.id}]])">查看详情</a>

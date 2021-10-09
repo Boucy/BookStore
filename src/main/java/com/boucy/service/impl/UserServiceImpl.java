@@ -63,11 +63,14 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
 
     @Override
     public String jumpUpdateUserInfo(Map<String, Object> map, HttpServletRequest request) {
-        User user;
+        User user =(User) request.getSession().getAttribute("user");
         String userID = request.getParameter("userID");
         if (userID == null || userID == "") {
-            user = (User) request.getSession().getAttribute("user");
+            User userSearch = (User) request.getSession().getAttribute("user");
         } else {
+            if((!user.getUserType().equals("1"))&&(!(user.getId().toString()).equals(userID))){
+                return "refuseAdmin";
+            }
             user = userMapper.selectOne(new QueryWrapper<User>().eq("id", userID));
         }
         map.put("user", user);

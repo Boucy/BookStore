@@ -189,7 +189,7 @@ public class FileServiceImpl implements FileService {
         }
         Integer userId = user.getId();
         List<BookPosses> bookPosses = bookPossesMapper.selectList(new QueryWrapper<BookPosses>().eq("user_id", userId).eq("book_id", bookid));
-        if(bookPosses.size()==0&&(!user.getUserType().equals(1))) {
+        if(bookPosses.size()==0&&(!user.getUserType().equals("1"))) {
             return false;
         }else{
             return true;

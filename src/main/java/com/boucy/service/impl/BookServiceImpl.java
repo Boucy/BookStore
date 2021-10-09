@@ -145,7 +145,17 @@ public class BookServiceImpl extends ServiceImpl<BookMapper, Book> implements Bo
                 }
             }
         }
-        map.put("bookList", bookList);
+        Page<Book> page = new Page<>(1, 5);
+        page.setRecords(bookList);
+        //        总记录数
+        map.put("total", page.getTotal());
+//        总页数
+        map.put("pageCount", page.getPages());
+//        当前页
+        map.put("pageIndex", page.getCurrent());
+//        页大小
+        map.put("pageSize", page.getSize());
+        map.put("bookList", page.getRecords());
         return "showBooks";
     }
 
