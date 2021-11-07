@@ -182,7 +182,6 @@ public class FileServiceImpl implements FileService {
     @Override
     public boolean checkDownloadBook(HttpServletRequest request, HttpServletResponse response) {
         String bookid = request.getParameter("bookID");
-        Book book = bookMapper.selectOne(new QueryWrapper<Book>().eq("id", bookid));
         User user = (User) request.getSession().getAttribute("user");
         if(user==null){
             return false;

@@ -958,3 +958,4 @@ java.lang.NullPointerException: null
 2021-10-08 13:28:48.826 [http-nio-8080-exec-10] DEBUG com.boucy.mapper.BookTypeMapper.selectList -==>  Preparing: SELECT id,type FROM book_type
 2021-10-08 13:28:48.826 [http-nio-8080-exec-10] DEBUG com.boucy.mapper.BookTypeMapper.selectList -==> Parameters: 
 2021-10-08 13:28:48.828 [http-nio-8080-exec-10] DEBUG com.boucy.mapper.BookTypeMapper.selectList -<==      Total: 11
+2021-10-08 13:37:09.640 [Thread-11] INFO  com.alibaba.druid.pool.DruidDataSource -{dataSource-1} closed

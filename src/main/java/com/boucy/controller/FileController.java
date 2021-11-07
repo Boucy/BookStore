@@ -8,6 +8,7 @@ import com.sun.jersey.api.client.Client;
 import com.sun.jersey.api.client.WebResource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
@@ -30,10 +31,6 @@ public class FileController {
     //    图书存储位置
     private final static String BOOKFILESERVER = "http://127.0.0.1:8090/uploadBook/";
 
-    @Autowired
-    private BookService bookService;
-    @Autowired
-    private UserService userService;
     @Autowired
     private FileService fileService;
 
@@ -63,5 +60,4 @@ public class FileController {
             fileService.downloadBook(request, response);
         }
     }
-
 }
