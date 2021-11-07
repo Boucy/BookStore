@@ -27,4 +27,6 @@ public interface UserService extends IService<User> {
     Page<PurchaseRecord> showPurchaseManagement(Page<PurchaseRecord> page, HttpServletRequest request, HttpServletResponse response);
 
     String showPurchaseRecord(Map<String, Object> map, HttpServletRequest request, HttpServletResponse response);
+
+    User findUserByEmail(String principal);
 }

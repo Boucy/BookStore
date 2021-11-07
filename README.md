@@ -1,6 +1,8 @@
 # BookStore
-一个图书商店
 
+
+#### 介绍
+图书商店课设
 
 首页地址：http://localhost:8080/bookstore/book/bookStoreHomePage
 
@@ -9,7 +11,6 @@ http://127.0.0.1:8090/uploadHeadPhoto/
 http://127.0.0.1:8090/uploadBookPhoto/
 http://127.0.0.1:8090/uploadBook/
 使用需要用本地tomcat开启一个8090端口号，并且创建三个目录
-
 
 
 
@@ -66,20 +67,58 @@ http://127.0.0.1:8090/uploadBook/
 
 
 
+#### 软件架构
+##### - 后端
+JDK版本：8
 
+web框架：SpringBoot 2.5.5.RELEASE
 
+数据库：Mysql8
 
+数据库连接池：druid
 
+数据库操作框架：Mybatis 2.2.0、mybatis-plus
 
+权限管理框架：Shiro 1.4
 
+日志框架：logback
 
+API访问框架：swagger2
 
+##### - 前端
 
+模板引擎:Thymeleaf 2.5.5
 
+HTML
 
+AJAX
 
+#### 开发说明
 
+- 必须在dev分支下开发
+- 功能开发完毕之后再通过merge命令合并到master分支上
+- 再提交提交代码前注意代码的格式化
+    - Java程序采用驼峰命名法，每个变量名都要能够大概看出其含义，不允许使用拼音缩写！！！
+    - 程序规范采用阿里的编码规约，在IDEA中可以搜索《Alibaba Java Coding Guidelines》进行插件的安装
 
+- 在push到远程时可以先pull拉取远程的项目，如果有冲突解决冲突后再提交
+
+#### 项目目录介绍
+```aidl
+com.boucy       源文件根目录
+├─ config                   配置类包
+├─ controller               控制器类所在的包
+├─ dao                      数据访问接口所在的包
+├─ domain                   实体类所在的包
+├─ service                  服务层接口所在的包
+    ├─ serviceImpl          服务层接口实现类所在的包
+├─ shiro                    Shiro的Realm所在的包
+├─ utils                    工具类包
+├─ Application.java         项目启动类
+resources                   资源目录
+├─ mappers                  mybatis的mapper文件所在的目录
+├─ application.yml          项目的总配置类
+```
 
 
 
