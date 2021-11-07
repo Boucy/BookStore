@@ -1,0 +1,644 @@
+2021-10-10 14:38:12.634 [restartedMain] INFO  com.boucy.BookStoreApplication -Starting BookStoreApplication using Java 1.8.0_291 on Boucy with PID 22352 (D:\ideaProject\BookStore\target\classes started by 64901 in D:\ideaProject\BookStore)
+2021-10-10 14:38:12.636 [restartedMain] INFO  com.boucy.BookStoreApplication -No active profile set, falling back to default profiles: default
+2021-10-10 14:38:12.690 [restartedMain] INFO  o.s.b.d.env.DevToolsPropertyDefaultsPostProcessor -Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-10-10 14:38:12.691 [restartedMain] INFO  o.s.b.d.env.DevToolsPropertyDefaultsPostProcessor -For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2021-10-10 14:38:14.045 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer -Tomcat initialized with port(s): 8080 (http)
+2021-10-10 14:38:14.057 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol -Initializing ProtocolHandler ["http-nio-8080"]
+2021-10-10 14:38:14.058 [restartedMain] INFO  org.apache.catalina.core.StandardService -Starting service [Tomcat]
+2021-10-10 14:38:14.058 [restartedMain] INFO  org.apache.catalina.core.StandardEngine -Starting Servlet engine: [Apache Tomcat/9.0.53]
+2021-10-10 14:38:14.144 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/bookstore] -Initializing Spring embedded WebApplicationContext
+2021-10-10 14:38:14.145 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext -Root WebApplicationContext: initialization completed in 1453 ms
+2021-10-10 14:38:14.294 [restartedMain] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure -Init DruidDataSource
+2021-10-10 14:38:14.444 [restartedMain] ERROR com.alibaba.druid.filter.FilterManager -load filter error, filter not found : stal
+2021-10-10 14:38:14.760 [restartedMain] INFO  com.alibaba.druid.pool.DruidDataSource -{dataSource-1} inited
+2021-10-10 14:38:15.083 [restartedMain] WARN  c.b.mybatisplus.core.metadata.TableInfoHelper -Can not find table primary key in Class: "com.boucy.pojo.BookComments".
+2021-10-10 14:38:15.214 [restartedMain] WARN  c.b.mybatisplus.core.metadata.TableInfoHelper -Can not find table primary key in Class: "com.boucy.pojo.BookShoppingCart".
+2021-10-10 14:38:15.249 [restartedMain] WARN  c.b.mybatisplus.core.metadata.TableInfoHelper -This "id" is the table primary key by default name for `id` in Class: "com.boucy.pojo.BookType",So @TableField will not work!
+2021-10-10 14:38:16.291 [restartedMain] WARN  c.b.mybatisplus.core.metadata.TableInfoHelper -Can not find table primary key in Class: "com.boucy.pojo.BookCollection".
+2021-10-10 14:38:16.321 [restartedMain] WARN  c.b.mybatisplus.core.metadata.TableInfoHelper -This "id" is the table primary key by default name for `id` in Class: "com.boucy.pojo.User",So @TableField will not work!
+2021-10-10 14:38:16.358 [restartedMain] WARN  c.b.mybatisplus.core.metadata.TableInfoHelper -Can not find table primary key in Class: "com.boucy.pojo.BookPosses".
+2021-10-10 14:38:16.978 [restartedMain] INFO  o.s.b.a.web.servlet.WelcomePageHandlerMapping -Adding welcome page template: index
+2021-10-10 14:38:17.478 [restartedMain] INFO  o.s.b.d.autoconfigure.OptionalLiveReloadServer -LiveReload server is running on port 35729
+2021-10-10 14:38:17.662 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol -Starting ProtocolHandler ["http-nio-8080"]
+2021-10-10 14:38:17.710 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer -Tomcat started on port(s): 8080 (http) with context path '/bookstore'
+2021-10-10 14:38:17.746 [restartedMain] INFO  com.boucy.BookStoreApplication -Started BookStoreApplication in 5.702 seconds (JVM running for 7.032)
+2021-10-10 14:38:41.844 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/bookstore] -Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-10-10 14:38:41.844 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet -Initializing Servlet 'dispatcherServlet'
+2021-10-10 14:38:41.845 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet -Completed initialization in 1 ms
+2021-10-10 14:38:41.957 [http-nio-8080-exec-1] DEBUG com.boucy.mapper.BookTypeMapper.selectList -==>  Preparing: SELECT id,type FROM book_type
+2021-10-10 14:38:42.116 [http-nio-8080-exec-1] DEBUG com.boucy.mapper.BookTypeMapper.selectList -==> Parameters: 
+2021-10-10 14:38:42.196 [http-nio-8080-exec-1] DEBUG com.boucy.mapper.BookTypeMapper.selectList -<==      Total: 11
+2021-10-10 14:39:47.686 [http-nio-8080-exec-4] DEBUG com.boucy.mapper.BookMapper.selectOne -==>  Preparing: SELECT id,name,author,isbn,publication_date,type,price,sales,good,bad,introduction,photo_name,photo_type,file_name,file_type FROM book WHERE (isbn = ?)
+2021-10-10 14:39:47.713 [http-nio-8080-exec-4] DEBUG com.boucy.mapper.BookMapper.selectOne -==> Parameters: 王(String)
+2021-10-10 14:39:47.729 [http-nio-8080-exec-4] DEBUG com.boucy.mapper.BookMapper.selectOne -<==      Total: 0
+2021-10-10 14:39:47.732 [http-nio-8080-exec-4] DEBUG com.boucy.mapper.BookMapper.selectOne -==>  Preparing: SELECT id,name,author,isbn,publication_date,type,price,sales,good,bad,introduction,photo_name,photo_type,file_name,file_type FROM book WHERE (name = ?)
+2021-10-10 14:39:47.733 [http-nio-8080-exec-4] DEBUG com.boucy.mapper.BookMapper.selectOne -==> Parameters: 王(String)
+2021-10-10 14:39:47.734 [http-nio-8080-exec-4] DEBUG com.boucy.mapper.BookMapper.selectOne -<==      Total: 0
+2021-10-10 14:39:47.738 [http-nio-8080-exec-4] DEBUG com.boucy.mapper.BookMapper.selectList -==>  Preparing: SELECT id,name,author,isbn,publication_date,type,price,sales,good,bad,introduction,photo_name,photo_type,file_name,file_type FROM book WHERE (author LIKE ?)
+2021-10-10 14:39:47.739 [http-nio-8080-exec-4] DEBUG com.boucy.mapper.BookMapper.selectList -==> Parameters: %王%(String)
+2021-10-10 14:39:47.747 [http-nio-8080-exec-4] DEBUG com.boucy.mapper.BookMapper.selectList -<==      Total: 2
+2021-10-10 14:39:47.749 [http-nio-8080-exec-4] DEBUG com.boucy.mapper.BookMapper.selectList -==>  Preparing: SELECT id,name,author,isbn,publication_date,type,price,sales,good,bad,introduction,photo_name,photo_type,file_name,file_type FROM book WHERE (name LIKE ?)
+2021-10-10 14:39:47.750 [http-nio-8080-exec-4] DEBUG com.boucy.mapper.BookMapper.selectList -==> Parameters: %王%(String)
+2021-10-10 14:39:47.751 [http-nio-8080-exec-4] DEBUG com.boucy.mapper.BookMapper.selectList -<==      Total: 0
+2021-10-10 14:39:55.121 [http-nio-8080-exec-7] DEBUG com.boucy.mapper.BookMapper.selectOne -==>  Preparing: SELECT id,name,author,isbn,publication_date,type,price,sales,good,bad,introduction,photo_name,photo_type,file_name,file_type FROM book WHERE (isbn = ?)
+2021-10-10 14:39:55.121 [http-nio-8080-exec-7] DEBUG com.boucy.mapper.BookMapper.selectOne -==> Parameters: 9787030533364(String)
+2021-10-10 14:39:55.123 [http-nio-8080-exec-7] DEBUG com.boucy.mapper.BookMapper.selectOne -<==      Total: 1
+2021-10-10 14:39:55.125 [http-nio-8080-exec-7] DEBUG com.boucy.mapper.BookMapper.selectOne -==>  Preparing: SELECT id,name,author,isbn,publication_date,type,price,sales,good,bad,introduction,photo_name,photo_type,file_name,file_type FROM book WHERE (name = ?)
+2021-10-10 14:39:55.125 [http-nio-8080-exec-7] DEBUG com.boucy.mapper.BookMapper.selectOne -==> Parameters: 9787030533364(String)
+2021-10-10 14:39:55.127 [http-nio-8080-exec-7] DEBUG com.boucy.mapper.BookMapper.selectOne -<==      Total: 0
+2021-10-10 14:39:55.128 [http-nio-8080-exec-7] DEBUG com.boucy.mapper.BookMapper.selectList -==>  Preparing: SELECT id,name,author,isbn,publication_date,type,price,sales,good,bad,introduction,photo_name,photo_type,file_name,file_type FROM book WHERE (author LIKE ?)
+2021-10-10 14:39:55.129 [http-nio-8080-exec-7] DEBUG com.boucy.mapper.BookMapper.selectList -==> Parameters: %9787030533364%(String)
+2021-10-10 14:39:55.131 [http-nio-8080-exec-7] DEBUG com.boucy.mapper.BookMapper.selectList -<==      Total: 0
+2021-10-10 14:39:55.133 [http-nio-8080-exec-7] DEBUG com.boucy.mapper.BookMapper.selectList -==>  Preparing: SELECT id,name,author,isbn,publication_date,type,price,sales,good,bad,introduction,photo_name,photo_type,file_name,file_type FROM book WHERE (name LIKE ?)
+2021-10-10 14:39:55.133 [http-nio-8080-exec-7] DEBUG com.boucy.mapper.BookMapper.selectList -==> Parameters: %9787030533364%(String)
+2021-10-10 14:39:55.134 [http-nio-8080-exec-7] DEBUG com.boucy.mapper.BookMapper.selectList -<==      Total: 0
+2021-10-10 14:39:59.738 [http-nio-8080-exec-9] DEBUG com.boucy.mapper.BookMapper.selectPage_mpCount -==>  Preparing: SELECT COUNT(*) FROM book WHERE (type = ?)
+2021-10-10 14:39:59.740 [http-nio-8080-exec-9] DEBUG com.boucy.mapper.BookMapper.selectPage_mpCount -==> Parameters: 2(String)
+2021-10-10 14:39:59.747 [http-nio-8080-exec-9] DEBUG com.boucy.mapper.BookMapper.selectPage_mpCount -<==      Total: 1
+2021-10-10 14:39:59.754 [http-nio-8080-exec-9] DEBUG com.boucy.mapper.BookMapper.selectPage -==>  Preparing: SELECT id,name,author,isbn,publication_date,type,price,sales,good,bad,introduction,photo_name,photo_type,file_name,file_type FROM book WHERE (type = ?) LIMIT ?
+2021-10-10 14:39:59.757 [http-nio-8080-exec-9] DEBUG com.boucy.mapper.BookMapper.selectPage -==> Parameters: 2(String), 5(Long)
+2021-10-10 14:39:59.761 [http-nio-8080-exec-9] DEBUG com.boucy.mapper.BookMapper.selectPage -<==      Total: 4
+2021-10-10 14:40:02.778 [http-nio-8080-exec-10] DEBUG com.boucy.mapper.BookTypeMapper.selectList -==>  Preparing: SELECT id,type FROM book_type
+2021-10-10 14:40:02.778 [http-nio-8080-exec-10] DEBUG com.boucy.mapper.BookTypeMapper.selectList -==> Parameters: 
+2021-10-10 14:40:02.782 [http-nio-8080-exec-10] DEBUG com.boucy.mapper.BookTypeMapper.selectList -<==      Total: 11
+2021-10-10 14:40:04.132 [http-nio-8080-exec-1] DEBUG com.boucy.mapper.BookMapper.selectOne -==>  Preparing: SELECT id,name,author,isbn,publication_date,type,price,sales,good,bad,introduction,photo_name,photo_type,file_name,file_type FROM book WHERE (isbn = ?)
+2021-10-10 14:40:04.132 [http-nio-8080-exec-1] DEBUG com.boucy.mapper.BookMapper.selectOne -==> Parameters: 料表(String)
+2021-10-10 14:40:04.133 [http-nio-8080-exec-1] DEBUG com.boucy.mapper.BookMapper.selectOne -<==      Total: 0
+2021-10-10 14:40:04.135 [http-nio-8080-exec-1] DEBUG com.boucy.mapper.BookMapper.selectOne -==>  Preparing: SELECT id,name,author,isbn,publication_date,type,price,sales,good,bad,introduction,photo_name,photo_type,file_name,file_type FROM book WHERE (name = ?)
+2021-10-10 14:40:04.135 [http-nio-8080-exec-1] DEBUG com.boucy.mapper.BookMapper.selectOne -==> Parameters: 料表(String)
+2021-10-10 14:40:04.136 [http-nio-8080-exec-1] DEBUG com.boucy.mapper.BookMapper.selectOne -<==      Total: 0
+2021-10-10 14:40:04.137 [http-nio-8080-exec-1] DEBUG com.boucy.mapper.BookMapper.selectList -==>  Preparing: SELECT id,name,author,isbn,publication_date,type,price,sales,good,bad,introduction,photo_name,photo_type,file_name,file_type FROM book WHERE (author LIKE ?)
+2021-10-10 14:40:04.138 [http-nio-8080-exec-1] DEBUG com.boucy.mapper.BookMapper.selectList -==> Parameters: %料表%(String)
+2021-10-10 14:40:04.139 [http-nio-8080-exec-1] DEBUG com.boucy.mapper.BookMapper.selectList -<==      Total: 0
+2021-10-10 14:40:04.141 [http-nio-8080-exec-1] DEBUG com.boucy.mapper.BookMapper.selectList -==>  Preparing: SELECT id,name,author,isbn,publication_date,type,price,sales,good,bad,introduction,photo_name,photo_type,file_name,file_type FROM book WHERE (name LIKE ?)
+2021-10-10 14:40:04.142 [http-nio-8080-exec-1] DEBUG com.boucy.mapper.BookMapper.selectList -==> Parameters: %料表%(String)
+2021-10-10 14:40:04.145 [http-nio-8080-exec-1] DEBUG com.boucy.mapper.BookMapper.selectList -<==      Total: 1
+2021-10-10 14:40:11.199 [http-nio-8080-exec-2] DEBUG com.boucy.mapper.BookMapper.selectOne -==>  Preparing: SELECT id,name,author,isbn,publication_date,type,price,sales,good,bad,introduction,photo_name,photo_type,file_name,file_type FROM book WHERE (isbn = ?)
+2021-10-10 14:40:11.199 [http-nio-8080-exec-2] DEBUG com.boucy.mapper.BookMapper.selectOne -==> Parameters: 编(String)
+2021-10-10 14:40:11.200 [http-nio-8080-exec-2] DEBUG com.boucy.mapper.BookMapper.selectOne -<==      Total: 0
+2021-10-10 14:40:11.203 [http-nio-8080-exec-2] DEBUG com.boucy.mapper.BookMapper.selectOne -==>  Preparing: SELECT id,name,author,isbn,publication_date,type,price,sales,good,bad,introduction,photo_name,photo_type,file_name,file_type FROM book WHERE (name = ?)
+2021-10-10 14:40:11.203 [http-nio-8080-exec-2] DEBUG com.boucy.mapper.BookMapper.selectOne -==> Parameters: 编(String)
+2021-10-10 14:40:11.204 [http-nio-8080-exec-2] DEBUG com.boucy.mapper.BookMapper.selectOne -<==      Total: 0
+2021-10-10 14:40:11.207 [http-nio-8080-exec-2] DEBUG com.boucy.mapper.BookMapper.selectList -==>  Preparing: SELECT id,name,author,isbn,publication_date,type,price,sales,good,bad,introduction,photo_name,photo_type,file_name,file_type FROM book WHERE (author LIKE ?)
+2021-10-10 14:40:11.207 [http-nio-8080-exec-2] DEBUG com.boucy.mapper.BookMapper.selectList -==> Parameters: %编%(String)
+2021-10-10 14:40:11.211 [http-nio-8080-exec-2] DEBUG com.boucy.mapper.BookMapper.selectList -<==      Total: 5
+2021-10-10 14:40:11.213 [http-nio-8080-exec-2] DEBUG com.boucy.mapper.BookMapper.selectList -==>  Preparing: SELECT id,name,author,isbn,publication_date,type,price,sales,good,bad,introduction,photo_name,photo_type,file_name,file_type FROM book WHERE (name LIKE ?)
+2021-10-10 14:40:11.213 [http-nio-8080-exec-2] DEBUG com.boucy.mapper.BookMapper.selectList -==> Parameters: %编%(String)
+2021-10-10 14:40:11.215 [http-nio-8080-exec-2] DEBUG com.boucy.mapper.BookMapper.selectList -<==      Total: 0
+2021-10-10 14:40:15.111 [http-nio-8080-exec-3] DEBUG com.boucy.mapper.BookTypeMapper.selectList -==>  Preparing: SELECT id,type FROM book_type
+2021-10-10 14:40:15.111 [http-nio-8080-exec-3] DEBUG com.boucy.mapper.BookTypeMapper.selectList -==> Parameters: 
+2021-10-10 14:40:15.112 [http-nio-8080-exec-3] DEBUG com.boucy.mapper.BookTypeMapper.selectList -<==      Total: 11
+2021-10-10 14:40:21.527 [http-nio-8080-exec-4] DEBUG com.boucy.mapper.BookMapper.selectPage_mpCount -==>  Preparing: SELECT COUNT(*) FROM book WHERE (type = ?)
+2021-10-10 14:40:21.527 [http-nio-8080-exec-4] DEBUG com.boucy.mapper.BookMapper.selectPage_mpCount -==> Parameters: 1(String)
+2021-10-10 14:40:21.528 [http-nio-8080-exec-4] DEBUG com.boucy.mapper.BookMapper.selectPage_mpCount -<==      Total: 1
+2021-10-10 14:40:21.529 [http-nio-8080-exec-4] DEBUG com.boucy.mapper.BookMapper.selectPage -==>  Preparing: SELECT id,name,author,isbn,publication_date,type,price,sales,good,bad,introduction,photo_name,photo_type,file_name,file_type FROM book WHERE (type = ?) LIMIT ?
+2021-10-10 14:40:21.530 [http-nio-8080-exec-4] DEBUG com.boucy.mapper.BookMapper.selectPage -==> Parameters: 1(String), 5(Long)
+2021-10-10 14:40:21.536 [http-nio-8080-exec-4] DEBUG com.boucy.mapper.BookMapper.selectPage -<==      Total: 4
+2021-10-10 14:40:24.215 [http-nio-8080-exec-5] DEBUG com.boucy.mapper.BookMapper.selectPage_mpCount -==>  Preparing: SELECT COUNT(*) FROM book WHERE (type = ?)
+2021-10-10 14:40:24.215 [http-nio-8080-exec-5] DEBUG com.boucy.mapper.BookMapper.selectPage_mpCount -==> Parameters: 5(String)
+2021-10-10 14:40:24.216 [http-nio-8080-exec-5] DEBUG com.boucy.mapper.BookMapper.selectPage_mpCount -<==      Total: 1
+2021-10-10 14:40:24.217 [http-nio-8080-exec-5] DEBUG com.boucy.mapper.BookMapper.selectPage -==>  Preparing: SELECT id,name,author,isbn,publication_date,type,price,sales,good,bad,introduction,photo_name,photo_type,file_name,file_type FROM book WHERE (type = ?) LIMIT ?
+2021-10-10 14:40:24.217 [http-nio-8080-exec-5] DEBUG com.boucy.mapper.BookMapper.selectPage -==> Parameters: 5(String), 5(Long)
+2021-10-10 14:40:24.219 [http-nio-8080-exec-5] DEBUG com.boucy.mapper.BookMapper.selectPage -<==      Total: 1
+2021-10-10 14:40:26.442 [http-nio-8080-exec-6] DEBUG com.boucy.mapper.BookMapper.selectPage_mpCount -==>  Preparing: SELECT COUNT(*) FROM book WHERE (type = ?)
+2021-10-10 14:40:26.443 [http-nio-8080-exec-6] DEBUG com.boucy.mapper.BookMapper.selectPage_mpCount -==> Parameters: 3(String)
+2021-10-10 14:40:26.444 [http-nio-8080-exec-6] DEBUG com.boucy.mapper.BookMapper.selectPage_mpCount -<==      Total: 1
+2021-10-10 14:40:26.445 [http-nio-8080-exec-6] DEBUG com.boucy.mapper.BookMapper.selectPage -==>  Preparing: SELECT id,name,author,isbn,publication_date,type,price,sales,good,bad,introduction,photo_name,photo_type,file_name,file_type FROM book WHERE (type = ?) LIMIT ?
+2021-10-10 14:40:26.445 [http-nio-8080-exec-6] DEBUG com.boucy.mapper.BookMapper.selectPage -==> Parameters: 3(String), 5(Long)
+2021-10-10 14:40:26.446 [http-nio-8080-exec-6] DEBUG com.boucy.mapper.BookMapper.selectPage -<==      Total: 1
+2021-10-10 14:40:27.929 [http-nio-8080-exec-7] DEBUG com.boucy.mapper.BookMapper.selectPage_mpCount -==>  Preparing: SELECT COUNT(*) FROM book
+2021-10-10 14:40:27.930 [http-nio-8080-exec-7] DEBUG com.boucy.mapper.BookMapper.selectPage_mpCount -==> Parameters: 
+2021-10-10 14:40:27.945 [http-nio-8080-exec-7] DEBUG com.boucy.mapper.BookMapper.selectPage_mpCount -<==      Total: 1
+2021-10-10 14:40:27.945 [http-nio-8080-exec-7] DEBUG com.boucy.mapper.BookMapper.selectPage -==>  Preparing: SELECT id,name,author,isbn,publication_date,type,price,sales,good,bad,introduction,photo_name,photo_type,file_name,file_type FROM book ORDER BY sales DESC LIMIT ?
+2021-10-10 14:40:27.948 [http-nio-8080-exec-7] DEBUG com.boucy.mapper.BookMapper.selectPage -==> Parameters: 5(Long)
+2021-10-10 14:40:27.957 [http-nio-8080-exec-7] DEBUG com.boucy.mapper.BookMapper.selectPage -<==      Total: 5
+2021-10-10 14:40:33.451 [http-nio-8080-exec-9] DEBUG com.boucy.mapper.BookMapper.selectPage_mpCount -==>  Preparing: SELECT COUNT(*) FROM book
+2021-10-10 14:40:33.451 [http-nio-8080-exec-9] DEBUG com.boucy.mapper.BookMapper.selectPage_mpCount -==> Parameters: 
+2021-10-10 14:40:33.453 [http-nio-8080-exec-9] DEBUG com.boucy.mapper.BookMapper.selectPage_mpCount -<==      Total: 1
+2021-10-10 14:40:33.454 [http-nio-8080-exec-9] DEBUG com.boucy.mapper.BookMapper.selectPage -==>  Preparing: SELECT id,name,author,isbn,publication_date,type,price,sales,good,bad,introduction,photo_name,photo_type,file_name,file_type FROM book ORDER BY sales DESC LIMIT ?,?
+2021-10-10 14:40:33.455 [http-nio-8080-exec-9] DEBUG com.boucy.mapper.BookMapper.selectPage -==> Parameters: 5(Long), 5(Long)
+2021-10-10 14:40:33.490 [http-nio-8080-exec-9] DEBUG com.boucy.mapper.BookMapper.selectPage -<==      Total: 5
+2021-10-10 14:40:35.055 [http-nio-8080-exec-10] DEBUG com.boucy.mapper.BookMapper.selectPage_mpCount -==>  Preparing: SELECT COUNT(*) FROM book
+2021-10-10 14:40:35.056 [http-nio-8080-exec-10] DEBUG com.boucy.mapper.BookMapper.selectPage_mpCount -==> Parameters: 
+2021-10-10 14:40:35.058 [http-nio-8080-exec-10] DEBUG com.boucy.mapper.BookMapper.selectPage_mpCount -<==      Total: 1
+2021-10-10 14:40:35.059 [http-nio-8080-exec-10] DEBUG com.boucy.mapper.BookMapper.selectPage -==>  Preparing: SELECT id,name,author,isbn,publication_date,type,price,sales,good,bad,introduction,photo_name,photo_type,file_name,file_type FROM book ORDER BY sales DESC LIMIT ?,?
+2021-10-10 14:40:35.059 [http-nio-8080-exec-10] DEBUG com.boucy.mapper.BookMapper.selectPage -==> Parameters: 10(Long), 5(Long)
+2021-10-10 14:40:35.062 [http-nio-8080-exec-10] DEBUG com.boucy.mapper.BookMapper.selectPage -<==      Total: 5
+2021-10-10 14:40:37.542 [http-nio-8080-exec-2] DEBUG com.boucy.mapper.BookMapper.selectPage_mpCount -==>  Preparing: SELECT COUNT(*) FROM book
+2021-10-10 14:40:37.543 [http-nio-8080-exec-2] DEBUG com.boucy.mapper.BookMapper.selectPage_mpCount -==> Parameters: 
+2021-10-10 14:40:37.545 [http-nio-8080-exec-2] DEBUG com.boucy.mapper.BookMapper.selectPage_mpCount -<==      Total: 1
+2021-10-10 14:40:37.546 [http-nio-8080-exec-2] DEBUG com.boucy.mapper.BookMapper.selectPage -==>  Preparing: SELECT id,name,author,isbn,publication_date,type,price,sales,good,bad,introduction,photo_name,photo_type,file_name,file_type FROM book ORDER BY sales DESC LIMIT ?
+2021-10-10 14:40:37.546 [http-nio-8080-exec-2] DEBUG com.boucy.mapper.BookMapper.selectPage -==> Parameters: 5(Long)
+2021-10-10 14:40:37.550 [http-nio-8080-exec-2] DEBUG com.boucy.mapper.BookMapper.selectPage -<==      Total: 5
+2021-10-10 14:40:38.996 [http-nio-8080-exec-3] DEBUG com.boucy.mapper.BookMapper.selectOne -==>  Preparing: SELECT id,name,author,isbn,publication_date,type,price,sales,good,bad,introduction,photo_name,photo_type,file_name,file_type FROM book WHERE (id = ?)
+2021-10-10 14:40:38.997 [http-nio-8080-exec-3] DEBUG com.boucy.mapper.BookMapper.selectOne -==> Parameters: 9(String)
+2021-10-10 14:40:39.037 [http-nio-8080-exec-3] DEBUG com.boucy.mapper.BookMapper.selectOne -<==      Total: 1
+2021-10-10 14:40:39.038 [http-nio-8080-exec-3] DEBUG com.boucy.mapper.BookTypeMapper.selectOne -==>  Preparing: SELECT id,type FROM book_type WHERE (id = ?)
+2021-10-10 14:40:39.039 [http-nio-8080-exec-3] DEBUG com.boucy.mapper.BookTypeMapper.selectOne -==> Parameters: 1(String)
+2021-10-10 14:40:39.040 [http-nio-8080-exec-3] DEBUG com.boucy.mapper.BookTypeMapper.selectOne -<==      Total: 1
+2021-10-10 14:40:43.522 [http-nio-8080-exec-4] DEBUG c.b.m.B.findBookJoinBookCommentsByBookid -==>  Preparing: select * from book b left join book_comments bc on b.id = bc.book_id where b.id = ?
+2021-10-10 14:40:43.559 [http-nio-8080-exec-4] DEBUG c.b.m.B.findBookJoinBookCommentsByBookid -==> Parameters: 9(Integer)
+2021-10-10 14:40:43.587 [http-nio-8080-exec-4] DEBUG c.b.m.B.findBookJoinBookCommentsByBookid -<==      Total: 2
+2021-10-10 14:40:45.615 [http-nio-8080-exec-6] DEBUG com.boucy.mapper.BookMapper.selectOne -==>  Preparing: SELECT id,name,author,isbn,publication_date,type,price,sales,good,bad,introduction,photo_name,photo_type,file_name,file_type FROM book WHERE (id = ?)
+2021-10-10 14:40:45.616 [http-nio-8080-exec-6] DEBUG com.boucy.mapper.BookMapper.selectOne -==> Parameters: 9(String)
+2021-10-10 14:40:45.617 [http-nio-8080-exec-6] DEBUG com.boucy.mapper.BookMapper.selectOne -<==      Total: 1
+2021-10-10 14:40:45.619 [http-nio-8080-exec-6] DEBUG com.boucy.mapper.BookTypeMapper.selectOne -==>  Preparing: SELECT id,type FROM book_type WHERE (id = ?)
+2021-10-10 14:40:45.620 [http-nio-8080-exec-6] DEBUG com.boucy.mapper.BookTypeMapper.selectOne -==> Parameters: 1(String)
+2021-10-10 14:40:45.621 [http-nio-8080-exec-6] DEBUG com.boucy.mapper.BookTypeMapper.selectOne -<==      Total: 1
+2021-10-10 14:40:49.665 [http-nio-8080-exec-1] DEBUG com.boucy.mapper.BookMapper.selectOne -==>  Preparing: SELECT id,name,author,isbn,publication_date,type,price,sales,good,bad,introduction,photo_name,photo_type,file_name,file_type FROM book WHERE (id = ?)
+2021-10-10 14:40:49.665 [http-nio-8080-exec-1] DEBUG com.boucy.mapper.BookMapper.selectOne -==> Parameters: 9(String)
+2021-10-10 14:40:49.667 [http-nio-8080-exec-1] DEBUG com.boucy.mapper.BookMapper.selectOne -<==      Total: 1
+2021-10-10 14:40:49.668 [http-nio-8080-exec-1] DEBUG com.boucy.mapper.BookTypeMapper.selectOne -==>  Preparing: SELECT id,type FROM book_type WHERE (id = ?)
+2021-10-10 14:40:49.668 [http-nio-8080-exec-1] DEBUG com.boucy.mapper.BookTypeMapper.selectOne -==> Parameters: 1(String)
+2021-10-10 14:40:49.669 [http-nio-8080-exec-1] DEBUG com.boucy.mapper.BookTypeMapper.selectOne -<==      Total: 1
+2021-10-10 14:40:54.595 [http-nio-8080-exec-2] DEBUG com.boucy.mapper.BookMapper.selectOne -==>  Preparing: SELECT id,name,author,isbn,publication_date,type,price,sales,good,bad,introduction,photo_name,photo_type,file_name,file_type FROM book WHERE (id = ?)
+2021-10-10 14:40:54.595 [http-nio-8080-exec-2] DEBUG com.boucy.mapper.BookMapper.selectOne -==> Parameters: 9(String)
+2021-10-10 14:40:54.597 [http-nio-8080-exec-2] DEBUG com.boucy.mapper.BookMapper.selectOne -<==      Total: 1
+2021-10-10 14:41:02.842 [http-nio-8080-exec-5] DEBUG com.boucy.mapper.BookMapper.selectPage_mpCount -==>  Preparing: SELECT COUNT(*) FROM book WHERE (type = ?)
+2021-10-10 14:41:02.842 [http-nio-8080-exec-5] DEBUG com.boucy.mapper.BookMapper.selectPage_mpCount -==> Parameters: 1(String)
+2021-10-10 14:41:02.843 [http-nio-8080-exec-5] DEBUG com.boucy.mapper.BookMapper.selectPage_mpCount -<==      Total: 1
+2021-10-10 14:41:02.844 [http-nio-8080-exec-5] DEBUG com.boucy.mapper.BookMapper.selectPage -==>  Preparing: SELECT id,name,author,isbn,publication_date,type,price,sales,good,bad,introduction,photo_name,photo_type,file_name,file_type FROM book WHERE (type = ?) LIMIT ?
+2021-10-10 14:41:02.844 [http-nio-8080-exec-5] DEBUG com.boucy.mapper.BookMapper.selectPage -==> Parameters: 1(String), 5(Long)
+2021-10-10 14:41:02.846 [http-nio-8080-exec-5] DEBUG com.boucy.mapper.BookMapper.selectPage -<==      Total: 4
+2021-10-10 14:41:21.833 [http-nio-8080-exec-7] DEBUG com.boucy.mapper.UserMapper.selectOne -==>  Preparing: SELECT id,nickname,password,avatar_file_name,avatar_file_type,user_type,balance,gender,phone,email,birthday,create_date FROM user WHERE (id = ? AND password = ?)
+2021-10-10 14:41:21.834 [http-nio-8080-exec-7] DEBUG com.boucy.mapper.UserMapper.selectOne -==> Parameters: 2(String), 2(String)
+2021-10-10 14:41:21.874 [http-nio-8080-exec-7] DEBUG com.boucy.mapper.UserMapper.selectOne -<==      Total: 1
+2021-10-10 14:41:21.884 [http-nio-8080-exec-8] DEBUG com.boucy.mapper.BookTypeMapper.selectList -==>  Preparing: SELECT id,type FROM book_type
+2021-10-10 14:41:21.884 [http-nio-8080-exec-8] DEBUG com.boucy.mapper.BookTypeMapper.selectList -==> Parameters: 
+2021-10-10 14:41:21.886 [http-nio-8080-exec-8] DEBUG com.boucy.mapper.BookTypeMapper.selectList -<==      Total: 11
+2021-10-10 14:41:26.113 [http-nio-8080-exec-9] DEBUG c.b.m.B.getBookJoinBookPosses_mpCount -==>  Preparing: SELECT COUNT(*) FROM book_posses a WHERE a.user_id = ?
+2021-10-10 14:41:26.114 [http-nio-8080-exec-9] DEBUG c.b.m.B.getBookJoinBookPosses_mpCount -==> Parameters: 2(String)
+2021-10-10 14:41:26.145 [http-nio-8080-exec-9] DEBUG c.b.m.B.getBookJoinBookPosses_mpCount -<==      Total: 1
+2021-10-10 14:41:29.067 [http-nio-8080-exec-10] DEBUG com.boucy.mapper.BookMapper.selectPage_mpCount -==>  Preparing: SELECT COUNT(*) FROM book WHERE (type = ?)
+2021-10-10 14:41:29.067 [http-nio-8080-exec-10] DEBUG com.boucy.mapper.BookMapper.selectPage_mpCount -==> Parameters: 1(String)
+2021-10-10 14:41:29.068 [http-nio-8080-exec-10] DEBUG com.boucy.mapper.BookMapper.selectPage_mpCount -<==      Total: 1
+2021-10-10 14:41:29.069 [http-nio-8080-exec-10] DEBUG com.boucy.mapper.BookMapper.selectPage -==>  Preparing: SELECT id,name,author,isbn,publication_date,type,price,sales,good,bad,introduction,photo_name,photo_type,file_name,file_type FROM book WHERE (type = ?) LIMIT ?
+2021-10-10 14:41:29.069 [http-nio-8080-exec-10] DEBUG com.boucy.mapper.BookMapper.selectPage -==> Parameters: 1(String), 5(Long)
+2021-10-10 14:41:29.071 [http-nio-8080-exec-10] DEBUG com.boucy.mapper.BookMapper.selectPage -<==      Total: 4
+2021-10-10 14:41:31.381 [http-nio-8080-exec-1] WARN  o.s.w.s.m.support.DefaultHandlerExceptionResolver -Resolved [org.springframework.web.bind.MissingServletRequestParameterException: Required request parameter 'booksID' for method parameter type String[] is not present]
+2021-10-10 14:41:38.878 [http-nio-8080-exec-3] DEBUG com.boucy.mapper.BookShoppingCartMapper.selectOne -==>  Preparing: SELECT user_id,book_id FROM book_shopping_cart WHERE (book_id = ?)
+2021-10-10 14:41:38.879 [http-nio-8080-exec-3] DEBUG com.boucy.mapper.BookShoppingCartMapper.selectOne -==> Parameters: 8(String)
+2021-10-10 14:41:38.921 [http-nio-8080-exec-3] DEBUG com.boucy.mapper.BookShoppingCartMapper.selectOne -<==      Total: 0
+2021-10-10 14:41:38.923 [http-nio-8080-exec-3] DEBUG com.boucy.mapper.BookShoppingCartMapper.insert -==>  Preparing: INSERT INTO book_shopping_cart ( user_id, book_id ) VALUES ( ?, ? )
+2021-10-10 14:41:38.928 [http-nio-8080-exec-3] DEBUG com.boucy.mapper.BookShoppingCartMapper.insert -==> Parameters: 2(Integer), 8(Integer)
+2021-10-10 14:41:38.959 [http-nio-8080-exec-3] DEBUG com.boucy.mapper.BookShoppingCartMapper.insert -<==    Updates: 1
+2021-10-10 14:41:38.972 [http-nio-8080-exec-4] DEBUG c.b.m.B.getShoppingCartJoinBook_mpCount -==>  Preparing: SELECT COUNT(*) FROM book_shopping_cart a WHERE a.user_id = ?
+2021-10-10 14:41:38.973 [http-nio-8080-exec-4] DEBUG c.b.m.B.getShoppingCartJoinBook_mpCount -==> Parameters: 2(String)
+2021-10-10 14:41:38.974 [http-nio-8080-exec-4] DEBUG c.b.m.B.getShoppingCartJoinBook_mpCount -<==      Total: 1
+2021-10-10 14:41:38.975 [http-nio-8080-exec-4] DEBUG c.b.m.B.getShoppingCartJoinBook -==>  Preparing: SELECT * FROM book_shopping_cart a LEFT JOIN book b ON a.book_id=b.id WHERE a.user_id=? LIMIT ?
+2021-10-10 14:41:38.976 [http-nio-8080-exec-4] DEBUG c.b.m.B.getShoppingCartJoinBook -==> Parameters: 2(String), 5(Long)
+2021-10-10 14:41:38.980 [http-nio-8080-exec-4] DEBUG c.b.m.B.getShoppingCartJoinBook -<==      Total: 1
+2021-10-10 14:41:42.132 [http-nio-8080-exec-5] DEBUG com.boucy.mapper.BookMapper.selectOne -==>  Preparing: SELECT id,name,author,isbn,publication_date,type,price,sales,good,bad,introduction,photo_name,photo_type,file_name,file_type FROM book WHERE (id = ?)
+2021-10-10 14:41:42.132 [http-nio-8080-exec-5] DEBUG com.boucy.mapper.BookMapper.selectOne -==> Parameters: 8(String)
+2021-10-10 14:41:42.135 [http-nio-8080-exec-5] DEBUG com.boucy.mapper.BookMapper.selectOne -<==      Total: 1
+2021-10-10 14:41:42.140 [http-nio-8080-exec-5] DEBUG com.boucy.mapper.UserMapper.update -==>  Preparing: UPDATE user SET nickname=?, password=?, avatar_file_name=?, avatar_file_type=?, user_type=?, balance=?, gender=?, phone=?, email=?, birthday=?, create_date=? WHERE (id = ?)
+2021-10-10 14:41:42.148 [http-nio-8080-exec-5] DEBUG com.boucy.mapper.UserMapper.update -==> Parameters: 李四(String), 2(String), 58e3493b-dc85-4a6c-bc28-439a0f9f0f6d.jpg(String), image/jpeg(String), 2(String), 993.0(Double), 2(String), 2(String), 2(String), 2001-01-01 00:00:00.0(Timestamp), 2021-10-01 10:21:26.0(Timestamp), 2(Integer)
+2021-10-10 14:41:42.157 [http-nio-8080-exec-5] DEBUG com.boucy.mapper.UserMapper.update -<==    Updates: 1
+2021-10-10 14:41:42.158 [http-nio-8080-exec-5] DEBUG com.boucy.mapper.BookPossesMapper.insert -==>  Preparing: INSERT INTO book_posses ( user_id, book_id ) VALUES ( ?, ? )
+2021-10-10 14:41:42.159 [http-nio-8080-exec-5] DEBUG com.boucy.mapper.BookPossesMapper.insert -==> Parameters: 2(Integer), 8(Integer)
+2021-10-10 14:41:42.160 [http-nio-8080-exec-5] DEBUG com.boucy.mapper.BookPossesMapper.insert -<==    Updates: 1
+2021-10-10 14:41:42.162 [http-nio-8080-exec-5] DEBUG com.boucy.mapper.PurchaseRecordMapper.insert -==>  Preparing: INSERT INTO purchase_record ( user_id, book_id, purchase_date, price ) VALUES ( ?, ?, ?, ? )
+2021-10-10 14:41:42.164 [http-nio-8080-exec-5] DEBUG com.boucy.mapper.PurchaseRecordMapper.insert -==> Parameters: 2(Integer), 8(Integer), 2021-10-10 14:41:42.161(Timestamp), 1.0(Double)
+2021-10-10 14:41:42.170 [http-nio-8080-exec-5] DEBUG com.boucy.mapper.PurchaseRecordMapper.insert -<==    Updates: 1
+2021-10-10 14:41:42.190 [http-nio-8080-exec-6] DEBUG c.b.m.B.getBookJoinBookPosses_mpCount -==>  Preparing: SELECT COUNT(*) FROM book_posses a WHERE a.user_id = ?
+2021-10-10 14:41:42.190 [http-nio-8080-exec-6] DEBUG c.b.m.B.getBookJoinBookPosses_mpCount -==> Parameters: 2(String)
+2021-10-10 14:41:42.191 [http-nio-8080-exec-6] DEBUG c.b.m.B.getBookJoinBookPosses_mpCount -<==      Total: 1
+2021-10-10 14:41:42.191 [http-nio-8080-exec-6] DEBUG c.b.mapper.BookPossesMapper.getBookJoinBookPosses -==>  Preparing: SELECT * FROM book_posses a LEFT JOIN book b ON a.book_id=b.id WHERE a.user_id=? LIMIT ?
+2021-10-10 14:41:42.192 [http-nio-8080-exec-6] DEBUG c.b.mapper.BookPossesMapper.getBookJoinBookPosses -==> Parameters: 2(String), 5(Long)
+2021-10-10 14:41:42.194 [http-nio-8080-exec-6] DEBUG c.b.mapper.BookPossesMapper.getBookJoinBookPosses -<==      Total: 1
+2021-10-10 14:41:49.380 [http-nio-8080-exec-7] DEBUG com.boucy.mapper.BookShoppingCartMapper.selectOne -==>  Preparing: SELECT user_id,book_id FROM book_shopping_cart WHERE (book_id = ?)
+2021-10-10 14:41:49.381 [http-nio-8080-exec-7] DEBUG com.boucy.mapper.BookShoppingCartMapper.selectOne -==> Parameters: 9(String)
+2021-10-10 14:41:49.382 [http-nio-8080-exec-7] DEBUG com.boucy.mapper.BookShoppingCartMapper.selectOne -<==      Total: 0
+2021-10-10 14:41:49.383 [http-nio-8080-exec-7] DEBUG com.boucy.mapper.BookShoppingCartMapper.insert -==>  Preparing: INSERT INTO book_shopping_cart ( user_id, book_id ) VALUES ( ?, ? )
+2021-10-10 14:41:49.383 [http-nio-8080-exec-7] DEBUG com.boucy.mapper.BookShoppingCartMapper.insert -==> Parameters: 2(Integer), 9(Integer)
+2021-10-10 14:41:49.416 [http-nio-8080-exec-7] DEBUG com.boucy.mapper.BookShoppingCartMapper.insert -<==    Updates: 1
+2021-10-10 14:41:49.422 [http-nio-8080-exec-8] DEBUG c.b.m.B.getShoppingCartJoinBook_mpCount -==>  Preparing: SELECT COUNT(*) FROM book_shopping_cart a WHERE a.user_id = ?
+2021-10-10 14:41:49.423 [http-nio-8080-exec-8] DEBUG c.b.m.B.getShoppingCartJoinBook_mpCount -==> Parameters: 2(String)
+2021-10-10 14:41:49.425 [http-nio-8080-exec-8] DEBUG c.b.m.B.getShoppingCartJoinBook_mpCount -<==      Total: 1
+2021-10-10 14:41:49.426 [http-nio-8080-exec-8] DEBUG c.b.m.B.getShoppingCartJoinBook -==>  Preparing: SELECT * FROM book_shopping_cart a LEFT JOIN book b ON a.book_id=b.id WHERE a.user_id=? LIMIT ?
+2021-10-10 14:41:49.426 [http-nio-8080-exec-8] DEBUG c.b.m.B.getShoppingCartJoinBook -==> Parameters: 2(String), 5(Long)
+2021-10-10 14:41:49.428 [http-nio-8080-exec-8] DEBUG c.b.m.B.getShoppingCartJoinBook -<==      Total: 2
+2021-10-10 14:41:51.295 [http-nio-8080-exec-9] DEBUG com.boucy.mapper.BookShoppingCartMapper.selectOne -==>  Preparing: SELECT user_id,book_id FROM book_shopping_cart WHERE (book_id = ?)
+2021-10-10 14:41:51.295 [http-nio-8080-exec-9] DEBUG com.boucy.mapper.BookShoppingCartMapper.selectOne -==> Parameters: 10(String)
+2021-10-10 14:41:51.296 [http-nio-8080-exec-9] DEBUG com.boucy.mapper.BookShoppingCartMapper.selectOne -<==      Total: 0
+2021-10-10 14:41:51.297 [http-nio-8080-exec-9] DEBUG com.boucy.mapper.BookShoppingCartMapper.insert -==>  Preparing: INSERT INTO book_shopping_cart ( user_id, book_id ) VALUES ( ?, ? )
+2021-10-10 14:41:51.297 [http-nio-8080-exec-9] DEBUG com.boucy.mapper.BookShoppingCartMapper.insert -==> Parameters: 2(Integer), 10(Integer)
+2021-10-10 14:41:51.340 [http-nio-8080-exec-9] DEBUG com.boucy.mapper.BookShoppingCartMapper.insert -<==    Updates: 1
+2021-10-10 14:41:51.350 [http-nio-8080-exec-10] DEBUG c.b.m.B.getShoppingCartJoinBook_mpCount -==>  Preparing: SELECT COUNT(*) FROM book_shopping_cart a WHERE a.user_id = ?
+2021-10-10 14:41:51.350 [http-nio-8080-exec-10] DEBUG c.b.m.B.getShoppingCartJoinBook_mpCount -==> Parameters: 2(String)
+2021-10-10 14:41:51.351 [http-nio-8080-exec-10] DEBUG c.b.m.B.getShoppingCartJoinBook_mpCount -<==      Total: 1
+2021-10-10 14:41:51.352 [http-nio-8080-exec-10] DEBUG c.b.m.B.getShoppingCartJoinBook -==>  Preparing: SELECT * FROM book_shopping_cart a LEFT JOIN book b ON a.book_id=b.id WHERE a.user_id=? LIMIT ?
+2021-10-10 14:41:51.352 [http-nio-8080-exec-10] DEBUG c.b.m.B.getShoppingCartJoinBook -==> Parameters: 2(String), 5(Long)
+2021-10-10 14:41:51.353 [http-nio-8080-exec-10] DEBUG c.b.m.B.getShoppingCartJoinBook -<==      Total: 3
+2021-10-10 14:41:53.807 [http-nio-8080-exec-1] DEBUG com.boucy.mapper.BookShoppingCartMapper.selectOne -==>  Preparing: SELECT user_id,book_id FROM book_shopping_cart WHERE (book_id = ?)
+2021-10-10 14:41:53.807 [http-nio-8080-exec-1] DEBUG com.boucy.mapper.BookShoppingCartMapper.selectOne -==> Parameters: 22(String)
+2021-10-10 14:41:53.808 [http-nio-8080-exec-1] DEBUG com.boucy.mapper.BookShoppingCartMapper.selectOne -<==      Total: 0
+2021-10-10 14:41:53.808 [http-nio-8080-exec-1] DEBUG com.boucy.mapper.BookShoppingCartMapper.insert -==>  Preparing: INSERT INTO book_shopping_cart ( user_id, book_id ) VALUES ( ?, ? )
+2021-10-10 14:41:53.809 [http-nio-8080-exec-1] DEBUG com.boucy.mapper.BookShoppingCartMapper.insert -==> Parameters: 2(Integer), 22(Integer)
+2021-10-10 14:41:53.850 [http-nio-8080-exec-1] DEBUG com.boucy.mapper.BookShoppingCartMapper.insert -<==    Updates: 1
+2021-10-10 14:41:53.855 [http-nio-8080-exec-2] DEBUG c.b.m.B.getShoppingCartJoinBook_mpCount -==>  Preparing: SELECT COUNT(*) FROM book_shopping_cart a WHERE a.user_id = ?
+2021-10-10 14:41:53.856 [http-nio-8080-exec-2] DEBUG c.b.m.B.getShoppingCartJoinBook_mpCount -==> Parameters: 2(String)
+2021-10-10 14:41:53.857 [http-nio-8080-exec-2] DEBUG c.b.m.B.getShoppingCartJoinBook_mpCount -<==      Total: 1
+2021-10-10 14:41:53.858 [http-nio-8080-exec-2] DEBUG c.b.m.B.getShoppingCartJoinBook -==>  Preparing: SELECT * FROM book_shopping_cart a LEFT JOIN book b ON a.book_id=b.id WHERE a.user_id=? LIMIT ?
+2021-10-10 14:41:53.858 [http-nio-8080-exec-2] DEBUG c.b.m.B.getShoppingCartJoinBook -==> Parameters: 2(String), 5(Long)
+2021-10-10 14:41:53.860 [http-nio-8080-exec-2] DEBUG c.b.m.B.getShoppingCartJoinBook -<==      Total: 4
+2021-10-10 14:41:58.441 [http-nio-8080-exec-3] DEBUG c.b.m.B.getShoppingCartJoinBook_mpCount -==>  Preparing: SELECT COUNT(*) FROM book_shopping_cart a WHERE a.user_id = ?
+2021-10-10 14:41:58.441 [http-nio-8080-exec-3] DEBUG c.b.m.B.getShoppingCartJoinBook_mpCount -==> Parameters: 2(String)
+2021-10-10 14:41:58.442 [http-nio-8080-exec-3] DEBUG c.b.m.B.getShoppingCartJoinBook_mpCount -<==      Total: 1
+2021-10-10 14:41:58.443 [http-nio-8080-exec-3] DEBUG c.b.m.B.getShoppingCartJoinBook -==>  Preparing: SELECT * FROM book_shopping_cart a LEFT JOIN book b ON a.book_id=b.id WHERE a.user_id=? LIMIT ?
+2021-10-10 14:41:58.443 [http-nio-8080-exec-3] DEBUG c.b.m.B.getShoppingCartJoinBook -==> Parameters: 2(String), 5(Long)
+2021-10-10 14:41:58.444 [http-nio-8080-exec-3] DEBUG c.b.m.B.getShoppingCartJoinBook -<==      Total: 4
+2021-10-10 14:42:04.999 [http-nio-8080-exec-4] DEBUG com.boucy.mapper.BookMapper.selectOne -==>  Preparing: SELECT id,name,author,isbn,publication_date,type,price,sales,good,bad,introduction,photo_name,photo_type,file_name,file_type FROM book WHERE (id = ?)
+2021-10-10 14:42:04.999 [http-nio-8080-exec-4] DEBUG com.boucy.mapper.BookMapper.selectOne -==> Parameters: 9(String)
+2021-10-10 14:42:05.000 [http-nio-8080-exec-4] DEBUG com.boucy.mapper.BookMapper.selectOne -<==      Total: 1
+2021-10-10 14:42:05.003 [http-nio-8080-exec-4] DEBUG com.boucy.mapper.UserMapper.update -==>  Preparing: UPDATE user SET nickname=?, password=?, avatar_file_name=?, avatar_file_type=?, user_type=?, balance=?, gender=?, phone=?, email=?, birthday=?, create_date=? WHERE (id = ?)
+2021-10-10 14:42:05.004 [http-nio-8080-exec-4] DEBUG com.boucy.mapper.UserMapper.update -==> Parameters: 李四(String), 2(String), 58e3493b-dc85-4a6c-bc28-439a0f9f0f6d.jpg(String), image/jpeg(String), 2(String), 992.0(Double), 2(String), 2(String), 2(String), 2001-01-01 00:00:00.0(Timestamp), 2021-10-01 10:21:26.0(Timestamp), 2(Integer)
+2021-10-10 14:42:05.045 [http-nio-8080-exec-4] DEBUG com.boucy.mapper.UserMapper.update -<==    Updates: 1
+2021-10-10 14:42:05.046 [http-nio-8080-exec-4] DEBUG com.boucy.mapper.BookPossesMapper.insert -==>  Preparing: INSERT INTO book_posses ( user_id, book_id ) VALUES ( ?, ? )
+2021-10-10 14:42:05.047 [http-nio-8080-exec-4] DEBUG com.boucy.mapper.BookPossesMapper.insert -==> Parameters: 2(Integer), 9(Integer)
+2021-10-10 14:42:05.048 [http-nio-8080-exec-4] DEBUG com.boucy.mapper.BookPossesMapper.insert -<==    Updates: 1
+2021-10-10 14:42:05.049 [http-nio-8080-exec-4] DEBUG com.boucy.mapper.PurchaseRecordMapper.insert -==>  Preparing: INSERT INTO purchase_record ( user_id, book_id, purchase_date, price ) VALUES ( ?, ?, ?, ? )
+2021-10-10 14:42:05.049 [http-nio-8080-exec-4] DEBUG com.boucy.mapper.PurchaseRecordMapper.insert -==> Parameters: 2(Integer), 9(Integer), 2021-10-10 14:42:05.049(Timestamp), 1.0(Double)
+2021-10-10 14:42:05.051 [http-nio-8080-exec-4] DEBUG com.boucy.mapper.PurchaseRecordMapper.insert -<==    Updates: 1
+2021-10-10 14:42:05.052 [http-nio-8080-exec-4] DEBUG com.boucy.mapper.BookMapper.selectOne -==>  Preparing: SELECT id,name,author,isbn,publication_date,type,price,sales,good,bad,introduction,photo_name,photo_type,file_name,file_type FROM book WHERE (id = ?)
+2021-10-10 14:42:05.052 [http-nio-8080-exec-4] DEBUG com.boucy.mapper.BookMapper.selectOne -==> Parameters: 10(String)
+2021-10-10 14:42:05.054 [http-nio-8080-exec-4] DEBUG com.boucy.mapper.BookMapper.selectOne -<==      Total: 1
+2021-10-10 14:42:05.056 [http-nio-8080-exec-4] DEBUG com.boucy.mapper.UserMapper.update -==>  Preparing: UPDATE user SET nickname=?, password=?, avatar_file_name=?, avatar_file_type=?, user_type=?, balance=?, gender=?, phone=?, email=?, birthday=?, create_date=? WHERE (id = ?)
+2021-10-10 14:42:05.056 [http-nio-8080-exec-4] DEBUG com.boucy.mapper.UserMapper.update -==> Parameters: 李四(String), 2(String), 58e3493b-dc85-4a6c-bc28-439a0f9f0f6d.jpg(String), image/jpeg(String), 2(String), 991.0(Double), 2(String), 2(String), 2(String), 2001-01-01 00:00:00.0(Timestamp), 2021-10-01 10:21:26.0(Timestamp), 2(Integer)
+2021-10-10 14:42:05.057 [http-nio-8080-exec-4] DEBUG com.boucy.mapper.UserMapper.update -<==    Updates: 1
+2021-10-10 14:42:05.058 [http-nio-8080-exec-4] DEBUG com.boucy.mapper.BookPossesMapper.insert -==>  Preparing: INSERT INTO book_posses ( user_id, book_id ) VALUES ( ?, ? )
+2021-10-10 14:42:05.058 [http-nio-8080-exec-4] DEBUG com.boucy.mapper.BookPossesMapper.insert -==> Parameters: 2(Integer), 10(Integer)
+2021-10-10 14:42:05.059 [http-nio-8080-exec-4] DEBUG com.boucy.mapper.BookPossesMapper.insert -<==    Updates: 1
+2021-10-10 14:42:05.059 [http-nio-8080-exec-4] DEBUG com.boucy.mapper.PurchaseRecordMapper.insert -==>  Preparing: INSERT INTO purchase_record ( user_id, book_id, purchase_date, price ) VALUES ( ?, ?, ?, ? )
+2021-10-10 14:42:05.059 [http-nio-8080-exec-4] DEBUG com.boucy.mapper.PurchaseRecordMapper.insert -==> Parameters: 2(Integer), 10(Integer), 2021-10-10 14:42:05.059(Timestamp), 1.0(Double)
+2021-10-10 14:42:05.060 [http-nio-8080-exec-4] DEBUG com.boucy.mapper.PurchaseRecordMapper.insert -<==    Updates: 1
+2021-10-10 14:42:05.061 [http-nio-8080-exec-4] DEBUG com.boucy.mapper.BookMapper.selectOne -==>  Preparing: SELECT id,name,author,isbn,publication_date,type,price,sales,good,bad,introduction,photo_name,photo_type,file_name,file_type FROM book WHERE (id = ?)
+2021-10-10 14:42:05.061 [http-nio-8080-exec-4] DEBUG com.boucy.mapper.BookMapper.selectOne -==> Parameters: 22(String)
+2021-10-10 14:42:05.062 [http-nio-8080-exec-4] DEBUG com.boucy.mapper.BookMapper.selectOne -<==      Total: 1
+2021-10-10 14:42:05.063 [http-nio-8080-exec-4] DEBUG com.boucy.mapper.UserMapper.update -==>  Preparing: UPDATE user SET nickname=?, password=?, avatar_file_name=?, avatar_file_type=?, user_type=?, balance=?, gender=?, phone=?, email=?, birthday=?, create_date=? WHERE (id = ?)
+2021-10-10 14:42:05.064 [http-nio-8080-exec-4] DEBUG com.boucy.mapper.UserMapper.update -==> Parameters: 李四(String), 2(String), 58e3493b-dc85-4a6c-bc28-439a0f9f0f6d.jpg(String), image/jpeg(String), 2(String), 967.0(Double), 2(String), 2(String), 2(String), 2001-01-01 00:00:00.0(Timestamp), 2021-10-01 10:21:26.0(Timestamp), 2(Integer)
+2021-10-10 14:42:05.065 [http-nio-8080-exec-4] DEBUG com.boucy.mapper.UserMapper.update -<==    Updates: 1
+2021-10-10 14:42:05.065 [http-nio-8080-exec-4] DEBUG com.boucy.mapper.BookPossesMapper.insert -==>  Preparing: INSERT INTO book_posses ( user_id, book_id ) VALUES ( ?, ? )
+2021-10-10 14:42:05.065 [http-nio-8080-exec-4] DEBUG com.boucy.mapper.BookPossesMapper.insert -==> Parameters: 2(Integer), 22(Integer)
+2021-10-10 14:42:05.066 [http-nio-8080-exec-4] DEBUG com.boucy.mapper.BookPossesMapper.insert -<==    Updates: 1
+2021-10-10 14:42:05.067 [http-nio-8080-exec-4] DEBUG com.boucy.mapper.PurchaseRecordMapper.insert -==>  Preparing: INSERT INTO purchase_record ( user_id, book_id, purchase_date, price ) VALUES ( ?, ?, ?, ? )
+2021-10-10 14:42:05.067 [http-nio-8080-exec-4] DEBUG com.boucy.mapper.PurchaseRecordMapper.insert -==> Parameters: 2(Integer), 22(Integer), 2021-10-10 14:42:05.066(Timestamp), 24.0(Double)
+2021-10-10 14:42:05.068 [http-nio-8080-exec-4] DEBUG com.boucy.mapper.PurchaseRecordMapper.insert -<==    Updates: 1
+2021-10-10 14:42:05.079 [http-nio-8080-exec-5] DEBUG c.b.m.B.getBookJoinBookPosses_mpCount -==>  Preparing: SELECT COUNT(*) FROM book_posses a WHERE a.user_id = ?
+2021-10-10 14:42:05.080 [http-nio-8080-exec-5] DEBUG c.b.m.B.getBookJoinBookPosses_mpCount -==> Parameters: 2(String)
+2021-10-10 14:42:05.080 [http-nio-8080-exec-5] DEBUG c.b.m.B.getBookJoinBookPosses_mpCount -<==      Total: 1
+2021-10-10 14:42:05.081 [http-nio-8080-exec-5] DEBUG c.b.mapper.BookPossesMapper.getBookJoinBookPosses -==>  Preparing: SELECT * FROM book_posses a LEFT JOIN book b ON a.book_id=b.id WHERE a.user_id=? LIMIT ?
+2021-10-10 14:42:05.081 [http-nio-8080-exec-5] DEBUG c.b.mapper.BookPossesMapper.getBookJoinBookPosses -==> Parameters: 2(String), 5(Long)
+2021-10-10 14:42:05.083 [http-nio-8080-exec-5] DEBUG c.b.mapper.BookPossesMapper.getBookJoinBookPosses -<==      Total: 4
+2021-10-10 14:42:21.265 [http-nio-8080-exec-7] DEBUG c.b.m.B.getBookJoinBookPosses_mpCount -==>  Preparing: SELECT COUNT(*) FROM book_posses a WHERE a.user_id = ?
+2021-10-10 14:42:21.265 [http-nio-8080-exec-7] DEBUG c.b.m.B.getBookJoinBookPosses_mpCount -==> Parameters: 2(String)
+2021-10-10 14:42:21.266 [http-nio-8080-exec-7] DEBUG c.b.m.B.getBookJoinBookPosses_mpCount -<==      Total: 1
+2021-10-10 14:42:21.267 [http-nio-8080-exec-7] DEBUG c.b.mapper.BookPossesMapper.getBookJoinBookPosses -==>  Preparing: SELECT * FROM book_posses a LEFT JOIN book b ON a.book_id=b.id WHERE a.user_id=? LIMIT ?
+2021-10-10 14:42:21.267 [http-nio-8080-exec-7] DEBUG c.b.mapper.BookPossesMapper.getBookJoinBookPosses -==> Parameters: 2(String), 5(Long)
+2021-10-10 14:42:21.269 [http-nio-8080-exec-7] DEBUG c.b.mapper.BookPossesMapper.getBookJoinBookPosses -<==      Total: 4
+2021-10-10 14:42:27.483 [http-nio-8080-exec-8] DEBUG com.boucy.mapper.BookMapper.selectOne -==>  Preparing: SELECT id,name,author,isbn,publication_date,type,price,sales,good,bad,introduction,photo_name,photo_type,file_name,file_type FROM book WHERE (id = ?)
+2021-10-10 14:42:27.483 [http-nio-8080-exec-8] DEBUG com.boucy.mapper.BookMapper.selectOne -==> Parameters: 10(String)
+2021-10-10 14:42:27.484 [http-nio-8080-exec-8] DEBUG com.boucy.mapper.BookMapper.selectOne -<==      Total: 1
+2021-10-10 14:42:27.485 [http-nio-8080-exec-8] DEBUG com.boucy.mapper.BookTypeMapper.selectOne -==>  Preparing: SELECT id,type FROM book_type WHERE (id = ?)
+2021-10-10 14:42:27.485 [http-nio-8080-exec-8] DEBUG com.boucy.mapper.BookTypeMapper.selectOne -==> Parameters: 1(String)
+2021-10-10 14:42:27.521 [http-nio-8080-exec-8] DEBUG com.boucy.mapper.BookTypeMapper.selectOne -<==      Total: 1
+2021-10-10 14:42:35.339 [http-nio-8080-exec-9] DEBUG com.boucy.mapper.BookMapper.selectOne -==>  Preparing: SELECT id,name,author,isbn,publication_date,type,price,sales,good,bad,introduction,photo_name,photo_type,file_name,file_type FROM book WHERE (id = ?)
+2021-10-10 14:42:35.339 [http-nio-8080-exec-9] DEBUG com.boucy.mapper.BookMapper.selectOne -==> Parameters: 10(String)
+2021-10-10 14:42:35.341 [http-nio-8080-exec-9] DEBUG com.boucy.mapper.BookMapper.selectOne -<==      Total: 1
+2021-10-10 14:42:35.342 [http-nio-8080-exec-9] DEBUG com.boucy.mapper.BookPossesMapper.selectList -==>  Preparing: SELECT user_id,book_id FROM book_posses WHERE (user_id = ? AND book_id = ?)
+2021-10-10 14:42:35.343 [http-nio-8080-exec-9] DEBUG com.boucy.mapper.BookPossesMapper.selectList -==> Parameters: 2(Integer), 10(String)
+2021-10-10 14:42:35.384 [http-nio-8080-exec-9] DEBUG com.boucy.mapper.BookPossesMapper.selectList -<==      Total: 1
+2021-10-10 14:42:35.384 [http-nio-8080-exec-9] DEBUG com.boucy.mapper.BookMapper.selectOne -==>  Preparing: SELECT id,name,author,isbn,publication_date,type,price,sales,good,bad,introduction,photo_name,photo_type,file_name,file_type FROM book WHERE (id = ?)
+2021-10-10 14:42:35.384 [http-nio-8080-exec-9] DEBUG com.boucy.mapper.BookMapper.selectOne -==> Parameters: 10(String)
+2021-10-10 14:42:35.385 [http-nio-8080-exec-9] DEBUG com.boucy.mapper.BookMapper.selectOne -<==      Total: 1
+2021-10-10 14:43:14.138 [http-nio-8080-exec-10] DEBUG c.b.m.B.getBookJoinBookPosses_mpCount -==>  Preparing: SELECT COUNT(*) FROM book_posses a WHERE a.user_id = ?
+2021-10-10 14:43:14.139 [http-nio-8080-exec-10] DEBUG c.b.m.B.getBookJoinBookPosses_mpCount -==> Parameters: 2(String)
+2021-10-10 14:43:14.140 [http-nio-8080-exec-10] DEBUG c.b.m.B.getBookJoinBookPosses_mpCount -<==      Total: 1
+2021-10-10 14:43:14.141 [http-nio-8080-exec-10] DEBUG c.b.mapper.BookPossesMapper.getBookJoinBookPosses -==>  Preparing: SELECT * FROM book_posses a LEFT JOIN book b ON a.book_id=b.id WHERE a.user_id=? LIMIT ?
+2021-10-10 14:43:14.141 [http-nio-8080-exec-10] DEBUG c.b.mapper.BookPossesMapper.getBookJoinBookPosses -==> Parameters: 2(String), 5(Long)
+2021-10-10 14:43:14.143 [http-nio-8080-exec-10] DEBUG c.b.mapper.BookPossesMapper.getBookJoinBookPosses -<==      Total: 4
+2021-10-10 14:43:19.388 [http-nio-8080-exec-2] DEBUG com.boucy.mapper.BookTypeMapper.selectList -==>  Preparing: SELECT id,type FROM book_type
+2021-10-10 14:43:19.388 [http-nio-8080-exec-2] DEBUG com.boucy.mapper.BookTypeMapper.selectList -==> Parameters: 
+2021-10-10 14:43:19.389 [http-nio-8080-exec-2] DEBUG com.boucy.mapper.BookTypeMapper.selectList -<==      Total: 11
+2021-10-10 14:43:25.200 [http-nio-8080-exec-4] DEBUG com.boucy.mapper.UserMapper.selectOne -==>  Preparing: SELECT id,nickname,password,avatar_file_name,avatar_file_type,user_type,balance,gender,phone,email,birthday,create_date FROM user WHERE (id = ? AND password = ?)
+2021-10-10 14:43:25.201 [http-nio-8080-exec-4] DEBUG com.boucy.mapper.UserMapper.selectOne -==> Parameters: 2(String), 2(String)
+2021-10-10 14:43:25.202 [http-nio-8080-exec-4] DEBUG com.boucy.mapper.UserMapper.selectOne -<==      Total: 1
+2021-10-10 14:43:25.208 [http-nio-8080-exec-5] DEBUG com.boucy.mapper.BookTypeMapper.selectList -==>  Preparing: SELECT id,type FROM book_type
+2021-10-10 14:43:25.208 [http-nio-8080-exec-5] DEBUG com.boucy.mapper.BookTypeMapper.selectList -==> Parameters: 
+2021-10-10 14:43:25.209 [http-nio-8080-exec-5] DEBUG com.boucy.mapper.BookTypeMapper.selectList -<==      Total: 11
+2021-10-10 14:43:46.040 [http-nio-8080-exec-7] DEBUG com.boucy.mapper.UserMapper.selectOne -==>  Preparing: SELECT id,nickname,password,avatar_file_name,avatar_file_type,user_type,balance,gender,phone,email,birthday,create_date FROM user WHERE (id = ?)
+2021-10-10 14:43:46.041 [http-nio-8080-exec-7] DEBUG com.boucy.mapper.UserMapper.selectOne -==> Parameters: 2(String)
+2021-10-10 14:43:46.042 [http-nio-8080-exec-7] DEBUG com.boucy.mapper.UserMapper.selectOne -<==      Total: 1
+2021-10-10 14:44:19.784 [http-nio-8080-exec-10] DEBUG com.boucy.mapper.UserMapper.update -==>  Preparing: UPDATE user SET nickname=?, password=?, avatar_file_name=?, avatar_file_type=?, user_type=?, balance=?, gender=?, phone=?, email=?, birthday=?, create_date=? WHERE (id = ?)
+2021-10-10 14:44:19.785 [http-nio-8080-exec-10] DEBUG com.boucy.mapper.UserMapper.update -==> Parameters: 李四(String), 2(String), 6ed6fb78-f22c-4201-8382-0ab6cc218da1.jpg(String), image/jpeg(String), 2(String), 967.0(Double), 2(String), 2(String), 2(String), 2001-01-01 00:00:00.0(Timestamp), 2021-10-02 00:21:26.0(Timestamp), 2(Integer)
+2021-10-10 14:44:19.792 [http-nio-8080-exec-10] DEBUG com.boucy.mapper.UserMapper.update -<==    Updates: 1
+2021-10-10 14:44:26.796 [http-nio-8080-exec-4] DEBUG c.b.m.P.findPurchaseJoinBookByUserID -==>  Preparing: SELECT * FROM purchase_record pc LEFT JOIN book b ON pc.book_id = b.id WHERE user_id = ?
+2021-10-10 14:44:26.797 [http-nio-8080-exec-4] DEBUG c.b.m.P.findPurchaseJoinBookByUserID -==> Parameters: 2(Integer)
+2021-10-10 14:44:26.802 [http-nio-8080-exec-4] DEBUG c.b.m.P.findPurchaseJoinBookByUserID -<==      Total: 4
+2021-10-10 14:44:30.640 [http-nio-8080-exec-5] DEBUG com.boucy.mapper.BookMapper.selectOne -==>  Preparing: SELECT id,name,author,isbn,publication_date,type,price,sales,good,bad,introduction,photo_name,photo_type,file_name,file_type FROM book WHERE (id = ?)
+2021-10-10 14:44:30.641 [http-nio-8080-exec-5] DEBUG com.boucy.mapper.BookMapper.selectOne -==> Parameters: 22(String)
+2021-10-10 14:44:30.642 [http-nio-8080-exec-5] DEBUG com.boucy.mapper.BookMapper.selectOne -<==      Total: 1
+2021-10-10 14:44:30.643 [http-nio-8080-exec-5] DEBUG com.boucy.mapper.BookTypeMapper.selectOne -==>  Preparing: SELECT id,type FROM book_type WHERE (id = ?)
+2021-10-10 14:44:30.643 [http-nio-8080-exec-5] DEBUG com.boucy.mapper.BookTypeMapper.selectOne -==> Parameters: 1(String)
+2021-10-10 14:44:30.678 [http-nio-8080-exec-5] DEBUG com.boucy.mapper.BookTypeMapper.selectOne -<==      Total: 1
+2021-10-10 14:44:34.964 [http-nio-8080-exec-6] DEBUG c.b.m.B.getBookCollectionJoinBook_mpCount -==>  Preparing: SELECT COUNT(*) FROM book_collection a WHERE a.user_id = ?
+2021-10-10 14:44:34.965 [http-nio-8080-exec-6] DEBUG c.b.m.B.getBookCollectionJoinBook_mpCount -==> Parameters: 2(String)
+2021-10-10 14:44:34.969 [http-nio-8080-exec-6] DEBUG c.b.m.B.getBookCollectionJoinBook_mpCount -<==      Total: 1
+2021-10-10 14:44:37.104 [http-nio-8080-exec-7] DEBUG c.b.m.B.getShoppingCartJoinBook_mpCount -==>  Preparing: SELECT COUNT(*) FROM book_shopping_cart a WHERE a.user_id = ?
+2021-10-10 14:44:37.104 [http-nio-8080-exec-7] DEBUG c.b.m.B.getShoppingCartJoinBook_mpCount -==> Parameters: 2(String)
+2021-10-10 14:44:37.140 [http-nio-8080-exec-7] DEBUG c.b.m.B.getShoppingCartJoinBook_mpCount -<==      Total: 1
+2021-10-10 14:44:37.142 [http-nio-8080-exec-7] DEBUG c.b.m.B.getShoppingCartJoinBook -==>  Preparing: SELECT * FROM book_shopping_cart a LEFT JOIN book b ON a.book_id=b.id WHERE a.user_id=? LIMIT ?
+2021-10-10 14:44:37.142 [http-nio-8080-exec-7] DEBUG c.b.m.B.getShoppingCartJoinBook -==> Parameters: 2(String), 5(Long)
+2021-10-10 14:44:37.146 [http-nio-8080-exec-7] DEBUG c.b.m.B.getShoppingCartJoinBook -<==      Total: 4
+2021-10-10 14:44:38.613 [http-nio-8080-exec-8] DEBUG com.boucy.mapper.BookMapper.selectOne -==>  Preparing: SELECT id,name,author,isbn,publication_date,type,price,sales,good,bad,introduction,photo_name,photo_type,file_name,file_type FROM book WHERE (id = ?)
+2021-10-10 14:44:38.613 [http-nio-8080-exec-8] DEBUG com.boucy.mapper.BookMapper.selectOne -==> Parameters: 8(String)
+2021-10-10 14:44:38.614 [http-nio-8080-exec-8] DEBUG com.boucy.mapper.BookMapper.selectOne -<==      Total: 1
+2021-10-10 14:44:38.616 [http-nio-8080-exec-8] DEBUG com.boucy.mapper.BookTypeMapper.selectOne -==>  Preparing: SELECT id,type FROM book_type WHERE (id = ?)
+2021-10-10 14:44:38.616 [http-nio-8080-exec-8] DEBUG com.boucy.mapper.BookTypeMapper.selectOne -==> Parameters: 1(String)
+2021-10-10 14:44:38.616 [http-nio-8080-exec-8] DEBUG com.boucy.mapper.BookTypeMapper.selectOne -<==      Total: 1
+2021-10-10 14:44:40.739 [http-nio-8080-exec-9] DEBUG com.boucy.mapper.BookCollectionMapper.selectOne -==>  Preparing: SELECT user_id,book_id FROM book_collection WHERE (book_id = ?)
+2021-10-10 14:44:40.739 [http-nio-8080-exec-9] DEBUG com.boucy.mapper.BookCollectionMapper.selectOne -==> Parameters: 8(String)
+2021-10-10 14:44:40.740 [http-nio-8080-exec-9] DEBUG com.boucy.mapper.BookCollectionMapper.selectOne -<==      Total: 0
+2021-10-10 14:44:40.741 [http-nio-8080-exec-9] DEBUG com.boucy.mapper.BookCollectionMapper.insert -==>  Preparing: INSERT INTO book_collection ( user_id, book_id ) VALUES ( ?, ? )
+2021-10-10 14:44:40.741 [http-nio-8080-exec-9] DEBUG com.boucy.mapper.BookCollectionMapper.insert -==> Parameters: 2(Integer), 8(Integer)
+2021-10-10 14:44:40.749 [http-nio-8080-exec-9] DEBUG com.boucy.mapper.BookCollectionMapper.insert -<==    Updates: 1
+2021-10-10 14:44:40.754 [http-nio-8080-exec-10] DEBUG c.b.m.B.getBookCollectionJoinBook_mpCount -==>  Preparing: SELECT COUNT(*) FROM book_collection a WHERE a.user_id = ?
+2021-10-10 14:44:40.754 [http-nio-8080-exec-10] DEBUG c.b.m.B.getBookCollectionJoinBook_mpCount -==> Parameters: 2(String)
+2021-10-10 14:44:40.755 [http-nio-8080-exec-10] DEBUG c.b.m.B.getBookCollectionJoinBook_mpCount -<==      Total: 1
+2021-10-10 14:44:40.755 [http-nio-8080-exec-10] DEBUG c.b.m.B.getBookCollectionJoinBook -==>  Preparing: SELECT * FROM book_collection a LEFT JOIN book b ON a.book_id=b.id WHERE a.user_id=? LIMIT ?
+2021-10-10 14:44:40.756 [http-nio-8080-exec-10] DEBUG c.b.m.B.getBookCollectionJoinBook -==> Parameters: 2(String), 5(Long)
+2021-10-10 14:44:40.758 [http-nio-8080-exec-10] DEBUG c.b.m.B.getBookCollectionJoinBook -<==      Total: 1
+2021-10-10 14:44:48.875 [http-nio-8080-exec-1] DEBUG com.boucy.mapper.BookCollectionMapper.delete -==>  Preparing: DELETE FROM book_collection WHERE (user_id = ? AND book_id = ?)
+2021-10-10 14:44:48.878 [http-nio-8080-exec-1] DEBUG com.boucy.mapper.BookCollectionMapper.delete -==> Parameters: 2(Integer), 8(String)
+2021-10-10 14:44:48.919 [http-nio-8080-exec-1] DEBUG com.boucy.mapper.BookCollectionMapper.delete -<==    Updates: 1
+2021-10-10 14:44:48.927 [http-nio-8080-exec-2] DEBUG c.b.m.B.getBookCollectionJoinBook_mpCount -==>  Preparing: SELECT COUNT(*) FROM book_collection a WHERE a.user_id = ?
+2021-10-10 14:44:48.927 [http-nio-8080-exec-2] DEBUG c.b.m.B.getBookCollectionJoinBook_mpCount -==> Parameters: 2(String)
+2021-10-10 14:44:48.928 [http-nio-8080-exec-2] DEBUG c.b.m.B.getBookCollectionJoinBook_mpCount -<==      Total: 1
+2021-10-10 14:44:56.207 [http-nio-8080-exec-3] DEBUG c.b.m.B.getShoppingCartJoinBook_mpCount -==>  Preparing: SELECT COUNT(*) FROM book_shopping_cart a WHERE a.user_id = ?
+2021-10-10 14:44:56.207 [http-nio-8080-exec-3] DEBUG c.b.m.B.getShoppingCartJoinBook_mpCount -==> Parameters: 2(String)
+2021-10-10 14:44:56.208 [http-nio-8080-exec-3] DEBUG c.b.m.B.getShoppingCartJoinBook_mpCount -<==      Total: 1
+2021-10-10 14:44:56.209 [http-nio-8080-exec-3] DEBUG c.b.m.B.getShoppingCartJoinBook -==>  Preparing: SELECT * FROM book_shopping_cart a LEFT JOIN book b ON a.book_id=b.id WHERE a.user_id=? LIMIT ?
+2021-10-10 14:44:56.209 [http-nio-8080-exec-3] DEBUG c.b.m.B.getShoppingCartJoinBook -==> Parameters: 2(String), 5(Long)
+2021-10-10 14:44:56.210 [http-nio-8080-exec-3] DEBUG c.b.m.B.getShoppingCartJoinBook -<==      Total: 4
+2021-10-10 14:45:20.264 [http-nio-8080-exec-4] DEBUG c.b.m.B.findBookCommentsJoinBookByUserid -==>  Preparing: SELECT * FROM book_comments bc LEFT JOIN book b ON bc.book_id = b.id where bc.user_id = ?
+2021-10-10 14:45:20.265 [http-nio-8080-exec-4] DEBUG c.b.m.B.findBookCommentsJoinBookByUserid -==> Parameters: 2(Integer)
+2021-10-10 14:45:20.301 [http-nio-8080-exec-4] DEBUG c.b.m.B.findBookCommentsJoinBookByUserid -<==      Total: 0
+2021-10-10 14:45:23.940 [http-nio-8080-exec-5] DEBUG c.b.m.B.findBookCommentsJoinBookByUserid -==>  Preparing: SELECT * FROM book_comments bc LEFT JOIN book b ON bc.book_id = b.id where bc.user_id = ?
+2021-10-10 14:45:23.941 [http-nio-8080-exec-5] DEBUG c.b.m.B.findBookCommentsJoinBookByUserid -==> Parameters: 2(Integer)
+2021-10-10 14:45:23.942 [http-nio-8080-exec-5] DEBUG c.b.m.B.findBookCommentsJoinBookByUserid -<==      Total: 0
+2021-10-10 14:46:06.552 [http-nio-8080-exec-7] DEBUG com.boucy.mapper.BookTypeMapper.selectList -==>  Preparing: SELECT id,type FROM book_type
+2021-10-10 14:46:06.552 [http-nio-8080-exec-7] DEBUG com.boucy.mapper.BookTypeMapper.selectList -==> Parameters: 
+2021-10-10 14:46:06.553 [http-nio-8080-exec-7] DEBUG com.boucy.mapper.BookTypeMapper.selectList -<==      Total: 11
+2021-10-10 14:46:19.392 [http-nio-8080-exec-1] DEBUG com.boucy.mapper.UserMapper.selectOne -==>  Preparing: SELECT id,nickname,password,avatar_file_name,avatar_file_type,user_type,balance,gender,phone,email,birthday,create_date FROM user WHERE (id = ?)
+2021-10-10 14:46:19.392 [http-nio-8080-exec-1] DEBUG com.boucy.mapper.UserMapper.selectOne -==> Parameters: 1(String)
+2021-10-10 14:46:19.430 [http-nio-8080-exec-1] DEBUG com.boucy.mapper.UserMapper.selectOne -<==      Total: 1
+2021-10-10 14:46:24.390 [http-nio-8080-exec-2] DEBUG com.boucy.mapper.UserMapper.selectOne -==>  Preparing: SELECT id,nickname,password,avatar_file_name,avatar_file_type,user_type,balance,gender,phone,email,birthday,create_date FROM user WHERE (id = ?)
+2021-10-10 14:46:24.390 [http-nio-8080-exec-2] DEBUG com.boucy.mapper.UserMapper.selectOne -==> Parameters: 4(String)
+2021-10-10 14:46:24.391 [http-nio-8080-exec-2] DEBUG com.boucy.mapper.UserMapper.selectOne -<==      Total: 1
+2021-10-10 14:46:25.561 [http-nio-8080-exec-3] DEBUG com.boucy.mapper.UserMapper.selectOne -==>  Preparing: SELECT id,nickname,password,avatar_file_name,avatar_file_type,user_type,balance,gender,phone,email,birthday,create_date FROM user WHERE (id = ?)
+2021-10-10 14:46:25.561 [http-nio-8080-exec-3] DEBUG com.boucy.mapper.UserMapper.selectOne -==> Parameters: 5(String)
+2021-10-10 14:46:25.562 [http-nio-8080-exec-3] DEBUG com.boucy.mapper.UserMapper.selectOne -<==      Total: 0
+2021-10-10 14:46:35.560 [http-nio-8080-exec-4] DEBUG com.boucy.mapper.UserMapper.selectOne -==>  Preparing: SELECT id,nickname,password,avatar_file_name,avatar_file_type,user_type,balance,gender,phone,email,birthday,create_date FROM user WHERE (id = ? AND password = ?)
+2021-10-10 14:46:35.561 [http-nio-8080-exec-4] DEBUG com.boucy.mapper.UserMapper.selectOne -==> Parameters: 1(String), 1(String)
+2021-10-10 14:46:35.562 [http-nio-8080-exec-4] DEBUG com.boucy.mapper.UserMapper.selectOne -<==      Total: 1
+2021-10-10 14:46:35.566 [http-nio-8080-exec-5] DEBUG com.boucy.mapper.BookTypeMapper.selectList -==>  Preparing: SELECT id,type FROM book_type
+2021-10-10 14:46:35.567 [http-nio-8080-exec-5] DEBUG com.boucy.mapper.BookTypeMapper.selectList -==> Parameters: 
+2021-10-10 14:46:35.568 [http-nio-8080-exec-5] DEBUG com.boucy.mapper.BookTypeMapper.selectList -<==      Total: 11
+2021-10-10 14:46:39.038 [http-nio-8080-exec-6] DEBUG com.boucy.mapper.BookMapper.selectPage_mpCount -==>  Preparing: SELECT COUNT(*) FROM book WHERE (type = ?)
+2021-10-10 14:46:39.039 [http-nio-8080-exec-6] DEBUG com.boucy.mapper.BookMapper.selectPage_mpCount -==> Parameters: 3(String)
+2021-10-10 14:46:39.039 [http-nio-8080-exec-6] DEBUG com.boucy.mapper.BookMapper.selectPage_mpCount -<==      Total: 1
+2021-10-10 14:46:39.040 [http-nio-8080-exec-6] DEBUG com.boucy.mapper.BookMapper.selectPage -==>  Preparing: SELECT id,name,author,isbn,publication_date,type,price,sales,good,bad,introduction,photo_name,photo_type,file_name,file_type FROM book WHERE (type = ?) LIMIT ?
+2021-10-10 14:46:39.041 [http-nio-8080-exec-6] DEBUG com.boucy.mapper.BookMapper.selectPage -==> Parameters: 3(String), 5(Long)
+2021-10-10 14:46:39.042 [http-nio-8080-exec-6] DEBUG com.boucy.mapper.BookMapper.selectPage -<==      Total: 1
+2021-10-10 14:46:40.427 [http-nio-8080-exec-7] DEBUG com.boucy.mapper.BookMapper.selectOne -==>  Preparing: SELECT id,name,author,isbn,publication_date,type,price,sales,good,bad,introduction,photo_name,photo_type,file_name,file_type FROM book WHERE (id = ?)
+2021-10-10 14:46:40.427 [http-nio-8080-exec-7] DEBUG com.boucy.mapper.BookMapper.selectOne -==> Parameters: 13(String)
+2021-10-10 14:46:40.428 [http-nio-8080-exec-7] DEBUG com.boucy.mapper.BookMapper.selectOne -<==      Total: 1
+2021-10-10 14:46:40.429 [http-nio-8080-exec-7] DEBUG com.boucy.mapper.BookTypeMapper.selectOne -==>  Preparing: SELECT id,type FROM book_type WHERE (id = ?)
+2021-10-10 14:46:40.429 [http-nio-8080-exec-7] DEBUG com.boucy.mapper.BookTypeMapper.selectOne -==> Parameters: 3(String)
+2021-10-10 14:46:40.430 [http-nio-8080-exec-7] DEBUG com.boucy.mapper.BookTypeMapper.selectOne -<==      Total: 1
+2021-10-10 14:46:48.508 [http-nio-8080-exec-8] DEBUG c.b.m.B.findBookCommentsJoinBookByUserid -==>  Preparing: SELECT * FROM book_comments bc LEFT JOIN book b ON bc.book_id = b.id where bc.user_id = ?
+2021-10-10 14:46:48.508 [http-nio-8080-exec-8] DEBUG c.b.m.B.findBookCommentsJoinBookByUserid -==> Parameters: 1(Integer)
+2021-10-10 14:46:48.514 [http-nio-8080-exec-8] DEBUG c.b.m.B.findBookCommentsJoinBookByUserid -<==      Total: 16
+2021-10-10 14:46:55.338 [http-nio-8080-exec-9] DEBUG c.b.m.B.findBookCommentsJoinBookByUserid -==>  Preparing: SELECT * FROM book_comments bc LEFT JOIN book b ON bc.book_id = b.id where bc.user_id = ?
+2021-10-10 14:46:55.339 [http-nio-8080-exec-9] DEBUG c.b.m.B.findBookCommentsJoinBookByUserid -==> Parameters: 1(Integer)
+2021-10-10 14:46:55.344 [http-nio-8080-exec-9] DEBUG c.b.m.B.findBookCommentsJoinBookByUserid -<==      Total: 16
+2021-10-10 14:47:42.805 [http-nio-8080-exec-6] DEBUG com.boucy.mapper.BookMapper.insert -==>  Preparing: INSERT INTO book ( name, author, isbn, publication_date, type, price, sales, good, bad, introduction, photo_name, photo_type, file_name, file_type ) VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ? )
+2021-10-10 14:47:42.805 [http-nio-8080-exec-6] DEBUG com.boucy.mapper.BookMapper.insert -==> Parameters: 1(String), 1(String), 1(String), 2017-11-01 00:00:00.0(Timestamp), 1(String), 1.0(Double), 0(Integer), 0(Integer), 0(Integer), 1(String), 27ba45fd-c1df-4146-9b4f-9d4e3120fa45.jpg(String), image/jpeg(String), 9aa64cda-d1a4-4819-a3d6-a6b619d34d5d.pdf(String), application/pdf(String)
+2021-10-10 14:47:42.813 [http-nio-8080-exec-6] DEBUG com.boucy.mapper.BookMapper.insert -<==    Updates: 1
+2021-10-10 14:47:42.819 [http-nio-8080-exec-7] DEBUG com.boucy.mapper.BookMapper.selectPage_mpCount -==>  Preparing: SELECT COUNT(*) FROM book
+2021-10-10 14:47:42.819 [http-nio-8080-exec-7] DEBUG com.boucy.mapper.BookMapper.selectPage_mpCount -==> Parameters: 
+2021-10-10 14:47:42.821 [http-nio-8080-exec-7] DEBUG com.boucy.mapper.BookMapper.selectPage_mpCount -<==      Total: 1
+2021-10-10 14:47:42.822 [http-nio-8080-exec-7] DEBUG com.boucy.mapper.BookMapper.selectPage -==>  Preparing: SELECT id,name,author,isbn,publication_date,type,price,sales,good,bad,introduction,photo_name,photo_type,file_name,file_type FROM book LIMIT ?
+2021-10-10 14:47:42.823 [http-nio-8080-exec-7] DEBUG com.boucy.mapper.BookMapper.selectPage -==> Parameters: 5(Long)
+2021-10-10 14:47:42.824 [http-nio-8080-exec-7] DEBUG com.boucy.mapper.BookMapper.selectPage -<==      Total: 5
+2021-10-10 14:47:44.510 [http-nio-8080-exec-8] DEBUG com.boucy.mapper.BookMapper.selectPage_mpCount -==>  Preparing: SELECT COUNT(*) FROM book
+2021-10-10 14:47:44.510 [http-nio-8080-exec-8] DEBUG com.boucy.mapper.BookMapper.selectPage_mpCount -==> Parameters: 
+2021-10-10 14:47:44.512 [http-nio-8080-exec-8] DEBUG com.boucy.mapper.BookMapper.selectPage_mpCount -<==      Total: 1
+2021-10-10 14:47:44.513 [http-nio-8080-exec-8] DEBUG com.boucy.mapper.BookMapper.selectPage -==>  Preparing: SELECT id,name,author,isbn,publication_date,type,price,sales,good,bad,introduction,photo_name,photo_type,file_name,file_type FROM book LIMIT ?,?
+2021-10-10 14:47:44.513 [http-nio-8080-exec-8] DEBUG com.boucy.mapper.BookMapper.selectPage -==> Parameters: 5(Long), 5(Long)
+2021-10-10 14:47:44.515 [http-nio-8080-exec-8] DEBUG com.boucy.mapper.BookMapper.selectPage -<==      Total: 5
+2021-10-10 14:47:46.473 [http-nio-8080-exec-9] DEBUG com.boucy.mapper.BookMapper.selectPage_mpCount -==>  Preparing: SELECT COUNT(*) FROM book
+2021-10-10 14:47:46.474 [http-nio-8080-exec-9] DEBUG com.boucy.mapper.BookMapper.selectPage_mpCount -==> Parameters: 
+2021-10-10 14:47:46.513 [http-nio-8080-exec-9] DEBUG com.boucy.mapper.BookMapper.selectPage_mpCount -<==      Total: 1
+2021-10-10 14:47:46.513 [http-nio-8080-exec-9] DEBUG com.boucy.mapper.BookMapper.selectPage -==>  Preparing: SELECT id,name,author,isbn,publication_date,type,price,sales,good,bad,introduction,photo_name,photo_type,file_name,file_type FROM book LIMIT ?,?
+2021-10-10 14:47:46.515 [http-nio-8080-exec-9] DEBUG com.boucy.mapper.BookMapper.selectPage -==> Parameters: 10(Long), 5(Long)
+2021-10-10 14:47:46.516 [http-nio-8080-exec-9] DEBUG com.boucy.mapper.BookMapper.selectPage -<==      Total: 5
+2021-10-10 14:47:47.606 [http-nio-8080-exec-10] DEBUG com.boucy.mapper.BookMapper.selectPage_mpCount -==>  Preparing: SELECT COUNT(*) FROM book
+2021-10-10 14:47:47.606 [http-nio-8080-exec-10] DEBUG com.boucy.mapper.BookMapper.selectPage_mpCount -==> Parameters: 
+2021-10-10 14:47:47.608 [http-nio-8080-exec-10] DEBUG com.boucy.mapper.BookMapper.selectPage_mpCount -<==      Total: 1
+2021-10-10 14:47:47.609 [http-nio-8080-exec-10] DEBUG com.boucy.mapper.BookMapper.selectPage -==>  Preparing: SELECT id,name,author,isbn,publication_date,type,price,sales,good,bad,introduction,photo_name,photo_type,file_name,file_type FROM book LIMIT ?,?
+2021-10-10 14:47:47.609 [http-nio-8080-exec-10] DEBUG com.boucy.mapper.BookMapper.selectPage -==> Parameters: 15(Long), 5(Long)
+2021-10-10 14:47:47.611 [http-nio-8080-exec-10] DEBUG com.boucy.mapper.BookMapper.selectPage -<==      Total: 5
+2021-10-10 14:47:54.033 [http-nio-8080-exec-1] DEBUG com.boucy.mapper.BookMapper.selectOne -==>  Preparing: SELECT id,name,author,isbn,publication_date,type,price,sales,good,bad,introduction,photo_name,photo_type,file_name,file_type FROM book WHERE (id = ?)
+2021-10-10 14:47:54.034 [http-nio-8080-exec-1] DEBUG com.boucy.mapper.BookMapper.selectOne -==> Parameters: 27(String)
+2021-10-10 14:47:54.035 [http-nio-8080-exec-1] DEBUG com.boucy.mapper.BookMapper.selectOne -<==      Total: 1
+2021-10-10 14:48:00.780 [http-nio-8080-exec-3] DEBUG com.boucy.mapper.BookMapper.delete -==>  Preparing: DELETE FROM book WHERE (id = ?)
+2021-10-10 14:48:00.781 [http-nio-8080-exec-3] DEBUG com.boucy.mapper.BookMapper.delete -==> Parameters: 27(String)
+2021-10-10 14:48:00.790 [http-nio-8080-exec-3] DEBUG com.boucy.mapper.BookMapper.delete -<==    Updates: 1
+2021-10-10 14:48:00.791 [http-nio-8080-exec-3] DEBUG com.boucy.mapper.BookCollectionMapper.delete -==>  Preparing: DELETE FROM book_collection WHERE (book_id = ?)
+2021-10-10 14:48:00.792 [http-nio-8080-exec-3] DEBUG com.boucy.mapper.BookCollectionMapper.delete -==> Parameters: 27(String)
+2021-10-10 14:48:00.796 [http-nio-8080-exec-3] DEBUG com.boucy.mapper.BookCollectionMapper.delete -<==    Updates: 0
+2021-10-10 14:48:00.797 [http-nio-8080-exec-3] DEBUG com.boucy.mapper.BookCommentsMapper.delete -==>  Preparing: DELETE FROM book_comments WHERE (book_id = ?)
+2021-10-10 14:48:00.798 [http-nio-8080-exec-3] DEBUG com.boucy.mapper.BookCommentsMapper.delete -==> Parameters: 27(String)
+2021-10-10 14:48:00.802 [http-nio-8080-exec-3] DEBUG com.boucy.mapper.BookCommentsMapper.delete -<==    Updates: 0
+2021-10-10 14:48:00.803 [http-nio-8080-exec-3] DEBUG com.boucy.mapper.BookPossesMapper.delete -==>  Preparing: DELETE FROM book_posses WHERE (book_id = ?)
+2021-10-10 14:48:00.804 [http-nio-8080-exec-3] DEBUG com.boucy.mapper.BookPossesMapper.delete -==> Parameters: 27(String)
+2021-10-10 14:48:00.806 [http-nio-8080-exec-3] DEBUG com.boucy.mapper.BookPossesMapper.delete -<==    Updates: 0
+2021-10-10 14:48:00.807 [http-nio-8080-exec-3] DEBUG com.boucy.mapper.BookShoppingCartMapper.delete -==>  Preparing: DELETE FROM book_shopping_cart WHERE (book_id = ?)
+2021-10-10 14:48:00.808 [http-nio-8080-exec-3] DEBUG com.boucy.mapper.BookShoppingCartMapper.delete -==> Parameters: 27(String)
+2021-10-10 14:48:00.810 [http-nio-8080-exec-3] DEBUG com.boucy.mapper.BookShoppingCartMapper.delete -<==    Updates: 0
+2021-10-10 14:48:00.824 [http-nio-8080-exec-4] ERROR o.a.c.c.C.[.[.[/bookstore].[dispatcherServlet] -Servlet.service() for servlet [dispatcherServlet] in context with path [/bookstore] threw exception [Request processing failed; nested exception is java.lang.NumberFormatException: null] with root cause
+java.lang.NumberFormatException: null
+	at java.lang.Integer.parseInt(Integer.java:542)
+	at java.lang.Integer.parseInt(Integer.java:615)
+	at com.boucy.service.impl.BookServiceImpl.showBookManagement(BookServiceImpl.java:217)
+	at com.boucy.service.impl.BookServiceImpl$$FastClassBySpringCGLIB$$ea2ed0b4.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:688)
+	at com.boucy.service.impl.BookServiceImpl$$EnhancerBySpringCGLIB$$a45d65b7.showBookManagement(<generated>)
+	at com.boucy.controller.ManagementController.showBookManagement(ManagementController.java:33)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1067)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:655)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at com.alibaba.druid.support.http.WebStatFilter.doFilter(WebStatFilter.java:123)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:540)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:357)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:382)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:893)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1726)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+2021-10-10 14:48:08.189 [http-nio-8080-exec-6] DEBUG com.boucy.mapper.BookMapper.selectPage_mpCount -==>  Preparing: SELECT COUNT(*) FROM book
+2021-10-10 14:48:08.189 [http-nio-8080-exec-6] DEBUG com.boucy.mapper.BookMapper.selectPage_mpCount -==> Parameters: 
+2021-10-10 14:48:08.190 [http-nio-8080-exec-6] DEBUG com.boucy.mapper.BookMapper.selectPage_mpCount -<==      Total: 1
+2021-10-10 14:48:08.191 [http-nio-8080-exec-6] DEBUG com.boucy.mapper.BookMapper.selectPage -==>  Preparing: SELECT id,name,author,isbn,publication_date,type,price,sales,good,bad,introduction,photo_name,photo_type,file_name,file_type FROM book LIMIT ?,?
+2021-10-10 14:48:08.191 [http-nio-8080-exec-6] DEBUG com.boucy.mapper.BookMapper.selectPage -==> Parameters: 15(Long), 5(Long)
+2021-10-10 14:48:08.192 [http-nio-8080-exec-6] DEBUG com.boucy.mapper.BookMapper.selectPage -<==      Total: 4
+2021-10-10 14:48:17.914 [http-nio-8080-exec-9] DEBUG com.boucy.mapper.BookMapper.selectPage_mpCount -==>  Preparing: SELECT COUNT(*) FROM book
+2021-10-10 14:48:17.914 [http-nio-8080-exec-9] DEBUG com.boucy.mapper.BookMapper.selectPage_mpCount -==> Parameters: 
+2021-10-10 14:48:17.915 [http-nio-8080-exec-9] DEBUG com.boucy.mapper.BookMapper.selectPage_mpCount -<==      Total: 1
+2021-10-10 14:48:17.916 [http-nio-8080-exec-9] DEBUG com.boucy.mapper.BookMapper.selectPage -==>  Preparing: SELECT id,name,author,isbn,publication_date,type,price,sales,good,bad,introduction,photo_name,photo_type,file_name,file_type FROM book LIMIT ?
+2021-10-10 14:48:17.916 [http-nio-8080-exec-9] DEBUG com.boucy.mapper.BookMapper.selectPage -==> Parameters: 5(Long)
+2021-10-10 14:48:17.917 [http-nio-8080-exec-9] DEBUG com.boucy.mapper.BookMapper.selectPage -<==      Total: 5
+2021-10-10 14:48:22.648 [http-nio-8080-exec-10] DEBUG com.boucy.mapper.BookMapper.selectPage_mpCount -==>  Preparing: SELECT COUNT(*) FROM book
+2021-10-10 14:48:22.648 [http-nio-8080-exec-10] DEBUG com.boucy.mapper.BookMapper.selectPage_mpCount -==> Parameters: 
+2021-10-10 14:48:22.649 [http-nio-8080-exec-10] DEBUG com.boucy.mapper.BookMapper.selectPage_mpCount -<==      Total: 1
+2021-10-10 14:48:22.650 [http-nio-8080-exec-10] DEBUG com.boucy.mapper.BookMapper.selectPage -==>  Preparing: SELECT id,name,author,isbn,publication_date,type,price,sales,good,bad,introduction,photo_name,photo_type,file_name,file_type FROM book LIMIT ?,?
+2021-10-10 14:48:22.650 [http-nio-8080-exec-10] DEBUG com.boucy.mapper.BookMapper.selectPage -==> Parameters: 5(Long), 5(Long)
+2021-10-10 14:48:22.651 [http-nio-8080-exec-10] DEBUG com.boucy.mapper.BookMapper.selectPage -<==      Total: 5
+2021-10-10 14:48:27.522 [http-nio-8080-exec-1] DEBUG com.boucy.mapper.UserMapper.selectPage_mpCount -==>  Preparing: SELECT COUNT(*) FROM user
+2021-10-10 14:48:27.523 [http-nio-8080-exec-1] DEBUG com.boucy.mapper.UserMapper.selectPage_mpCount -==> Parameters: 
+2021-10-10 14:48:27.562 [http-nio-8080-exec-1] DEBUG com.boucy.mapper.UserMapper.selectPage_mpCount -<==      Total: 1
+2021-10-10 14:48:27.563 [http-nio-8080-exec-1] DEBUG com.boucy.mapper.UserMapper.selectPage -==>  Preparing: SELECT id,nickname,password,avatar_file_name,avatar_file_type,user_type,balance,gender,phone,email,birthday,create_date FROM user LIMIT ?
+2021-10-10 14:48:27.563 [http-nio-8080-exec-1] DEBUG com.boucy.mapper.UserMapper.selectPage -==> Parameters: 10(Long)
+2021-10-10 14:48:27.565 [http-nio-8080-exec-1] DEBUG com.boucy.mapper.UserMapper.selectPage -<==      Total: 4
+2021-10-10 14:48:35.823 [http-nio-8080-exec-2] DEBUG com.boucy.mapper.UserMapper.selectOne -==>  Preparing: SELECT id,nickname,password,avatar_file_name,avatar_file_type,user_type,balance,gender,phone,email,birthday,create_date FROM user WHERE (id = ?)
+2021-10-10 14:48:35.823 [http-nio-8080-exec-2] DEBUG com.boucy.mapper.UserMapper.selectOne -==> Parameters: 3(String)
+2021-10-10 14:48:35.824 [http-nio-8080-exec-2] DEBUG com.boucy.mapper.UserMapper.selectOne -<==      Total: 1
+2021-10-10 14:48:37.612 [http-nio-8080-exec-3] DEBUG com.boucy.mapper.UserMapper.selectOne -==>  Preparing: SELECT id,nickname,password,avatar_file_name,avatar_file_type,user_type,balance,gender,phone,email,birthday,create_date FROM user WHERE (id = ?)
+2021-10-10 14:48:37.612 [http-nio-8080-exec-3] DEBUG com.boucy.mapper.UserMapper.selectOne -==> Parameters: 4(String)
+2021-10-10 14:48:37.613 [http-nio-8080-exec-3] DEBUG com.boucy.mapper.UserMapper.selectOne -<==      Total: 1
+2021-10-10 14:48:39.335 [http-nio-8080-exec-4] DEBUG com.boucy.mapper.UserMapper.selectOne -==>  Preparing: SELECT id,nickname,password,avatar_file_name,avatar_file_type,user_type,balance,gender,phone,email,birthday,create_date FROM user WHERE (id = ?)
+2021-10-10 14:48:39.335 [http-nio-8080-exec-4] DEBUG com.boucy.mapper.UserMapper.selectOne -==> Parameters: 2(String)
+2021-10-10 14:48:39.336 [http-nio-8080-exec-4] DEBUG com.boucy.mapper.UserMapper.selectOne -<==      Total: 1
+2021-10-10 14:48:43.307 [http-nio-8080-exec-5] DEBUG c.b.m.P.findAllPurchaseJoinBook_mpCount -==>  Preparing: SELECT COUNT(*) FROM purchase_record pc
+2021-10-10 14:48:43.307 [http-nio-8080-exec-5] DEBUG c.b.m.P.findAllPurchaseJoinBook_mpCount -==> Parameters: 
+2021-10-10 14:48:43.342 [http-nio-8080-exec-5] DEBUG c.b.m.P.findAllPurchaseJoinBook_mpCount -<==      Total: 1
+2021-10-10 14:48:43.343 [http-nio-8080-exec-5] DEBUG c.b.m.PurchaseRecordMapper.findAllPurchaseJoinBook -==>  Preparing: SELECT * FROM purchase_record pc LEFT JOIN book b ON pc.book_id = b.id LIMIT ?
+2021-10-10 14:48:43.344 [http-nio-8080-exec-5] DEBUG c.b.m.PurchaseRecordMapper.findAllPurchaseJoinBook -==> Parameters: 5(Long)
+2021-10-10 14:48:43.346 [http-nio-8080-exec-5] DEBUG c.b.m.PurchaseRecordMapper.findAllPurchaseJoinBook -<==      Total: 5
+2021-10-10 14:48:46.825 [http-nio-8080-exec-6] DEBUG c.b.m.P.findAllPurchaseJoinBook_mpCount -==>  Preparing: SELECT COUNT(*) FROM purchase_record pc
+2021-10-10 14:48:46.826 [http-nio-8080-exec-6] DEBUG c.b.m.P.findAllPurchaseJoinBook_mpCount -==> Parameters: 
+2021-10-10 14:48:46.827 [http-nio-8080-exec-6] DEBUG c.b.m.P.findAllPurchaseJoinBook_mpCount -<==      Total: 1
+2021-10-10 14:48:46.828 [http-nio-8080-exec-6] DEBUG c.b.m.PurchaseRecordMapper.findAllPurchaseJoinBook -==>  Preparing: SELECT * FROM purchase_record pc LEFT JOIN book b ON pc.book_id = b.id LIMIT ?,?
+2021-10-10 14:48:46.829 [http-nio-8080-exec-6] DEBUG c.b.m.PurchaseRecordMapper.findAllPurchaseJoinBook -==> Parameters: 5(Long), 5(Long)
+2021-10-10 14:48:46.831 [http-nio-8080-exec-6] DEBUG c.b.m.PurchaseRecordMapper.findAllPurchaseJoinBook -<==      Total: 5
+2021-10-10 14:48:47.640 [http-nio-8080-exec-7] DEBUG c.b.m.P.findAllPurchaseJoinBook_mpCount -==>  Preparing: SELECT COUNT(*) FROM purchase_record pc
+2021-10-10 14:48:47.640 [http-nio-8080-exec-7] DEBUG c.b.m.P.findAllPurchaseJoinBook_mpCount -==> Parameters: 
+2021-10-10 14:48:47.641 [http-nio-8080-exec-7] DEBUG c.b.m.P.findAllPurchaseJoinBook_mpCount -<==      Total: 1
+2021-10-10 14:48:47.641 [http-nio-8080-exec-7] DEBUG c.b.m.PurchaseRecordMapper.findAllPurchaseJoinBook -==>  Preparing: SELECT * FROM purchase_record pc LEFT JOIN book b ON pc.book_id = b.id LIMIT ?,?
+2021-10-10 14:48:47.642 [http-nio-8080-exec-7] DEBUG c.b.m.PurchaseRecordMapper.findAllPurchaseJoinBook -==> Parameters: 10(Long), 5(Long)
+2021-10-10 14:48:47.645 [http-nio-8080-exec-7] DEBUG c.b.m.PurchaseRecordMapper.findAllPurchaseJoinBook -<==      Total: 5
+2021-10-10 14:48:48.248 [http-nio-8080-exec-8] DEBUG c.b.m.P.findAllPurchaseJoinBook_mpCount -==>  Preparing: SELECT COUNT(*) FROM purchase_record pc
+2021-10-10 14:48:48.248 [http-nio-8080-exec-8] DEBUG c.b.m.P.findAllPurchaseJoinBook_mpCount -==> Parameters: 
+2021-10-10 14:48:48.248 [http-nio-8080-exec-8] DEBUG c.b.m.P.findAllPurchaseJoinBook_mpCount -<==      Total: 1
+2021-10-10 14:48:48.249 [http-nio-8080-exec-8] DEBUG c.b.m.PurchaseRecordMapper.findAllPurchaseJoinBook -==>  Preparing: SELECT * FROM purchase_record pc LEFT JOIN book b ON pc.book_id = b.id LIMIT ?,?
+2021-10-10 14:48:48.249 [http-nio-8080-exec-8] DEBUG c.b.m.PurchaseRecordMapper.findAllPurchaseJoinBook -==> Parameters: 5(Long), 5(Long)
+2021-10-10 14:48:48.252 [http-nio-8080-exec-8] DEBUG c.b.m.PurchaseRecordMapper.findAllPurchaseJoinBook -<==      Total: 5
+2021-10-10 14:48:48.745 [http-nio-8080-exec-9] DEBUG c.b.m.P.findAllPurchaseJoinBook_mpCount -==>  Preparing: SELECT COUNT(*) FROM purchase_record pc
+2021-10-10 14:48:48.745 [http-nio-8080-exec-9] DEBUG c.b.m.P.findAllPurchaseJoinBook_mpCount -==> Parameters: 
+2021-10-10 14:48:48.746 [http-nio-8080-exec-9] DEBUG c.b.m.P.findAllPurchaseJoinBook_mpCount -<==      Total: 1
+2021-10-10 14:48:48.746 [http-nio-8080-exec-9] DEBUG c.b.m.PurchaseRecordMapper.findAllPurchaseJoinBook -==>  Preparing: SELECT * FROM purchase_record pc LEFT JOIN book b ON pc.book_id = b.id LIMIT ?
+2021-10-10 14:48:48.746 [http-nio-8080-exec-9] DEBUG c.b.m.PurchaseRecordMapper.findAllPurchaseJoinBook -==> Parameters: 5(Long)
+2021-10-10 14:48:48.748 [http-nio-8080-exec-9] DEBUG c.b.m.PurchaseRecordMapper.findAllPurchaseJoinBook -<==      Total: 5
+2021-10-10 14:48:59.414 [http-nio-8080-exec-10] DEBUG com.boucy.mapper.BookMapper.selectPage_mpCount -==>  Preparing: SELECT COUNT(*) FROM book WHERE (type = ?)
+2021-10-10 14:48:59.414 [http-nio-8080-exec-10] DEBUG com.boucy.mapper.BookMapper.selectPage_mpCount -==> Parameters: 6(String)
+2021-10-10 14:48:59.415 [http-nio-8080-exec-10] DEBUG com.boucy.mapper.BookMapper.selectPage_mpCount -<==      Total: 1
+2021-10-10 14:48:59.416 [http-nio-8080-exec-10] DEBUG com.boucy.mapper.BookMapper.selectPage -==>  Preparing: SELECT id,name,author,isbn,publication_date,type,price,sales,good,bad,introduction,photo_name,photo_type,file_name,file_type FROM book WHERE (type = ?) LIMIT ?
+2021-10-10 14:48:59.416 [http-nio-8080-exec-10] DEBUG com.boucy.mapper.BookMapper.selectPage -==> Parameters: 6(String), 5(Long)
+2021-10-10 14:48:59.417 [http-nio-8080-exec-10] DEBUG com.boucy.mapper.BookMapper.selectPage -<==      Total: 1
+2021-10-10 19:44:27.879 [restartedMain] INFO  com.boucy.BookStoreApplication -Starting BookStoreApplication using Java 1.8.0_291 on Boucy with PID 9808 (D:\ideaProject\BookStore\target\classes started by 64901 in D:\ideaProject\BookStore)
+2021-10-10 19:44:27.889 [restartedMain] INFO  com.boucy.BookStoreApplication -No active profile set, falling back to default profiles: default
+2021-10-10 19:44:28.059 [restartedMain] INFO  o.s.b.d.env.DevToolsPropertyDefaultsPostProcessor -Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-10-10 19:44:28.069 [restartedMain] INFO  o.s.b.d.env.DevToolsPropertyDefaultsPostProcessor -For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2021-10-10 19:44:31.116 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer -Tomcat initialized with port(s): 8080 (http)
+2021-10-10 19:44:31.136 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol -Initializing ProtocolHandler ["http-nio-8080"]
+2021-10-10 19:44:31.136 [restartedMain] INFO  org.apache.catalina.core.StandardService -Starting service [Tomcat]
+2021-10-10 19:44:31.137 [restartedMain] INFO  org.apache.catalina.core.StandardEngine -Starting Servlet engine: [Apache Tomcat/9.0.53]
+2021-10-10 19:44:31.225 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/bookstore] -Initializing Spring embedded WebApplicationContext
+2021-10-10 19:44:31.225 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext -Root WebApplicationContext: initialization completed in 3156 ms
+2021-10-10 19:44:31.415 [restartedMain] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure -Init DruidDataSource
+2021-10-10 19:44:31.646 [restartedMain] ERROR com.alibaba.druid.filter.FilterManager -load filter error, filter not found : stal
+2021-10-10 19:44:32.129 [restartedMain] INFO  com.alibaba.druid.pool.DruidDataSource -{dataSource-1} inited
+2021-10-10 19:44:32.542 [restartedMain] WARN  c.b.mybatisplus.core.metadata.TableInfoHelper -Can not find table primary key in Class: "com.boucy.pojo.BookComments".
+2021-10-10 19:44:32.765 [restartedMain] WARN  c.b.mybatisplus.core.metadata.TableInfoHelper -Can not find table primary key in Class: "com.boucy.pojo.BookShoppingCart".
+2021-10-10 19:44:32.814 [restartedMain] WARN  c.b.mybatisplus.core.metadata.TableInfoHelper -This "id" is the table primary key by default name for `id` in Class: "com.boucy.pojo.BookType",So @TableField will not work!
+2021-10-10 19:44:34.087 [restartedMain] WARN  c.b.mybatisplus.core.metadata.TableInfoHelper -Can not find table primary key in Class: "com.boucy.pojo.BookCollection".
+2021-10-10 19:44:34.110 [restartedMain] WARN  c.b.mybatisplus.core.metadata.TableInfoHelper -This "id" is the table primary key by default name for `id` in Class: "com.boucy.pojo.User",So @TableField will not work!
+2021-10-10 19:44:34.134 [restartedMain] WARN  c.b.mybatisplus.core.metadata.TableInfoHelper -Can not find table primary key in Class: "com.boucy.pojo.BookPosses".
+2021-10-10 19:44:34.472 [restartedMain] INFO  o.s.b.a.web.servlet.WelcomePageHandlerMapping -Adding welcome page template: index
+2021-10-10 19:44:34.680 [restartedMain] INFO  o.s.b.d.autoconfigure.OptionalLiveReloadServer -LiveReload server is running on port 35729
+2021-10-10 19:44:34.726 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol -Starting ProtocolHandler ["http-nio-8080"]
+2021-10-10 19:44:34.743 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer -Tomcat started on port(s): 8080 (http) with context path '/bookstore'
+2021-10-10 19:44:34.756 [restartedMain] INFO  com.boucy.BookStoreApplication -Started BookStoreApplication in 8.687 seconds (JVM running for 11.645)
+2021-10-10 19:44:53.049 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/bookstore] -Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-10-10 19:44:53.049 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet -Initializing Servlet 'dispatcherServlet'
+2021-10-10 19:44:53.050 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet -Completed initialization in 1 ms
+2021-10-10 19:44:53.120 [http-nio-8080-exec-1] DEBUG com.boucy.mapper.BookTypeMapper.selectList -==>  Preparing: SELECT id,type FROM book_type
+2021-10-10 19:44:53.191 [http-nio-8080-exec-1] DEBUG com.boucy.mapper.BookTypeMapper.selectList -==> Parameters: 
+2021-10-10 19:44:53.216 [http-nio-8080-exec-1] DEBUG com.boucy.mapper.BookTypeMapper.selectList -<==      Total: 11
+2021-10-10 19:45:03.172 [http-nio-8080-exec-3] DEBUG com.boucy.mapper.BookMapper.selectPage_mpCount -==>  Preparing: SELECT COUNT(*) FROM book WHERE (type = ?)
+2021-10-10 19:45:03.188 [http-nio-8080-exec-3] DEBUG com.boucy.mapper.BookMapper.selectPage_mpCount -==> Parameters: 2(String)
+2021-10-10 19:45:03.191 [http-nio-8080-exec-3] DEBUG com.boucy.mapper.BookMapper.selectPage_mpCount -<==      Total: 1
+2021-10-10 19:45:03.197 [http-nio-8080-exec-3] DEBUG com.boucy.mapper.BookMapper.selectPage -==>  Preparing: SELECT id,name,author,isbn,publication_date,type,price,sales,good,bad,introduction,photo_name,photo_type,file_name,file_type FROM book WHERE (type = ?) LIMIT ?
+2021-10-10 19:45:03.199 [http-nio-8080-exec-3] DEBUG com.boucy.mapper.BookMapper.selectPage -==> Parameters: 2(String), 5(Long)
+2021-10-10 19:45:03.206 [http-nio-8080-exec-3] DEBUG com.boucy.mapper.BookMapper.selectPage -<==      Total: 4
+2021-10-10 19:45:12.135 [http-nio-8080-exec-4] DEBUG com.boucy.mapper.BookMapper.selectPage_mpCount -==>  Preparing: SELECT COUNT(*) FROM book
+2021-10-10 19:45:12.135 [http-nio-8080-exec-4] DEBUG com.boucy.mapper.BookMapper.selectPage_mpCount -==> Parameters: 
+2021-10-10 19:45:12.137 [http-nio-8080-exec-4] DEBUG com.boucy.mapper.BookMapper.selectPage_mpCount -<==      Total: 1
+2021-10-10 19:45:12.138 [http-nio-8080-exec-4] DEBUG com.boucy.mapper.BookMapper.selectPage -==>  Preparing: SELECT id,name,author,isbn,publication_date,type,price,sales,good,bad,introduction,photo_name,photo_type,file_name,file_type FROM book ORDER BY sales DESC LIMIT ?
+2021-10-10 19:45:12.140 [http-nio-8080-exec-4] DEBUG com.boucy.mapper.BookMapper.selectPage -==> Parameters: 5(Long)
+2021-10-10 19:45:12.144 [http-nio-8080-exec-4] DEBUG com.boucy.mapper.BookMapper.selectPage -<==      Total: 5
+2021-10-10 20:15:55.058 [SpringApplicationShutdownHook] INFO  com.alibaba.druid.pool.DruidDataSource -{dataSource-1} closed
