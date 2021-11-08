@@ -4,8 +4,8 @@ server:
   port: 8080
 
 spring:
-  profiles:
-    active: dev
+#  profiles:
+#    active: dev
   servlet:
     multipart:
       max-file-size: 10MB
@@ -14,9 +14,9 @@ spring:
     # 使用阿里的Druid连接池
     type: com.alibaba.druid.pool.DruidDataSource
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://127.0.0.1:3306/bookstore?useSSL=false&useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true
+    url: jdbc:mysql://120.79.152.91:3306/bookstore?useSSL=false&useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true
     username: root
-    password: root
+    password: '!Root123456'
     druid:
       # 连接池的配置信息
       # 初始化大小、最小、最大

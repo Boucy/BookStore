@@ -46,7 +46,7 @@
                         //    接收后台响应的信息
                         alert(result.message)
                         //    图片回显
-                        $("#bookImg").attr("src", "http://127.0.0.1:8090/uploadBookPhoto/" + result.newFileName);
+                        $("#bookImg").attr("src", "http://120.79.152.91:8090/uploadBookPhoto/" + result.newFileName);
                         //将文件类型和文件名放入form表单
                         $("#bookPhotoInput").val(result.newFileName)
                         $("#bookPhotoFileTypeInput").val(result.fileType)

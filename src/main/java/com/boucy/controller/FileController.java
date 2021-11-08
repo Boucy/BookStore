@@ -25,11 +25,11 @@ import java.util.UUID;
 @RequestMapping("/file")
 public class FileController {
     //    头像文件存储位置
-    private final static String HEADFILESSERVER = "http://127.0.0.1:8090/uploadHeadPhoto/";
+    private final static String HEADFILESSERVER = "120.79.152.91:8090/uploadHeadPhoto/";
     //    图书封面存储位置
-    private final static String BOOKPHOTOFILESERVER = "http://127.0.0.1:8090/uploadBookPhoto/";
+    private final static String BOOKPHOTOFILESERVER = "120.79.152.91:8090/uploadBookPhoto/";
     //    图书存储位置
-    private final static String BOOKFILESERVER = "http://127.0.0.1:8090/uploadBook/";
+    private final static String BOOKFILESERVER = "120.79.152.91:8090/uploadBook/";
 
     @Autowired
     private FileService fileService;

@@ -46,7 +46,7 @@
                         //    接收后台响应的信息
                         alert(result.message)
                         //    图片回显
-                        $("#headImg").attr("src", "http://127.0.0.1:8090/uploadHeadPhoto/" + result.newFileName);
+                        $("#headImg").attr("src", "http://120.79.152.91:8090/uploadHeadPhoto/" + result.newFileName);
                         //将文件类型和文件名放入form表单
                         $("#headPhotoInput").val(result.newFileName)
                         $("#filetypeInput").val(result.fileType)
@@ -97,7 +97,7 @@
         <input id="headPhoto" type="file" >
         <!--        图片回显-->
         <br/>
-        <img id="headImg" style="width: 200px;height: 200px" th:src="@{'http://127.0.0.1:8090/uploadHeadPhoto/'+ ${user.avatarFileName}}" height="100px" width="100px">
+        <img id="headImg" style="width: 200px;height: 200px" th:src="@{'http://120.79.152.91:8090/uploadHeadPhoto/'+ ${user.avatarFileName}}" height="100px" width="100px">
         <br/>
         <!--        进度条-->
     <div class="progress">

@@ -80,7 +80,7 @@
                         //    接收后台响应的信息
                         alert(result.message)
                         //    图片回显
-                        $("#headImg").attr("src", "http://127.0.0.1:8090/uploadHeadPhoto/" + result.newFileName);
+                        $("#headImg").attr("src", "http://120.79.152.91:8090/uploadHeadPhoto/" + result.newFileName);
                         //将文件类型和文件名放入form表单
                         $("#headPhotoInput").val(result.newFileName)
                         $("#filetypeInput").val(result.fileType)
@@ -102,15 +102,25 @@
             })
         })
     </script>
+    <script>
+        function sendCode() {
+            var email = document.getElementById("emailid").value;
+            console.log(email)
+            window.location.href = "../user/sendCode?email=" + email;
+        }
+    </script>
 </head>
 <body>
 请注册
-<form action="userRegister" method="post">
+<button onclick="sendCode()">发送验证码</button>
+<form action="userRegister" method="post" name="registerForm">
     <p> 用户类型（1为管理员，2为普通用户）：
         <br/>
         <input type="text" name="userType">
     </p>
-    <p> 账号：<input id="userid" type="text" name="id" onblur="checkID()"><span id="idInfo" style="color: red"></span>
+    邮箱：<input type="text" name="email" id="emailid">
+    <input type="button" name="button" value="发送验证码" onclick="sendCode()">
+    <p> 验证码：<input type="text" name="vsCode">
     </p>
     <p> 密码：<input type="password" name="password">
     </p>
@@ -119,8 +129,6 @@
     <p> 性别：<input type="text" name="gender">
     </p>
     <p> 手机号码：<input type="text" name="phone">
-    </p>
-    <p> 邮箱：<input type="text" name="email">
     </p>
     <p> 生日：<input type="text" name="birthday" value="2000-1-1">
     </p>

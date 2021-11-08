@@ -35,7 +35,7 @@
     <tr th:each="book,i:${bookList}">
         <td th:text="${i.count}"></td>
         <td th:text="${book.id}"></td>
-        <td><img th:src="@{'http://127.0.0.1:8090/uploadBookPhoto/'+ ${book.photoName}}" height="100px" width="100px">
+        <td><img th:src="@{'http://120.79.152.91:8090/uploadBookPhoto/'+ ${book.photoName}}" height="100px" width="100px">
         </td>
         <td th:text="${book.name}"></td>
         <td th:text="${book.author}"></td>

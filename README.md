@@ -89,9 +89,8 @@ API访问框架：swagger2
 
 模板引擎:Thymeleaf 2.5.5
 
-HTML
+前端页面技术:HTML、JavaScript、Ajax
 
-AJAX
 
 #### 开发说明
 

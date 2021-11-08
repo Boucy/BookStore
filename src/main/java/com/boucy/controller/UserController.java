@@ -4,10 +4,15 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.boucy.mapper.UserMapper;
 import com.boucy.pojo.User;
 import com.boucy.service.BookCommentsService;
+import com.boucy.service.MailService;
 import com.boucy.service.UserService;
+import org.apache.tomcat.util.http.ResponseUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.util.ObjectUtils;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -24,21 +29,23 @@ public class UserController {
     private UserService userService;
     @Autowired
     private BookCommentsService bookCommentsService;
+    @Autowired
+    private MailService mailService;
 
     @RequestMapping("/jumpRegister")
-    public String jumpRegister(){
+    public String jumpRegister() {
         return "register";
     }
 
     @RequestMapping("/jumpLogin")
-    public String login(){
+    public String login() {
         return "login";
     }
 
     @RequestMapping("/loginCheck")
-    public String loginCheck(String userID, String password, HttpServletRequest request){
+    public String loginCheck(@RequestParam("email") String email, String password, HttpServletRequest request) {
         QueryWrapper<User> queryWrapper = new QueryWrapper<>();
-        queryWrapper.eq("id",userID).eq("password",password);
+        queryWrapper.eq("email", email).eq("password", password);
         User user = userService.getOne(queryWrapper);
         String view = "";
         if (null != user) {
@@ -51,31 +58,44 @@ public class UserController {
     }
 
     @RequestMapping("/userRegister")
-    public String userRegister(User user){
-        QueryWrapper<User> queryWrapper = new QueryWrapper<>();
+    public String userRegister(User user,String vsCode) {
+        if (!ObjectUtils.isEmpty(userService.findUserByEmail(user.getEmail()))) {
+            return "registerFail";
+        }
+        boolean verify = mailService.verify(vsCode, user.getEmail());
+        if (!verify) {
+            return "registerFail";
+        }
+
         user.setCreateDate(new Date());
 //        user.setBanlance(0.0);
         return userService.userRegister(user);
     }
 
+    @GetMapping("/sendCode")
+    public Object sendCode(@RequestParam("email") String email, HttpSession session) {
+        boolean b = mailService.sendMimeMail(email, session);
+        return null;
+    }
+
     @RequestMapping("/showUserInfo")
-    public String showUserInfo(Map<String, Object> map, HttpServletRequest request, HttpServletResponse response){
-        return userService.showUserInfo(map,request,response);
+    public String showUserInfo(Map<String, Object> map, HttpServletRequest request, HttpServletResponse response) {
+        return userService.showUserInfo(map, request, response);
     }
 
     @RequestMapping("/jumpUpdateUserInfo")
-    public String jumpUpdateUserInfo(Map<String,Object> map,HttpServletRequest request){
-        return userService.jumpUpdateUserInfo(map,request);
+    public String jumpUpdateUserInfo(Map<String, Object> map, HttpServletRequest request) {
+        return userService.jumpUpdateUserInfo(map, request);
     }
 
     @RequestMapping("/updateUserInfo")
-    public String updateUserInfo(User user, HttpServletRequest request, HttpServletResponse response){
-        return userService.updateUserInfo(user,request,response);
+    public String updateUserInfo(User user, HttpServletRequest request, HttpServletResponse response) {
+        return userService.updateUserInfo(user, request, response);
     }
 
     @RequestMapping("/showPurchaseRecord")
-    public String showPurchaseRecord(Map<String, Object> map, HttpServletRequest request, HttpServletResponse response){
-        return userService.showPurchaseRecord(map,request,response);
+    public String showPurchaseRecord(Map<String, Object> map, HttpServletRequest request, HttpServletResponse response) {
+        return userService.showPurchaseRecord(map, request, response);
     }
 
     @RequestMapping("/useridCheck")
@@ -97,28 +117,28 @@ public class UserController {
     }
 
     @RequestMapping("/logout")
-    public String logout(HttpSession session){
+    public String logout(HttpSession session) {
         session.invalidate();
         return "redirect:../book/bookStoreHomePage";
     }
 
     @RequestMapping("/showPersonalBookComments")
-    public String showPersonalBookComments(Map<String, Object> map, HttpServletRequest request, HttpServletResponse response){
-        return bookCommentsService.showPersonalBookComments(map,request,response);
+    public String showPersonalBookComments(Map<String, Object> map, HttpServletRequest request, HttpServletResponse response) {
+        return bookCommentsService.showPersonalBookComments(map, request, response);
     }
 
     @RequestMapping("/jumpAdmin")
-    public String jumpAdmin(Map<String, Object> map, HttpServletRequest request, HttpServletResponse response){
+    public String jumpAdmin(Map<String, Object> map, HttpServletRequest request, HttpServletResponse response) {
         return "administrator";
     }
 
     @RequestMapping("/deleteUser")
-    public String deleteUser(HttpServletRequest request, HttpServletResponse response){
-        return userService.deleteUser(request,response);
+    public String deleteUser(HttpServletRequest request, HttpServletResponse response) {
+        return userService.deleteUser(request, response);
     }
 
     @RequestMapping("/showRefuseAdmin")
-    public String showRefuseAdmin(){
+    public String showRefuseAdmin() {
         return "refuseAdmin";
     }
 }
