@@ -6,6 +6,11 @@ import com.boucy.pojo.User;
 import com.boucy.service.BookCommentsService;
 import com.boucy.service.MailService;
 import com.boucy.service.UserService;
+import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.authc.IncorrectCredentialsException;
+import org.apache.shiro.authc.UnknownAccountException;
+import org.apache.shiro.authc.UsernamePasswordToken;
+import org.apache.shiro.subject.Subject;
 import org.apache.tomcat.util.http.ResponseUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -44,15 +49,23 @@ public class UserController {
 
     @RequestMapping("/loginCheck")
     public String loginCheck(@RequestParam("email") String email, String password, HttpServletRequest request) {
-        QueryWrapper<User> queryWrapper = new QueryWrapper<>();
-        queryWrapper.eq("email", email).eq("password", password);
-        User user = userService.getOne(queryWrapper);
         String view = "";
-        if (null != user) {
+        try {
+//      获取主体对象
+            Subject subject = SecurityUtils.getSubject();
+            subject.login(new UsernamePasswordToken(email, password));
+            User user = userService.findUserByEmail(email);
             request.getSession().setAttribute("user", user);
             view = "redirect:../book/bookStoreHomePage";
-        } else {
+        } catch (UnknownAccountException e) {
+            e.printStackTrace();
             view = "loginFail";
+        } catch (IncorrectCredentialsException e) {
+            e.printStackTrace();
+            view = "loginFail";
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println(e.getMessage());
         }
         return view;
     }

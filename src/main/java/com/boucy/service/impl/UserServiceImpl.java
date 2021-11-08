@@ -10,15 +10,18 @@ import com.boucy.pojo.Book;
 import com.boucy.pojo.PurchaseRecord;
 import com.boucy.pojo.User;
 import com.boucy.service.UserService;
+import org.apache.shiro.crypto.hash.Md5Hash;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 import java.util.Map;
 
-@Service
+@Service("userService")
+@Transactional
 public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements UserService {
     @Autowired
     private UserMapper userMapper;
@@ -30,11 +33,13 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
     @Override
     public String userRegister(User user) {
         QueryWrapper<User> queryWrapper = new QueryWrapper<>();
-        queryWrapper.eq("id", user.getId());
+        queryWrapper.eq("id", user.getEmail());
         User one = userMapper.selectOne(queryWrapper);
         if (one != null) {
             return "registerFail";
         }
+        Md5Hash md5Hash = new Md5Hash(user.getPassword());
+        user.setPassword(md5Hash.toHex());
         userMapper.insert(user);
         return "registerSuccess";
     }

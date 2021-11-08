@@ -14,6 +14,7 @@ import org.apache.shiro.subject.PrincipalCollection;
 import org.springframework.util.ObjectUtils;
 
 public class UserRealms extends AuthorizingRealm {
+    //认证
     @Override
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken token) throws AuthenticationException {
         //根据身份信息,从传过来的token获取得到email
@@ -35,6 +36,7 @@ public class UserRealms extends AuthorizingRealm {
     @Override
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principals) {
 //        获取身份信息
+//        授权
         String primaryPrincipal = (String) principals.getPrimaryPrincipal();
 
         UserService userService = (UserService) ApplicationContextUtils.getBean("userService");
