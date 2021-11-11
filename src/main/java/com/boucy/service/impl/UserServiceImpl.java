@@ -59,6 +59,13 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
 
     @Override
     public String updateUserInfo(User user, HttpServletRequest request, HttpServletResponse response) {
+        String password = user.getPassword();
+        Md5Hash md5Hash = new Md5Hash(password);
+        password=md5Hash.toHex();
+        User originalUser = (User)request.getSession().getAttribute("user");
+        if(!password.equals(originalUser.getPassword())){
+            user.setPassword(password);
+        }
         request.getSession().setAttribute("user", user);
         QueryWrapper<User> userQueryWrapper = new QueryWrapper<>();
         userQueryWrapper.eq("id", user.getId());

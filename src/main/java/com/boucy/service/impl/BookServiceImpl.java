@@ -250,7 +250,7 @@ public class BookServiceImpl extends ServiceImpl<BookMapper, Book> implements Bo
         bookCommentsMapper.delete(new QueryWrapper<BookComments>().eq("book_id", bookID));
         bookPossesMapper.delete(new QueryWrapper<BookPosses>().eq("book_id", bookID));
         bookShoppingCartMapper.delete(new QueryWrapper<BookShoppingCart>().eq("book_id", bookID));
-        return "redirect:../manager/showBookManagement";
+        return "redirect:../manager/showBookManagement?index=1";
     }
 
     @Override
